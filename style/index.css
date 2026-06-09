@@ -1,0 +1,97 @@
+/* colocando cor de fundo do cabeçalho */
+header{
+    background-color:#C5D3B2;
+    font-family: poppins, sans-serif;
+    color:#000000a4;
+}
+nav a{
+    color:#3b6105c9;/* Cor do Menu de Navegação */
+    text-decoration: none; /* remover o sublinhado dos links */
+    margin:0 10px; /* espaçamento entre os links */
+   
+}
+nav{   
+    text-align: center; /* alinhamento do texto dos links */
+    border-color: #FFFFFF ;/* cor da borda do menu de navegação */
+    border-width: 1px; /* largura da borda do menu de navegação */
+    border-style: solid; /* estilo da borda do menu de navegação */
+    padding: 10px; /* espaçamento interno do menu de navegação */
+
+
+} 
+
+.logo img{
+    width: 120px; /* largura da imagem do logo */
+    height: 120px; /* altura da imagem do logo */
+
+}
+/* configurando a caixa de pesquisa */
+
+.caixa-pesquisa input{
+    padding: 10px;/* espaçamento interno da caixa de pesquisa */
+    border: 1px solid #ccc;/* borda da caixa de pesquisa */
+    border-radius: 5px 0 0 5px;/*arredondamento dos cantos da caixa de pesquisa */
+    font-family: poppins, sans-serif;/* fonte da caixa de pesquisa */
+    width: 300px; /* largura da caixa de pesquisa */
+    height: auto; /* altura da caixa de pesquisa */
+    color:#000000a4; /* cor do texto da caixa de pesquisa */
+
+}
+/*configurando a div da pesquisa */
+.caixa-pesquisa{
+    display: flex; /* exibir os elementos da caixa de pesquisa em linha */
+    justify-content: center; /* centralizar os elementos da caixa de pesquisa */
+    margin-top: 10px; /* espaçamento superior da caixa de pesquisa */
+    margin-bottom: 10px; /* espaçamento inferior da caixa de pesquisa */
+    position: relative; /* posicionamento relativo para a caixa de pesquisa */
+    padding-left: 10px; /* espaçamento interno da caixa de pesquisa para evitar sobreposição com o ícone de pesquisa */
+}
+
+/*alinhar as divs do cabeçalho */
+.topo {
+    display: flex; /* exibir os elementos do cabeçalho em linha */
+    align-items: center; /* alinhar os elementos do cabeçalho verticalmente */
+    justify-content: space-between; /* distribuir os elementos do cabeçalho com espaço entre eles */
+   
+}
+
+/* configurando os icones*/
+.caixa-pesquisa img{
+    width: 20px; /* largura da imagem do ícone de pesquisa */
+    height: 20px; /* altura da imagem do ícone de pesquisa */
+    position: absolute; /* posicionamento absoluto para o ícone de pesquisa */
+    left: 10px; /* distância do ícone de pesquisa em relação à borda esquerda da caixa de pesquisa */
+    top: 50%; /* centralizar verticalmente o ícone de pesquisa */
+    transform: translateY(-50%); /* ajustar a posição vertical do ícone de pesquisa
+    color:#000000a4; /* cor do ícone de pesquisa */
+}
+.caixa-pesquisa placeholder{
+    padding-left: 10px; /* espaçamento interno do texto da caixa de pesquisa para evitar sobreposição com o ícone de pesquisa */
+}
+.icones a img{
+   height: 32px; /* altura dos ícones de usuário e carrinho */
+   width: 32px; /* largura dos ícones de usuário e carrinho */
+   margin-left: 20px; /* espaçamento entre os ícones de usuário e carrinho */
+}
+/* configurando o texto dos ícones */
+.icones a small{
+    font-size: 12px; /* tamanho da fonte do texto dos ícones */
+    color:#000000a4; /* cor do texto dos ícones */
+    display: block;
+   
+}
+.icones a p{
+    font-size: 14px; /* tamanho da fonte do texto dos ícones */
+    color:#000000a4; /* cor do texto dos ícones */
+    display: block; /* exibir o texto grande */
+}
+.icones a{
+    text-decoration: none; /* remover o sublinhado dos links dos ícones */
+}
+
+/*configurando a div dos ícones */
+.icones{
+    display: flex; /* exibir os elementos da div dos ícones em linha */
+    align-items: center; /* alinhar os elementos da div dos ícones verticalmente */
+   gap: 10px; /* espaçamento entre os elementos da div dos ícones */
+}
