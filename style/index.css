@@ -3,6 +3,7 @@ header{
     background-color:#C5D3B2;
     font-family: poppins, sans-serif;
     color:#000000a4;
+    width: 100%;
 }
 nav a{
     color:#3b6105c9;/* Cor do Menu de Navegação */
@@ -23,7 +24,10 @@ nav{
 .logo img{
     width: 120px; /* largura da imagem do logo */
     height: 120px; /* altura da imagem do logo */
-
+    
+}
+.logo{
+    margin-left: 20px; /* espaçamento esquerdo da div do logo */
 }
 /* configurando a caixa de pesquisa */
 
@@ -35,6 +39,7 @@ nav{
     width: 300px; /* largura da caixa de pesquisa */
     height: auto; /* altura da caixa de pesquisa */
     color:#000000a4; /* cor do texto da caixa de pesquisa */
+    padding-left: 30px; /* espaçamento interno da caixa de pesquisa para evitar sobreposição com o ícone de pesquisa */
 
 }
 /*configurando a div da pesquisa */
@@ -57,10 +62,10 @@ nav{
 
 /* configurando os icones*/
 .caixa-pesquisa img{
-    width: 20px; /* largura da imagem do ícone de pesquisa */
-    height: 20px; /* altura da imagem do ícone de pesquisa */
+    width: 15px; /* largura da imagem do ícone de pesquisa */
+    height: 15px; /* altura da imagem do ícone de pesquisa */
     position: absolute; /* posicionamento absoluto para o ícone de pesquisa */
-    left: 10px; /* distância do ícone de pesquisa em relação à borda esquerda da caixa de pesquisa */
+    left: 15px; /* distância do ícone de pesquisa em relação à borda esquerda da caixa de pesquisa */
     top: 50%; /* centralizar verticalmente o ícone de pesquisa */
     transform: translateY(-50%); /* ajustar a posição vertical do ícone de pesquisa
     color:#000000a4; /* cor do ícone de pesquisa */
@@ -71,22 +76,33 @@ nav{
 .icones a img{
    height: 32px; /* altura dos ícones de usuário e carrinho */
    width: 32px; /* largura dos ícones de usuário e carrinho */
-   margin-left: 20px; /* espaçamento entre os ícones de usuário e carrinho */
+   margin-right: 20px; /* espaçamento entre os ícones de usuário e carrinho */
+   grid-row:  1 / 3; /* ocupar as duas linhas da grade para os ícones de usuário e carrinho */
 }
 /* configurando o texto dos ícones */
 .icones a small{
     font-size: 12px; /* tamanho da fonte do texto dos ícones */
     color:#000000a4; /* cor do texto dos ícones */
     display: block;
+    grid-row: 2 / 3; /* ocupar a segunda linha da grade para o texto dos ícones */
+    grid-column: 1 / 2; /* ocupar a primeira coluna da grade para o texto dos ícones */
+    margin:0; /* espaçamento superior do texto dos ícones */
    
 }
 .icones a p{
     font-size: 14px; /* tamanho da fonte do texto dos ícones */
     color:#000000a4; /* cor do texto dos ícones */
     display: block; /* exibir o texto grande */
+    grid-row: 2 / 3; /* ocupar a segunda linha da grade para o texto dos ícones */
+    grid-column: 2 / 3; /* ocupar a segunda coluna da grade para o texto dos ícones */
+    margin:0; /* espaçamento superior do texto dos ícones */
 }
 .icones a{
     text-decoration: none; /* remover o sublinhado dos links dos ícones */
+    display: grid; /* exibir os elementos dos ícones em linha */
+    grid-template-columns: 40px auto; /* definir a largura das colunas dos ícones */
+    grid-template-rows: auto auto; /* definir a altura das linhas dos ícones */
+    margin-right: 20px; /* espaçamento direito dos ícones */
 }
 
 /*configurando a div dos ícones */
@@ -94,4 +110,18 @@ nav{
     display: flex; /* exibir os elementos da div dos ícones em linha */
     align-items: center; /* alinhar os elementos da div dos ícones verticalmente */
    gap: 10px; /* espaçamento entre os elementos da div dos ícones */
+   margin-right: 20px; /* espaçamento direito da div dos ícones */
+}
+/* configurando a área do banner */
+.imagens-banner img{
+    max-width: 100%; /* largura máxima da área do banner */
+    
+}
+.banner{
+    display: flex; /* exibir os elementos do banner em linha */
+    justify-content:space-between; /* centralizar os elementos do banner */
+    allign-items:center; /* alinhar os elementos do banner verticalmente */
+    width: 100%; /* largura da área do banner */
+    height: auto; /* altura da área do banner */
+    
 }
