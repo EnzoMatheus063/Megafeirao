@@ -115,13 +115,94 @@ nav{
 /* configurando a área do banner */
 .imagens-banner img{
     max-width: 100%; /* largura máxima da área do banner */
+    display: block; /* exibir as imagens do banner como blocos */
+    width: 100%; /* largura da área do banner */
+    height: auto; /* altura automática da área do banner */
     
 }
 .banner{
-    display: flex; /* exibir os elementos do banner em linha */
-    justify-content:space-between; /* centralizar os elementos do banner */
-    allign-items:center; /* alinhar os elementos do banner verticalmente */
-    width: 100%; /* largura da área do banner */
-    height: auto; /* altura da área do banner */
+    width: 100vw; /* largura da área do banner */
+    height: auto; /* altura automática da área do banner */
+    margin: 0; /* espaçamento superior da área do banner */
+    padding: 0; /* espaçamento inferior da área do banner */
+   
     
+}
+.imagens-banner{
+       width: 100%; /* largura da área do banner */
+       margin-top: 0px; /* espaçamento superior da área do banner */
+
+}
+
+/*
+.botoes-banner{
+    position: absolute;
+    top: 80%; /
+    left: 50%; 
+
+.btn-comprar, .btn-anterior, .btn-proximo{
+   
+    background-color: #cdf09d; 
+    color: #000000a4;
+    border-radius: 5px; 
+    font-family: poppins, sans-serif;
+    padding: 5px 10px; 
+    
+}
+*/
+
+/*configurar o botão de comprar quando o mouse estiver em cima sobre ele*/
+.btn-comprar:hover, .btn-anterior:hover, .btn-proximo:hover{
+    background-color: #b8e07c; /* cor de fundo dos botões do banner quando o mouse estiver em cima sobre eles */
+    color: #000000a4; /* cor do texto dos botões do banner quando o mouse estiver em cima sobre eles */
+    cursor: pointer; /* cursor de ponteiro para os botões do banner quando o mouse estiver em cima sobre eles */
+}
+
+.btn-anterior, .btn-proximo{
+    background-color: #cdf09d; /* cor de fundo dos botões de anterior e próximo do banner */
+    color: #000000a4; /* cor do texto dos botões de anterior e próximo do banner */
+        border-radius: 10px; /* arredondamento dos cantos dos botões de anterior e próximo do banner */
+    font-family: poppins, sans-serif; /* fonte dos botões de anterior e próximo do banner */
+    border: none; /* remover a borda dos botões de anterior e próximo do banner */
+}
+.btn-anterior:hover, .btn-proximo:hover{
+    background-color: #aef193c2; /* cor de fundo dos botões de anterior e próximo do banner quando o mouse estiver em cima sobre eles */
+    color: #250dffa4; /* cor do texto dos botões de anterior e próximo do banner quando o mouse estiver em cima sobre eles */
+    cursor: pointer; /* cursor de ponteiro para os botões de anterior e próximo do banner quando o mouse estiver em cima sobre eles */
+}
+
+.btn-comprar{
+    background-color: #cdf09d; /* cor de fundo do botão de comprar do banner */
+    color: #000000a4; /* cor do texto do botão de comprar do banner */
+    border-radius: 10px; /* arredondamento dos cantos do botão de comprar do banner */
+    font-family: poppins, sans-serif; /* fonte do botão de comprar do banner */
+    border: none; /* remover a borda do botão de comprar do banner */
+    top: 70%; /* distância do botão de comprar do banner em relação à parte superior da área do banner */
+    left:40%; /* distância do botão de comprar do banner em relação à borda esquerda da área do banner */
+    padding: 50px 20px; /* espaçamento interno do botão de comprar do banner */
+    font-size: 18px; /* tamanho da fonte do botão de comprar do banner */
+}
+.btn-anterior{
+    position: absolute; /* posicionamento absoluto para o botão de anterior do banner */
+    top: 50%; /* distância do botão de anterior do banner em relação à parte superior da área do banner */
+    left: 10px; /* distância do botão de anterior do banner em relação à borda esquerda da área do banner */
+    padding: 10px 20px; /* espaçamento interno do botão de anterior do banner */
+    font-size: 14px; /* tamanho da fonte do botão de anterior do banner */
+    color: #000000a4;
+    background-color:transparent; /* cor de fundo do botão de anterior do banner */
+    border-radius: 10px; /* arredondamento dos cantos do botão de anterior do banner */
+    border: none; /* remover a borda do botão de anterior do banner */
+
+}
+.btn-proximo{
+    position: absolute; /* posicionamento absoluto para o botão de próximo do banner */
+    top: 50%; /* distância do botão de próximo do banner em relação à parte superior da área do banner */
+    left: 93%; /* distância do botão de próximo do banner em relação à borda direita da área do banner */
+    padding: 10px 20px; /* espaçamento interno do botão de próximo do banner */
+    font-size: 14px; /* tamanho da fonte do botão de próximo do banner */
+    color: #000000a4;
+    background-color: transparent; /* cor de fundo do botão de próximo do banner */
+    border-radius: 10px; /* arredondamento dos cantos do botão de próximo do banner */
+    border: none; /* remover a borda do botão de próximo do banner */
+
 }
