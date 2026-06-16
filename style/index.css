@@ -206,3 +206,75 @@ nav{
     border: none; /* remover a borda do botão de próximo do banner */
 
 }
+
+/* configurando a área de ofertas */
+.ofertas{
+   
+    padding:20px; /* espaçamento interno da área de ofertas */
+}
+
+/*configurando os textos das ofertas */
+.titulo-ofertas{
+  display: grid; /* exibir o título da área de ofertas como um bloco */
+    font-family: poppins, sans-serif; /* fonte do título da área de ofertas */
+    grid-template-columns: 40px auto; /* definir a largura das colunas do título da área de ofertas */
+    grid-template-rows: auto auto; /* definir a altura das linhas do título da área de ofertas */
+}
+.titulo-ofertas h2{
+    font-size: 24px; /* tamanho da fonte do título da área de ofertas */
+    color:#8bff5ea4; /* cor do texto do título da área de ofertas */
+    grid-row: 1; /* ocupar a primeira linha da grade para o título da área de ofertas */
+    grid-column: 1; /* ocupar as duas colunas da grade para o título da área de ofertas */
+    margin:0; /* espaçamento superior do título da área de ofertas */
+}
+.titulo-ofertas p{
+    color:#000000a4; /* cor do texto da descrição do título da área de ofertas */
+    font-size: 14px; /* tamanho da fonte da descrição do título da área de ofertas */
+    grid-row: 2; /* ocupar a segunda linha da grade para a descrição do título da área de ofertas */
+    grid-column: 1; /* ocupar as duas colunas da grade para a descrição do título da área de ofertas */
+}
+
+.titulo-ofertas a{
+    color:#000000a4; /* cor do link da descrição do título da área de ofertas */
+    font-size: 14px; /* tamanho da fonte do link da descrição do título da área de ofertas */
+    text-decoration: none; /* remover o sublinhado do link da descrição do título da área de ofertas */
+    grid-row: 2; /* ocupar a segunda linha da grade para o link da descrição do título da área de ofertas */
+    grid-column: 2; /* ocupar a segunda coluna da grade para o link da descrição do título da área de ofertas */
+    align-self: center; /* alinhar o link da descrição do título da área de ofertas na parte inferior da grade */
+    padding-left: 80%; /* espaçamento interno do link da descrição do título da área de ofertas para evitar sobreposição com o texto da descrição do título da área de ofertas */
+}
+
+.lista-produtos{
+display:flex; /* exibir os produtos da área de ofertas em linha */
+justify-content: space-between; /* distribuir os produtos da área de ofertas com espaço entre eles */
+fontfamily: poppins, sans-serif; /* fonte dos produtos da área de ofertas */
+margin-top: 20px; /* espaçamento superior dos produtos da área de ofertas */
+}
+
+.card-produtos{
+    width: 23%; /* largura dos cards de produtos da área de ofertas */
+   height: 50%; /* altura automática dos cards de produtos da área de ofertas */
+    background-color: #f5f5f5; /* cor de fundo dos cards de produtos da área de ofertas */
+    border-radius: 10px; /* arredondamento dos cantos dos cards de produtos da área de ofertas */
+    padding: 10px; /* espaçamento interno dos cards de produtos da área de ofertas */
+    text-align: center; /* alinhamento do texto dos cards de produtos da área de ofertas */
+}
+
+.card-produtos img{
+    width: 10px; /* largura da imagem dos cards de produtos da área de ofertas */
+    height: 10px; /* altura automática da imagem dos cards de produtos da área de ofertas */
+    border-radius: 10px; /* arredondamento dos cantos da imagem dos cards de produtos da área de ofertas */
+    margin-bottom: 10px; /* espaçamento inferior da imagem dos cards de produtos da área de ofertas */
+    position: relative; /* posicionamento relativo para a imagem dos cards de produtos da área de ofertas */
+
+}
+
+.favorito{
+    position: absolute; /* posicionamento absoluto para o ícone de favorito dos cards de produtos da área de ofertas */
+    border:none; /* remover a borda do ícone de favorito dos cards de produtos da área de ofertas */
+    border-radius: 50%; /* arredondamento dos cantos do ícone de favorito dos cards de produtos da área de ofertas */
+    background-color: #FFFFFF; /* cor de fundo do ícone de favorito dos cards de produtos da área de ofertas */
+    top: auto; /* distância do ícone de favorito dos cards de produtos da área de ofertas em relação à parte superior da imagem dos cards de produtos da área de ofertas */
+    right: 10px; /* distância do ícone de favorito dos cards de produtos da área de ofertas em relação à borda direita da imagem dos cards de produtos da área de ofertas */
+    padding: 10px; /* espaçamento interno do ícone de favorito dos cards de produtos da área de ofertas */
+}
