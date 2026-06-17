@@ -247,7 +247,7 @@ nav{
 .lista-produtos{
 display:flex; /* exibir os produtos da área de ofertas em linha */
 justify-content: space-between; /* distribuir os produtos da área de ofertas com espaço entre eles */
-fontfamily: poppins, sans-serif; /* fonte dos produtos da área de ofertas */
+font-family: poppins, sans-serif; /* fonte dos produtos da área de ofertas */
 margin-top: 20px; /* espaçamento superior dos produtos da área de ofertas */
 }
 
@@ -277,4 +277,89 @@ margin-top: 20px; /* espaçamento superior dos produtos da área de ofertas */
     top: auto; /* distância do ícone de favorito dos cards de produtos da área de ofertas em relação à parte superior da imagem dos cards de produtos da área de ofertas */
     right: 10px; /* distância do ícone de favorito dos cards de produtos da área de ofertas em relação à borda direita da imagem dos cards de produtos da área de ofertas */
     padding: 10px; /* espaçamento interno do ícone de favorito dos cards de produtos da área de ofertas */
+}
+
+.card-produtos h3{
+    font-size: 18px; /* tamanho da fonte do título dos cards de produtos da área de ofertas */
+    font-family: poppins, sans-serif; /* fonte do título dos cards de produtos da área de ofertas */
+    color:#000000a4; /* cor do texto do título dos cards de produtos da área de ofertas */
+    margin:0; /* espaçamento superior do título dos cards de produtos da área de ofertas */
+}
+
+/*CONFIGURANDO O PREÇO DO PROTUDO*/
+
+.card-produtos p{
+    font-size: 16px; /* tamanho da fonte do preço dos cards de produtos da área de ofertas */
+    font-family: poppins, sans-serif; /* fonte do preço dos cards de produtos da área de ofertas */
+    color:#000000a4; /* cor do texto do preço dos cards de produtos da área de ofertas */
+    
+}
+
+/*configurando o botao de adicionar ao carrinho*/
+
+.btn-adicionar{
+    background-color: #cdf09d; /* cor de fundo do botão de adicionar ao carrinho dos cards de produtos da área de ofertas */
+    border-radius: 10px; /* arredondamento dos cantos do botão de adicionar ao carrinho dos cards de produtos da área de ofertas */
+    font-family: poppins, sans-serif; /* fonte do botão de adicionar ao carrinho dos cards de produtos da área de ofertas */
+    border: none; /* remover a borda do botão de adicionar ao carrinho dos cards de produtos da área de ofertas */
+    margin-left: 80%; /* espaçamento superior do botão de adicionar ao carrinho dos cards de produtos da área de ofertas */
+    width: 20%; /* largura do botão de adicionar ao carrinho dos cards de produtos da área de ofertas */
+    height: 50px;/*definir altura do botão*/ 
+}
+
+.btn-adicionar img{
+    width: 30px;/*alterando o tamanho do icone de carrinho*/
+    padding-top: 5px;/*distanciar a imagem do topo do botão*/
+}
+
+.precos{
+   display: grid;
+   grid-template-columns: 2;
+   grid-template-rows:  1;
+   align-items: center;
+
+}
+
+.p-antigo{
+  grid-column: 1;
+  grid-row: 1;
+  text-decoration: line-through;
+  font-size: 12px;
+  color: #000000a4;
+
+}
+
+.p-promocional{
+   grid-column: 2;
+   grid-row: 1;
+   font-weight: bold;
+   font-size: 18px;
+   color: #000000a4;
+   text-align: left;
+    
+}
+
+/* area de avaliação em estrela*/
+
+.btn-card{
+    display: grid;/*modelo*/
+    align-items: center;
+    gap: 10px;
+    
+     
+}
+
+.btn-card img{
+    width: 24px;
+
+}
+
+.btn-card h5{
+    font-size: 14px;
+
+}
+
+.btn-adicionar{
+    grid-column: 3;
+    grid-row:  2;
 }
