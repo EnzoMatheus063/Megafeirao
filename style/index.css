@@ -303,8 +303,7 @@ margin-top: 20px; /* espaçamento superior dos produtos da área de ofertas */
     font-family: poppins, sans-serif; /* fonte do botão de adicionar ao carrinho dos cards de produtos da área de ofertas */
     border: none; /* remover a borda do botão de adicionar ao carrinho dos cards de produtos da área de ofertas */
     margin-left: 80%; /* espaçamento superior do botão de adicionar ao carrinho dos cards de produtos da área de ofertas */
-    width: 20%; /* largura do botão de adicionar ao carrinho dos cards de produtos da área de ofertas */
-    height: 50px;/*definir altura do botão*/ 
+     
 }
 
 .btn-adicionar img{
@@ -362,4 +361,68 @@ margin-top: 20px; /* espaçamento superior dos produtos da área de ofertas */
 .btn-adicionar{
     grid-column: 3;
     grid-row:  2;
+}
+
+/* configurações de rodapé */
+
+.footer{
+  background-color: #ffdd45a4;
+ color: #797e309c;
+ font-family: poppins,sans-serif;
+ padding: 10px;
+}
+
+.superior{
+   display: flex;/*permitir fleixbilidade entre as colunas*/
+   gap: 10px;/*espaçamento entre as divs*/
+   justify-content: space-between;/*define um tamanho igual entre as divs*/
+   flex-wrap: wrap;/*joga os textos para outra linha caso não possa caber na div*/
+}
+
+.inferior{
+    display: flex;/*permitir fleixbilidade entre as colunas*/
+   gap: 10px;/*espaçamento entre as divs*/
+   justify-content: space-between;/*define um tamanho igual entre as divs*/
+   flex-wrap: wrap;/*joga os textos para outra linha caso não possa caber na div*/
+   align-items: center;
+}
+
+.coluna1,.coluna2,.coluna3,.coluna4{
+    flex: 1;/*cada coluna ocupa 1 espaço da pagina*/
+
+
+}
+
+.superior h2{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.superior p{
+    font-size: 12px;
+}
+
+.superior a{
+    color: #000000a4;
+    font-size: 10px;
+    text-decoration: none;
+}
+.superior ul{
+    text-decoration: none;/*retira a decoração do texto*/
+    list-style: none;/*retira a decoração da lista*/
+    padding: 0px;/*retira os espaçamentos*/
+
+}
+
+.superior img{
+    width: 24px;
+}
+
+.coluna3 a img{
+    padding-right: 10px;
+}
+
+.coluna3 a{
+    display: flex;
+    align-items: center;
 }
