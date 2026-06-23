@@ -254,7 +254,7 @@ margin-top: 20px; /* espaçamento superior dos produtos da área de ofertas */
 .card-produtos{
     width: 23%; /* largura dos cards de produtos da área de ofertas */
    height: 50%; /* altura automática dos cards de produtos da área de ofertas */
-    background-color: #DAD1A6; /* cor de fundo dos cards de produtos da área de ofertas */
+    background-color: #f5f5f5; /* cor de fundo dos cards de produtos da área de ofertas */
     border-radius: 10px; /* arredondamento dos cantos dos cards de produtos da área de ofertas */
     padding: 10px; /* espaçamento interno dos cards de produtos da área de ofertas */
     text-align: center; /* alinhamento do texto dos cards de produtos da área de ofertas */
@@ -451,4 +451,17 @@ margin-top: 20px; /* espaçamento superior dos produtos da área de ofertas */
     flex-wrap: wrap;
     align-items: center;
     border-top: #000000;
+}
+/*configurar para que os elementos da página preencham toda  a tela*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;    
+}
+
+/*definir que a página não precisa de barra horizontal*/
+
+body{
+    overflow: hidden;
+    width: 100%;
 }
