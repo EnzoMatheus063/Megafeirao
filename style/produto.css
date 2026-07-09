@@ -125,55 +125,71 @@ nav{
    margin-right: 20px; /* espaçamento direito da div dos ícones */
 }
 
+
+
+/*---------------area dos produtos----------------------------------------------------------*/
+
+
 /*configurando as imagens*/
 
-/*  Galeria  */
-.area-detalhes{
-    
+/* GALERIA */
+
+.area-detalhes {
+
     max-width: 1200px;
     /*tamanho máximo da largura da área*/
-    margin: 50px;
-    /*margem de espaçamento,distanciar as imagens da borda da tela*/
+    margin: 50px auto;
+    /*margem de espaçamento, distanciar as imagens da borda da tela*/
     padding: 20px;
-    /*serve para separar os elementos de perto das bordas da div*/
+    /*serve para separar os elemento de perto das bordas da div*/
     display: flex;
-    /*permitir que as imagens fiquem uma embaixo da outra ou uma do lado da outra*/
+    /*permitir que as imagens fiquem uma embaixo da outra
+    ou uma do lado da outra*/
     gap: 50px;
-    /*É a distancia entre uma imagem e outra*/
+    /*e a distancia entre uma imagem e outra*/
 }
 
-.area-imagens{
+.area-imagens {
     display: flex;
     gap: 20px;
-    /*É a distancia as  tags dentro da div*/
+    /*e a distancia as tags dentro da div*/
 }
 
-.img-lateral{
+.img-lateral {
     display: flex;
     flex-direction: column;
-    /*deixa as imagens uma embaixo da outra*/
+    /*deixa as imagem uma embaixo da outra*/
     gap: 15px;
     /*e a distancia entre uma miniatura e outra*/
 }
-.img-lateral{
+
+.img-lateral {
     width: 70px;
+    /*largura da área laterias*/
     height: 90px;
+    /*altura da área lateral*/
     object-fit: cover;
+    /*redimenciona  a imagem para caber na área*/
     border: 2px solid transparent;
+    /*bordas ao redor da área*/
     border-radius: 10px;
-    cursor:pointer;
+    /*arredondar as bordas*/
+    cursor: pointer;
+    /*alterar o curso para a mão*/
     transition: 0.3s;
+    /*colocar efeito de transição*/
 }
 
-.img-lateral:hover{
-    border-color: #000000a4;
+.img-lateral:hover {
+    border-color: #d61d72;
+    /*adicionar borda ao passar o mouse pela imagem*/
 }
 
-.img-principal{
+.img-principal img {
     width: 420px;
-    /*tamanho da imagem principal*/
+    /*tamanho da imagemprincipal*/
     border-radius: 15px;
     /*arredondar a imagem principal*/
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .1);
     /*adicionar sombra à imagem principal*/
 }

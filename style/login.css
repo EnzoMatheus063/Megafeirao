@@ -1,0 +1,991 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+
+    --cor-fundo:#E6D9B8;
+    --cor-header:#D9E0C8;
+    --cor-card:#F4E9CA;
+    --cor-branca:#FFFFFF;
+    --cor-preta:#222222;
+    --cor-cinza:#666666;
+    --cor-borda:#D8C8A2;
+    --cor-hover:#111111;
+
+    --largura-maxima:1200px;
+
+    --sombra:0 8px 25px rgba(0,0,0,.08);
+
+    --raio:8px;
+
+}
+
+body{
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    background:var(--cor-fundo);
+
+    color:var(--cor-preta);
+
+    line-height:1.5;
+
+}
+
+img{
+
+    max-width:100%;
+
+    display:block;
+
+}
+
+button{
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+ul{
+
+    list-style:none;
+
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+
+    width:100%;
+
+    background:var(--cor-header);
+
+    border-bottom:1px solid #c8d0b6;
+
+}
+
+.top-header{
+
+    max-width:var(--largura-maxima);
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:15px 20px;
+
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.logo img{
+
+    width:52px;
+
+    height:52px;
+
+    object-fit:contain;
+
+}
+
+.logo h1{
+
+    font-size:28px;
+
+    font-weight:bold;
+
+}
+
+/* =====================================================
+   MENU
+===================================================== */
+
+nav{
+
+    background:#fff;
+
+    border-bottom:1px solid #ececec;
+
+}
+
+.menu{
+
+    max-width:var(--largura-maxima);
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:12px 20px;
+
+}
+
+.menu-links{
+
+    display:flex;
+
+    gap:30px;
+
+}
+
+.menu-links a{
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
+
+.menu-links a:hover{
+
+    color:#0066ff;
+
+}
+
+.busca{
+
+    width:260px;
+
+}
+
+.busca input{
+
+    width:100%;
+
+    padding:11px 15px;
+
+    border:1px solid #d8d8d8;
+
+    border-radius:6px;
+
+    outline:none;
+
+}
+
+.busca input:focus{
+
+    border-color:#000;
+
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+
+    max-width:900px;
+
+    margin:60px auto;
+
+    text-align:center;
+
+    padding:0 20px;
+
+}
+
+.hero h1{
+
+    font-size:48px;
+
+    margin-bottom:18px;
+
+}
+
+.hero p{
+
+    color:var(--cor-cinza);
+
+    margin-bottom:30px;
+
+}
+
+.hero-botoes{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:18px;
+
+}
+
+.hero-botoes button{
+
+    width:190px;
+
+    padding:14px;
+
+    border-radius:6px;
+
+    font-size:15px;
+
+}
+
+#btnCriarConta{
+
+    background:transparent;
+
+    border:1px solid var(--cor-preta);
+
+}
+
+#btnCriarConta:hover{
+
+    background:#ddd;
+
+}
+
+#btnEntrarHero{
+
+    background:var(--cor-preta);
+
+    color:#fff;
+
+    border:none;
+
+}
+
+#btnEntrarHero:hover{
+
+    background:#000;
+
+}
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
+.login-area{
+
+    max-width:var(--largura-maxima);
+
+    margin:auto;
+
+    padding:70px 20px;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:80px;
+
+}
+
+.login-texto{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+}
+
+.login-texto h2{
+
+    font-size:48px;
+
+    margin-bottom:18px;
+
+}
+
+.login-texto p{
+
+    color:var(--cor-cinza);
+
+}
+
+.login-formulario{
+
+    background:#fff;
+
+    padding:40px;
+
+    border-radius:var(--raio);
+
+    box-shadow:var(--sombra);
+
+}
+
+.campo{
+
+    display:flex;
+
+    flex-direction:column;
+
+    margin-bottom:25px;
+
+}
+
+.campo label{
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+}
+
+.campo input{
+
+    padding:14px;
+
+    border:1px solid #ccc;
+
+    border-radius:6px;
+
+    font-size:15px;
+
+}
+
+.campo input:focus{
+
+    outline:none;
+
+    border-color:#222;
+
+}
+
+.botoes-form{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-top:20px;
+
+}
+
+#btnEsqueciSenha{
+
+    flex:1;
+
+    border:1px solid var(--cor-preta);
+
+    background:#fff;
+
+    border-radius:6px;
+
+    padding:13px;
+
+}
+
+#btnEntrar{
+
+    flex:1;
+
+    border:none;
+
+    background:#222;
+
+    color:#fff;
+
+    border-radius:6px;
+
+    padding:13px;
+
+}
+
+#btnEntrar:hover{
+
+    background:#000;
+
+}
+
+#btnEsqueciSenha:hover{
+
+    background:#f5f5f5;
+
+}
+
+
+/* =====================================================
+   ÁREA DE ACESSO
+===================================================== */
+
+.acesso{
+
+    max-width:var(--largura-maxima);
+
+    margin:40px auto;
+
+    padding:0 20px 80px;
+
+}
+
+.acesso-texto{
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+}
+
+.acesso-texto h2{
+
+    font-size:40px;
+
+    margin-bottom:12px;
+
+}
+
+.acesso-texto p{
+
+    color:var(--cor-cinza);
+
+    font-size:16px;
+
+}
+
+.cards-acesso{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:30px;
+
+}
+
+.card-acesso{
+
+    background:var(--cor-card);
+
+    border:1px solid var(--cor-borda);
+
+    border-radius:10px;
+
+    padding:25px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    transition:.3s;
+
+}
+
+.card-acesso:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 15px 30px rgba(0,0,0,.10);
+
+}
+
+.card-acesso img{
+
+    width:70px;
+
+    height:70px;
+
+    object-fit:contain;
+
+}
+
+.card-info{
+
+    flex:1;
+
+}
+
+.card-info h3{
+
+    font-size:22px;
+
+    margin-bottom:10px;
+
+}
+
+.card-info p{
+
+    color:var(--cor-cinza);
+
+    margin-bottom:18px;
+
+}
+
+.card-info span{
+
+    display:inline-block;
+
+    padding:10px 18px;
+
+    border-radius:6px;
+
+    background:#222;
+
+    color:#fff;
+
+    font-size:14px;
+
+}
+
+/* =====================================================
+   CADASTRO
+===================================================== */
+
+#cadastro-container{
+
+    max-width:var(--largura-maxima);
+
+    margin:70px auto;
+
+    padding:0 20px;
+
+}
+
+#cadastro-container .hero{
+
+    margin:0;
+
+    padding:60px;
+
+    background:#fff;
+
+    border-radius:12px;
+
+    box-shadow:var(--sombra);
+
+}
+
+#cadastroTitulo{
+
+    font-size:42px;
+
+    margin-bottom:15px;
+
+}
+
+#cadastroDescricao{
+
+    color:var(--cor-cinza);
+
+    margin-bottom:30px;
+
+}
+
+#btnCadastrar{
+
+    width:220px;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:6px;
+
+    background:#222;
+
+    color:#fff;
+
+    font-size:15px;
+
+}
+
+#btnCadastrar:hover{
+
+    background:#000;
+
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+
+    background:#d9e0c8;
+
+    margin-top:80px;
+
+    border-top:1px solid #c5ceb2;
+
+}
+
+.footer{
+
+    max-width:var(--largura-maxima);
+
+    margin:auto;
+
+    padding:50px 20px;
+
+}
+
+.footer-top{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:50px;
+
+    margin-bottom:40px;
+
+}
+
+.footer-top h2{
+
+    margin-bottom:20px;
+
+}
+
+.redes{
+
+    display:flex;
+
+    gap:18px;
+
+}
+
+.redes a{
+
+    width:45px;
+
+    height:45px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    font-size:20px;
+
+    transition:.3s;
+
+}
+
+.redes a:hover{
+
+    background:#222;
+
+    color:#fff;
+
+}
+
+.endereco strong{
+
+    display:block;
+
+    margin-bottom:12px;
+
+}
+
+.endereco p{
+
+    line-height:28px;
+
+    color:var(--cor-cinza);
+
+}
+
+.footer-bottom{
+
+    border-top:1px solid #c9c9c9;
+
+    padding-top:25px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:35px;
+
+    flex-wrap:wrap;
+
+}
+
+.footer-bottom a{
+
+    font-size:14px;
+
+    transition:.3s;
+
+}
+
+.footer-bottom a:hover{
+
+    color:#0066ff;
+
+}
+
+/* =====================================================
+   ANIMAÇÕES
+===================================================== */
+
+button{
+
+    transition:.3s ease;
+
+}
+
+button:hover{
+
+    transform:translateY(-2px);
+
+}
+
+input{
+
+    transition:.3s;
+
+}
+
+input:focus{
+
+    box-shadow:0 0 0 3px rgba(0,0,0,.08);
+
+}
+
+.card-acesso{
+
+    transition:.3s ease;
+
+}
+
+/* =====================================================
+   RESPONSIVIDADE
+===================================================== */
+
+@media(max-width:992px){
+
+    .login-area{
+
+        grid-template-columns:1fr;
+
+        gap:50px;
+
+    }
+
+    .cards-acesso{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .footer-top{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .top-header{
+
+        flex-direction:column;
+
+        gap:20px;
+
+    }
+
+    .menu{
+
+        flex-direction:column;
+
+        gap:20px;
+
+    }
+
+    .menu-links{
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+        gap:15px;
+
+    }
+
+    .busca{
+
+        width:100%;
+
+    }
+
+    .hero{
+
+        margin:40px auto;
+
+    }
+
+    .hero h1{
+
+        font-size:34px;
+
+    }
+
+    .hero p{
+
+        font-size:15px;
+
+    }
+
+    .hero-botoes{
+
+        flex-direction:column;
+
+        align-items:center;
+
+    }
+
+    .hero-botoes button{
+
+        width:100%;
+
+        max-width:280px;
+
+    }
+
+    .login-formulario{
+
+        padding:30px;
+
+    }
+
+    .login-texto{
+
+        text-align:center;
+
+    }
+
+    .login-texto h2{
+
+        font-size:34px;
+
+    }
+
+    .botoes-form{
+
+        flex-direction:column;
+
+    }
+
+    .acesso-texto h2{
+
+        font-size:32px;
+
+    }
+
+    .card-acesso{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    #cadastro-container .hero{
+
+        padding:40px 20px;
+
+    }
+
+    #cadastroTitulo{
+
+        font-size:32px;
+
+    }
+
+    .footer-bottom{
+
+        flex-direction:column;
+
+        align-items:center;
+
+        gap:18px;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .logo h1{
+
+        font-size:22px;
+
+    }
+
+    .hero h1{
+
+        font-size:28px;
+
+    }
+
+    .hero p{
+
+        font-size:14px;
+
+    }
+
+    .login-texto h2{
+
+        font-size:28px;
+
+    }
+
+    .acesso-texto h2{
+
+        font-size:26px;
+
+    }
+
+    .card-info h3{
+
+        font-size:18px;
+
+    }
+
+    .footer{
+
+        padding:35px 15px;
+
+    }
+
+}

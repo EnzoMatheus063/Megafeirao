@@ -1,0 +1,293 @@
+/* ==========================
+   RESET
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#efe0b8;
+    color:#222;
+}
+
+/* ==========================
+   HEADER
+========================== */
+
+header{
+    width:100%;
+    background:#e8dfc6;
+    border-bottom:3px solid #008cff;
+}
+
+.top-bar{
+    max-width:1400px;
+    margin:auto;
+    padding:12px 20px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+}
+
+.search-box input{
+    width:250px;
+    padding:10px;
+}
+
+/* ==========================
+   MENU
+========================== */
+
+.menu{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    padding:12px;
+    background:#fff;
+}
+
+.menu a{
+    text-decoration:none;
+    color:#333;
+    font-size:14px;
+}
+
+/* ==========================
+   HERO
+========================== */
+
+.hero{
+    max-width:1000px;
+    margin:60px auto;
+    padding:40px;
+
+    text-align:center;
+
+    border:1px solid #000;
+}
+
+.hero h1{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    margin-bottom:25px;
+}
+
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+}
+
+.hero-buttons button{
+    width:180px;
+    padding:12px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.btn-ajuda{
+    background:transparent;
+    border:1px solid #fff;
+    color:#fff;
+}
+
+.btn-entrar{
+    background:#000;
+    color:#fff;
+    border:none;
+}
+
+/* ==========================
+   CADASTRO
+========================== */
+
+.cadastro-section{
+    max-width:1200px;
+    margin:auto;
+    padding:50px 20px;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+}
+
+.cadastro-info h2{
+    font-size:48px;
+    margin-bottom:20px;
+}
+
+.cadastro-form{
+    width:100%;
+}
+
+.form-group{
+    margin-bottom:25px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:bold;
+}
+
+.form-group input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+.form-buttons{
+    display:flex;
+    gap:15px;
+    margin-top:25px;
+}
+
+.form-buttons button{
+    flex:1;
+    padding:12px;
+    cursor:pointer;
+}
+
+.btn-cancelar{
+    background:transparent;
+    border:1px solid #000;
+}
+
+.btn-criar{
+    background:#000;
+    color:#fff;
+    border:none;
+}
+
+/* ==========================
+   BENEFÍCIOS
+========================== */
+
+.beneficios{
+    max-width:1200px;
+    margin:50px auto;
+    padding:40px 20px;
+}
+
+.beneficios h2{
+    text-align:center;
+    font-size:42px;
+}
+
+.beneficios p{
+    text-align:center;
+    margin-top:10px;
+    margin-bottom:50px;
+}
+
+.cards-beneficios{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.card-beneficio{
+    background:#f5e8c6;
+    border:1px solid #d6c79c;
+    padding:25px;
+}
+
+/* ==========================
+   FOOTER
+========================== */
+
+footer{
+    margin-top:60px;
+    padding:25px;
+    background:#f4e4ba;
+}
+
+.footer-links{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    flex-wrap:wrap;
+}
+
+.footer-links a{
+    text-decoration:none;
+    color:#000;
+}
+
+/* ==========================
+   RESPONSIVO
+========================== */
+
+@media(max-width:768px){
+
+    .top-bar{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .search-box input{
+        width:100%;
+    }
+
+    .menu{
+        flex-wrap:wrap;
+        gap:15px;
+    }
+
+    .hero h1{
+        font-size:30px;
+    }
+
+    .cadastro-section{
+        grid-template-columns:1fr;
+    }
+
+    .cadastro-info h2{
+        font-size:32px;
+    }
+
+    .cards-beneficios{
+        grid-template-columns:1fr;
+    }
+
+    .form-buttons{
+        flex-direction:column;
+    }
+}
+
+@media(max-width:480px){
+
+    .hero{
+        padding:20px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+    .hero-buttons button{
+        width:100%;
+    }
+
+    .cadastro-info h2{
+        font-size:28px;
+    }
+
+    .beneficios h2{
+        font-size:28px;
+    }
+}
