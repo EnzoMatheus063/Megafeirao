@@ -401,41 +401,41 @@ const promocoes = [
 
     {
 
-        imagem:"../Assets/images/produto5.png",
+        imagem:"/Assets/produto5.png",
 
-        titulo:"Smartphone",
+        titulo:"Cerveja Skol Pilsen c/15uni 269ML",
 
-        preco:"R$ 1.899,90"
-
-    },
-
-    {
-
-        imagem:"../Assets/images/produto6.png",
-
-        titulo:"Smart TV 50\"",
-
-        preco:"R$ 2.499,90"
+        preco:"R$ 38,55"
 
     },
 
     {
 
-        imagem:"../Assets/images/produto7.png",
+        imagem:"/Assets/produto6.png",
 
-        titulo:"Air Fryer",
+        titulo:"Shampoo Seda Cocriações Liso Perfeito Frasco 325ml",
 
-        preco:"R$ 489,90"
+        preco:"R$ 13,95 "
 
     },
 
     {
 
-        imagem:"../Assets/images/produto8.png",
+        imagem:"../Assets/produto7.png",
 
-        titulo:"Cafeteira Elétrica",
+        titulo:"Limpador Perfumado Bela Flore Casa & Perfume Frasco 2l",
 
-        preco:"R$ 299,90"
+        preco:"R$ 17,97"
+
+    },
+
+    {
+
+        imagem:"../Assets/produto8.png",
+
+        titulo:"Panela De Pressao Tramontina Vancouver Starflon 4,5L R.20582 Vermelha",
+
+        preco:"R$ 179,95"
 
     }
 
