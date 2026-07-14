@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastro</title>
+
+    <link rel="stylesheet"
+          href="/Style/cadastro2.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ==========================================
+                    LADO ESQUERDO
+    =========================================== -->
+
+    <section class="painel-esquerdo">
+
+        <div class="logo">
+
+            <img
+                id="logoImagem"
+                src=""
+                alt="Logo">
+
+            <h1 id="logoTitulo"></h1>
+
+        </div>
+
+        <div class="apresentacao">
+
+            <h2 id="tituloApresentacao"></h2>
+
+            <p id="textoApresentacao"></p>
+
+        </div>
+
+        <div class="ilustracao">
+
+            <img
+                id="imagemCadastro"
+                src=""
+                alt="Cadastro">
+
+        </div>
+
+    </section>
+
+    <!-- ==========================================
+                    LADO DIREITO
+    =========================================== -->
+
+    <section class="painel-direito">
+
+        <div class="card-cadastro">
+
+            <h2 id="tituloFormulario"></h2>
+
+            <p id="subtituloFormulario"></p>
+
+            <form id="formCadastro">
+
+                <!-- Nome -->
+
+                <div class="campo">
+
+                    <label id="lblNome" for="nome"></label>
+
+                    <input
+                        id="nome"
+                        type="text">
+
+                </div>
+
+                <!-- CPF -->
+
+                <div class="campo">
+
+                    <label id="lblCpf" for="cpf"></label>
+
+                    <input
+                        id="cpf"
+                        type="text">
+
+                </div>
+
+                <!-- Telefone -->
+
+                <div class="campo">
+
+                    <label id="lblTelefone"
+                           for="telefone"></label>
+
+                    <input
+                        id="telefone"
+                        type="text">
+
+                </div>
+
+                <!-- Email -->
+
+                <div class="campo">
+
+                    <label id="lblEmail"
+                           for="email"></label>
+
+                    <input
+                        id="email"
+                        type="email">
+
+                </div>
+
+                <!-- Senha -->
+
+                <div class="campo">
+
+                    <label id="lblSenha"
+                           for="senha"></label>
+
+                    <input
+                        id="senha"
+                        type="password">
+
+                </div>
+
+                <!-- Data de nascimento -->
+
+                <div class="campo">
+
+                    <label
+                        id="lblNascimento"
+                        for="nascimento"></label>
+
+                    <input
+                        id="nascimento"
+                        type="date">
+
+                </div>
+
+                                <!-- ==========================================
+                        TERMOS DE USO
+                =========================================== -->
+
+                <div class="campo-termos">
+
+                    <input
+                        id="aceiteTermos"
+                        type="checkbox">
+
+                    <label
+                        id="lblAceiteTermos"
+                        for="aceiteTermos">
+                    </label>
+
+                </div>
+
+                <!-- ==========================================
+                        BOTÃO CADASTRAR
+                =========================================== -->
+
+                <button
+                    id="btnCadastrar"
+                    type="submit">
+                </button>
+
+            </form>
+
+            <!-- ==========================================
+                    LINK LOGIN
+            =========================================== -->
+
+            <div class="login">
+
+                <span id="textoLogin"></span>
+
+                <a
+                    id="linkLogin"
+                    href="#">
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+<!-- ==========================================
+                RODAPÉ
+========================================== -->
+
+<footer>
+
+    <div class="footer-container">
+
+        <div class="footer-coluna">
+
+            <h3 id="footerTitulo1"></h3>
+
+            <p id="footerTexto1"></p>
+
+        </div>
+
+        <div class="footer-coluna">
+
+            <h3 id="footerTitulo2"></h3>
+
+            <p id="footerTexto2"></p>
+
+        </div>
+
+        <div class="footer-coluna">
+
+            <h3 id="footerTitulo3"></h3>
+
+            <p id="footerTexto3"></p>
+
+        </div>
+
+    </div>
+
+    <div class="footer-copy">
+
+        <p id="copyright"></p>
+
+    </div>
+
+</footer>
+
+<script src="/js/cadastro2.js"></script>
+
+</body>
+
+</html>

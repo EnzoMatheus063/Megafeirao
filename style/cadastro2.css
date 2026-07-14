@@ -1,0 +1,659 @@
+/* ==========================================================
+   RESET
+========================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    background:#F5F5F5;
+
+    color:#222;
+
+}
+
+img{
+
+    display:block;
+
+    max-width:100%;
+
+}
+
+a{
+
+    text-decoration:none;
+
+}
+
+button{
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    border:none;
+
+}
+
+input{
+
+    outline:none;
+
+}
+
+/* ==========================================================
+   VARIÁVEIS
+========================================================== */
+
+:root{
+
+    --verde:#DDE5C6;
+
+    --bege:#E8DCB5;
+
+    --branco:#FFFFFF;
+
+    --texto:#222222;
+
+    --cinza:#666666;
+
+    --borda:#D8D8D8;
+
+    --radius:12px;
+
+    --shadow:0 10px 30px rgba(0,0,0,.08);
+
+    --container:1400px;
+
+}
+
+/* ==========================================================
+   CONTAINER
+========================================================== */
+
+.container{
+
+    max-width:var(--container);
+
+    margin:50px auto;
+
+    background:var(--branco);
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    display:grid;
+
+    grid-template-columns:45% 55%;
+
+    box-shadow:var(--shadow);
+
+}
+
+/* ==========================================================
+   PAINEL ESQUERDO
+========================================================== */
+
+.painel-esquerdo{
+
+    background:var(--verde);
+
+    padding:50px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.logo img{
+
+    width:70px;
+
+    height:70px;
+
+    object-fit:contain;
+
+}
+
+.logo h1{
+
+    font-size:32px;
+
+}
+
+.apresentacao{
+
+    margin:50px 0;
+
+}
+
+.apresentacao h2{
+
+    font-size:42px;
+
+    margin-bottom:20px;
+
+}
+
+.apresentacao p{
+
+    color:var(--cinza);
+
+    line-height:30px;
+
+    font-size:18px;
+
+}
+
+.ilustracao{
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+.ilustracao img{
+
+    max-width:380px;
+
+    width:100%;
+
+}
+
+/* ==========================================================
+   PAINEL DIREITO
+========================================================== */
+
+.painel-direito{
+
+    background:var(--branco);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:50px;
+
+}
+
+.card-cadastro{
+
+    width:100%;
+
+    max-width:550px;
+
+}
+
+.card-cadastro h2{
+
+    font-size:36px;
+
+    margin-bottom:10px;
+
+}
+
+.card-cadastro p{
+
+    color:var(--cinza);
+
+    margin-bottom:30px;
+
+}
+
+/* ==========================================================
+   FORMULÁRIO
+========================================================== */
+
+#formCadastro{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.campo{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.campo label{
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+}
+
+.campo input{
+
+    width:100%;
+
+    padding:15px;
+
+    border:1px solid var(--borda);
+
+    border-radius:10px;
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
+
+.campo input:focus{
+
+    border-color:#9CB36D;
+
+    box-shadow:0 0 0 3px rgba(156,179,109,.15);
+
+}
+
+/* ==========================================================
+   TERMOS DE USO
+========================================================== */
+
+.campo-termos{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:12px;
+
+    margin-top:10px;
+
+}
+
+.campo-termos input{
+
+    width:18px;
+
+    height:18px;
+
+    margin-top:3px;
+
+    cursor:pointer;
+
+}
+
+.campo-termos label{
+
+    font-size:15px;
+
+    color:var(--cinza);
+
+    line-height:24px;
+
+    cursor:pointer;
+
+}
+
+/* ==========================================================
+   BOTÃO CADASTRAR
+========================================================== */
+
+#btnCadastrar{
+
+    width:100%;
+
+    margin-top:15px;
+
+    padding:16px;
+
+    background:var(--bege);
+
+    color:var(--texto);
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    border-radius:10px;
+
+    transition:.3s;
+
+}
+
+#btnCadastrar:hover{
+
+    background:#D9C896;
+
+    transform:translateY(-2px);
+
+}
+
+#btnCadastrar:active{
+
+    transform:scale(.98);
+
+}
+
+/* ==========================================================
+   ÁREA LOGIN
+========================================================== */
+
+.login{
+
+    margin-top:25px;
+
+    text-align:center;
+
+    font-size:15px;
+
+}
+
+.login span{
+
+    color:var(--cinza);
+
+}
+
+.login a{
+
+    margin-left:5px;
+
+    color:#7A8F52;
+
+    font-weight:bold;
+
+}
+
+.login a:hover{
+
+    text-decoration:underline;
+
+}
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+footer{
+
+    margin-top:50px;
+
+    background:var(--verde);
+
+}
+
+.footer-container{
+
+    max-width:var(--container);
+
+    margin:auto;
+
+    padding:40px;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:40px;
+
+}
+
+.footer-coluna h3{
+
+    margin-bottom:15px;
+
+    font-size:20px;
+
+}
+
+.footer-coluna p{
+
+    color:var(--cinza);
+
+    line-height:26px;
+
+}
+
+.footer-copy{
+
+    border-top:1px solid rgba(0,0,0,.08);
+
+    padding:20px;
+
+    text-align:center;
+
+}
+
+.footer-copy p{
+
+    color:var(--cinza);
+
+    font-size:14px;
+
+}
+
+/* ==========================================================
+   ANIMAÇÕES
+========================================================== */
+
+button{
+
+    transition:.3s ease;
+
+}
+
+input{
+
+    transition:.3s ease;
+
+}
+
+.card-cadastro{
+
+    animation:fadeIn .5s ease;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================================================
+   RESPONSIVIDADE
+========================================================== */
+
+@media(max-width:992px){
+
+    .container{
+
+        grid-template-columns:1fr;
+
+        margin:20px;
+
+    }
+
+    .painel-esquerdo{
+
+        text-align:center;
+
+        align-items:center;
+
+        padding:40px;
+
+    }
+
+    .logo{
+
+        justify-content:center;
+
+    }
+
+    .apresentacao{
+
+        margin:35px 0;
+
+    }
+
+    .painel-direito{
+
+        padding:40px 30px;
+
+    }
+
+    .footer-container{
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .painel-esquerdo{
+
+        padding:30px;
+
+    }
+
+    .painel-direito{
+
+        padding:30px 20px;
+
+    }
+
+    .logo{
+
+        flex-direction:column;
+
+    }
+
+    .logo h1{
+
+        font-size:28px;
+
+    }
+
+    .apresentacao h2{
+
+        font-size:32px;
+
+    }
+
+    .card-cadastro h2{
+
+        font-size:30px;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    body{
+
+        background:#FFFFFF;
+
+    }
+
+    .container{
+
+        margin:0;
+
+        border-radius:0;
+
+        box-shadow:none;
+
+    }
+
+    .painel-esquerdo{
+
+        padding:25px;
+
+    }
+
+    .painel-direito{
+
+        padding:25px 18px;
+
+    }
+
+    .apresentacao h2{
+
+        font-size:28px;
+
+    }
+
+    .apresentacao p{
+
+        font-size:16px;
+
+        line-height:26px;
+
+    }
+
+    .campo input{
+
+        padding:14px;
+
+    }
+
+    #btnCadastrar{
+
+        padding:15px;
+
+    }
+
+    .footer-container{
+
+        padding:30px 20px;
+
+    }
+
+}
