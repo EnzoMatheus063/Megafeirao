@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Home - Lojista</title>
+
+    <link rel="stylesheet"
+          href="../Style/home_Lojista.css">
+
+</head>
+
+<body>
+
+<!-- ==========================================================
+     HEADER
+========================================================== -->
+
+<header class="header">
+
+    <div class="logo-area">
+
+        <img
+            id="logoImagem"
+            src=""
+            alt="Logo">
+
+        <h1 id="logoTitulo"></h1>
+
+    </div>
+
+    <nav class="menu-superior">
+
+        <a id="menuVendas" href="#"></a>
+
+        <a id="menuEstoque" href="#"></a>
+
+        <a id="menuFinanceiro" href="#"></a>
+
+        <a id="menuClientes" href="#"></a>
+
+        <a id="menuRelatorios" href="#"></a>
+
+    </nav>
+
+    <div class="pesquisa">
+
+        <input
+            id="campoPesquisa"
+            type="search">
+
+    </div>
+
+</header>
+
+<!-- ==========================================================
+     CONTEÚDO
+========================================================== -->
+
+<main class="conteudo">
+
+<!-- ==========================================================
+     RESUMO DO NEGÓCIO
+========================================================== -->
+
+<section class="resumo">
+
+    <h2 id="tituloResumo"></h2>
+
+    <p id="descricaoResumo"></p>
+
+    <div class="acoes-resumo">
+
+        <button id="btnExportar"></button>
+
+        <button id="btnRelatorios"></button>
+
+    </div>
+
+    <div class="filtros">
+
+        <button id="btnHoje"></button>
+
+        <button id="btnSemana"></button>
+
+        <button id="btnMes"></button>
+
+    </div>
+
+</section>
+
+<!-- ==========================================================
+     DESEMPENHO
+========================================================== -->
+
+<section class="desempenho">
+
+    <div class="titulo-secao">
+
+        <h2 id="tituloDesempenho"></h2>
+
+        <p id="descricaoDesempenho"></p>
+
+    </div>
+
+    <button
+        id="btnCategorias"
+        class="btn-preto">
+    </button>
+
+    <div class="graficos">
+
+        <article class="grafico-card">
+
+            <h3 id="tituloGraficoPizza"></h3>
+
+            <p id="descricaoGraficoPizza"></p>
+
+            <div class="grafico">
+
+                <img
+                    id="graficoPizza"
+                    src=""
+                    alt="Gráfico Pizza">
+
+            </div>
+
+        </article>
+
+        <article class="grafico-card">
+
+            <h3 id="tituloGraficoBarra"></h3>
+
+            <p id="descricaoGraficoBarra"></p>
+
+            <div class="grafico">
+
+                <img
+                    id="graficoBarra"
+                    src=""
+                    alt="Gráfico Barras">
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+<!-- ==========================================================
+     INDICADORES FINANCEIROS
+========================================================== -->
+
+<section class="indicadores">
+
+    <div class="titulo-secao">
+
+        <h2 id="tituloIndicadores"></h2>
+
+        <p id="descricaoIndicadores"></p>
+
+    </div>
+
+    <div class="painel-indicadores">
+
+        <!-- Cards -->
+
+        <div class="cards-indicadores">
+
+            <article class="card-indicador">
+
+                <h3 id="tituloCard1"></h3>
+
+                <span id="valorCard1"></span>
+
+                <small id="variacaoCard1"></small>
+
+            </article>
+
+            <article class="card-indicador">
+
+                <h3 id="tituloCard2"></h3>
+
+                <span id="valorCard2"></span>
+
+                <small id="variacaoCard2"></small>
+
+            </article>
+
+            <article class="card-indicador">
+
+                <h3 id="tituloCard3"></h3>
+
+                <span id="valorCard3"></span>
+
+                <small id="variacaoCard3"></small>
+
+            </article>
+
+            <article class="card-indicador">
+
+                <h3 id="tituloCard4"></h3>
+
+                <span id="valorCard4"></span>
+
+                <small id="variacaoCard4"></small>
+
+            </article>
+
+            <article class="card-indicador">
+
+                <h3 id="tituloCard5"></h3>
+
+                <span id="valorCard5"></span>
+
+                <small id="variacaoCard5"></small>
+
+            </article>
+
+            <article class="card-indicador">
+
+                <h3 id="tituloCard6"></h3>
+
+                <span id="valorCard6"></span>
+
+                <small id="variacaoCard6"></small>
+
+            </article>
+
+        </div>
+
+        <!-- Evolução -->
+
+        <article class="grafico-evolucao">
+
+            <h3 id="tituloEvolucao"></h3>
+
+            <p id="descricaoEvolucao"></p>
+
+            <img
+                id="imagemEvolucao"
+                src=""
+                alt="Gráfico de Evolução">
+
+        </article>
+
+    </div>
+
+</section>
+
+<!-- ==========================================================
+     ALERTAS E RECOMENDAÇÕES
+========================================================== -->
+
+<section class="alertas">
+
+    <div class="titulo-secao">
+
+        <h2 id="tituloAlertas"></h2>
+
+        <p id="descricaoAlertas"></p>
+
+    </div>
+
+    <div class="acoes-alerta">
+
+        <button
+            id="btnConfigurarAlertas">
+        </button>
+
+        <button
+            id="btnVerSugestoes">
+        </button>
+
+    </div>
+
+    <div class="grid-alertas">
+
+        <article class="card-alerta">
+
+            <h3 id="alertaTitulo1"></h3>
+
+            <p id="alertaTexto1"></p>
+
+        </article>
+
+        <article class="card-alerta">
+
+            <h3 id="alertaTitulo2"></h3>
+
+            <p id="alertaTexto2"></p>
+
+        </article>
+
+        <article class="card-alerta">
+
+            <h3 id="alertaTitulo3"></h3>
+
+            <p id="alertaTexto3"></p>
+
+        </article>
+
+        <article class="card-alerta">
+
+            <h3 id="alertaTitulo4"></h3>
+
+            <p id="alertaTexto4"></p>
+
+        </article>
+
+    </div>
+
+</section>
+<!-- ==========================================================
+     ÚLTIMAS MOVIMENTAÇÕES
+========================================================== -->
+
+<section class="movimentacoes">
+
+    <div class="titulo-secao">
+
+        <h2 id="tituloMovimentacoes"></h2>
+
+        <p id="descricaoMovimentacoes"></p>
+
+    </div>
+
+    <button
+        id="btnAbrirMovimentacoes"
+        class="btn-preto">
+    </button>
+
+    <div class="lista-movimentacoes">
+
+        <article class="movimentacao-item">
+
+            <div class="icone">
+
+                <img
+                    id="iconeMov1"
+                    src=""
+                    alt="Pedidos">
+
+            </div>
+
+            <div class="texto">
+
+                <h3 id="movTitulo1"></h3>
+
+                <p id="movDescricao1"></p>
+
+            </div>
+
+            <div class="valor">
+
+                <span id="movValor1"></span>
+
+            </div>
+
+        </article>
+
+        <article class="movimentacao-item">
+
+            <div class="icone">
+
+                <img
+                    id="iconeMov2"
+                    src=""
+                    alt="Entradas">
+
+            </div>
+
+            <div class="texto">
+
+                <h3 id="movTitulo2"></h3>
+
+                <p id="movDescricao2"></p>
+
+            </div>
+
+            <div class="valor">
+
+                <span id="movValor2"></span>
+
+            </div>
+
+        </article>
+
+        <article class="movimentacao-item">
+
+            <div class="icone">
+
+                <img
+                    id="iconeMov3"
+                    src=""
+                    alt="Estoque">
+
+            </div>
+
+            <div class="texto">
+
+                <h3 id="movTitulo3"></h3>
+
+                <p id="movDescricao3"></p>
+
+            </div>
+
+            <div class="valor">
+
+                <span id="movValor3"></span>
+
+            </div>
+
+        </article>
+
+        <article class="movimentacao-item">
+
+            <div class="icone">
+
+                <img
+                    id="iconeMov4"
+                    src=""
+                    alt="Cancelamentos">
+
+            </div>
+
+            <div class="texto">
+
+                <h3 id="movTitulo4"></h3>
+
+                <p id="movDescricao4"></p>
+
+            </div>
+
+            <div class="valor">
+
+                <span id="movValor4"></span>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+</main>
+
+<!-- ==========================================================
+     RODAPÉ
+========================================================== -->
+
+<footer>
+
+    <div class="footer-container">
+
+        <div class="footer-info">
+
+            <p id="footerDica"></p>
+
+        </div>
+
+        <div class="footer-links">
+
+            <a
+                id="linkVendas"
+                href="#">
+            </a>
+
+            <a
+                id="linkFinanceiro"
+                href="#">
+            </a>
+
+            <a
+                id="linkRelatorios"
+                href="#">
+            </a>
+
+        </div>
+
+        <div class="footer-copy">
+
+            <p id="footerCopyright"></p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<!-- ==========================================================
+     JAVASCRIPT
+========================================================== -->
+
+<script src="../js/home_Lojista.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,1021 @@
+/* ==========================================================
+   RESET
+========================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    background:#E8DCB5;
+
+    color:#222;
+
+}
+
+img{
+
+    max-width:100%;
+
+    display:block;
+
+}
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+button{
+
+    border:none;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+input{
+
+    outline:none;
+
+}
+
+/* ==========================================================
+   VARIÁVEIS
+========================================================== */
+
+:root{
+
+    --verde:#DDE5C6;
+
+    --bege:#E8DCB5;
+
+    --branco:#FFFFFF;
+
+    --preto:#1F1F1F;
+
+    --cinza:#666;
+
+    --radius:10px;
+
+    --shadow:0 8px 20px rgba(0,0,0,.08);
+
+    --container:1400px;
+
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.header{
+
+    background:var(--verde);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:15px 40px;
+
+    box-shadow:var(--shadow);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:999;
+
+}
+
+.logo-area{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.logo-area img{
+
+    width:45px;
+
+    height:45px;
+
+}
+
+.logo-area h1{
+
+    font-size:22px;
+
+}
+
+.menu-superior{
+
+    display:flex;
+
+    gap:30px;
+
+}
+
+.menu-superior a{
+
+    font-size:15px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.menu-superior a:hover{
+
+    color:#000;
+
+}
+
+.pesquisa{
+
+    width:260px;
+
+}
+
+.pesquisa input{
+
+    width:100%;
+
+    padding:12px;
+
+    border-radius:8px;
+
+    border:1px solid #CCC;
+
+}
+
+/* ==========================================================
+   MAIN
+========================================================== */
+
+.conteudo{
+
+    max-width:var(--container);
+
+    margin:auto;
+
+    padding:40px;
+
+}
+
+/* ==========================================================
+   RESUMO
+========================================================== */
+
+.resumo{
+
+    text-align:center;
+
+    margin-bottom:60px;
+
+}
+
+.resumo h2{
+
+    font-size:38px;
+
+    margin-bottom:15px;
+
+}
+
+.resumo p{
+
+    color:var(--cinza);
+
+    margin-bottom:25px;
+
+}
+
+.acoes-resumo{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    margin-bottom:20px;
+
+}
+
+.acoes-resumo button{
+
+    padding:14px 28px;
+
+    border-radius:8px;
+
+    font-weight:bold;
+
+}
+
+#btnExportar{
+
+    background:#FFFFFF;
+
+}
+
+#btnRelatorios{
+
+    background:#111;
+
+    color:#FFF;
+
+}
+
+.filtros{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+}
+
+.filtros button{
+
+    padding:10px 20px;
+
+    background:#FFF;
+
+    border-radius:8px;
+
+}
+
+/* ==========================================================
+   TÍTULOS DAS SEÇÕES
+========================================================== */
+
+.titulo-secao{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+}
+
+.titulo-secao h2{
+
+    font-size:34px;
+
+    margin-bottom:10px;
+
+}
+
+.titulo-secao p{
+
+    color:#666;
+
+}
+
+/* ==========================================================
+   BOTÃO PRETO
+========================================================== */
+
+.btn-preto{
+
+    display:block;
+
+    margin:0 auto 35px;
+
+    padding:14px 30px;
+
+    background:#111;
+
+    color:#FFF;
+
+    border-radius:8px;
+
+}
+
+/* ==========================================================
+   GRÁFICOS
+========================================================== */
+
+.graficos{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:30px;
+
+    margin-bottom:60px;
+
+}
+
+.grafico-card{
+
+    background:#FFF;
+
+    padding:25px;
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+}
+
+.grafico-card h3{
+
+    margin-bottom:10px;
+
+}
+
+.grafico-card p{
+
+    color:#666;
+
+    margin-bottom:20px;
+
+}
+
+.grafico{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.grafico img{
+
+    width:100%;
+
+    max-width:300px;
+
+}
+/* ==========================================================
+   INDICADORES FINANCEIROS
+========================================================== */
+
+.indicadores{
+
+    margin-bottom:60px;
+
+}
+
+.painel-indicadores{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:30px;
+
+    align-items:flex-start;
+
+}
+
+.cards-indicadores{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+
+}
+
+.card-indicador{
+
+    background:var(--branco);
+
+    padding:25px;
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+    transition:.3s;
+
+}
+
+.card-indicador:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.card-indicador h3{
+
+    font-size:16px;
+
+    color:var(--cinza);
+
+    margin-bottom:15px;
+
+}
+
+.card-indicador span{
+
+    display:block;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    color:var(--preto);
+
+    margin-bottom:10px;
+
+}
+
+.card-indicador small{
+
+    color:#2E7D32;
+
+    font-size:14px;
+
+}
+
+/* ==========================================================
+   GRÁFICO EVOLUÇÃO
+========================================================== */
+
+.grafico-evolucao{
+
+    background:var(--branco);
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+    padding:25px;
+
+}
+
+.grafico-evolucao h3{
+
+    font-size:22px;
+
+    margin-bottom:10px;
+
+}
+
+.grafico-evolucao p{
+
+    color:var(--cinza);
+
+    margin-bottom:20px;
+
+}
+
+.grafico-evolucao img{
+
+    width:100%;
+
+    border-radius:8px;
+
+}
+
+/* ==========================================================
+   ALERTAS
+========================================================== */
+
+.alertas{
+
+    margin-bottom:60px;
+
+}
+
+.acoes-alerta{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    margin-bottom:30px;
+
+}
+
+.acoes-alerta button{
+
+    padding:14px 28px;
+
+    border-radius:8px;
+
+    font-weight:bold;
+
+}
+
+#btnConfigurarAlertas{
+
+    background:var(--preto);
+
+    color:#FFF;
+
+}
+
+#btnVerSugestoes{
+
+    background:var(--branco);
+
+}
+
+.grid-alertas{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+}
+
+.card-alerta{
+
+    background:var(--branco);
+
+    padding:25px;
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+    transition:.3s;
+
+}
+
+.card-alerta:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.card-alerta h3{
+
+    font-size:18px;
+
+    margin-bottom:12px;
+
+}
+
+.card-alerta p{
+
+    color:var(--cinza);
+
+    line-height:24px;
+
+}
+
+/* ==========================================================
+   MOVIMENTAÇÕES
+========================================================== */
+
+.movimentacoes{
+
+    margin-bottom:60px;
+
+}
+
+.lista-movimentacoes{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.movimentacao-item{
+
+    display:grid;
+
+    grid-template-columns:70px 1fr auto;
+
+    align-items:center;
+
+    gap:20px;
+
+    background:var(--branco);
+
+    padding:20px;
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+    transition:.3s;
+
+}
+
+.movimentacao-item:hover{
+
+    transform:translateX(5px);
+
+}
+
+.icone{
+
+    width:60px;
+
+    height:60px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:var(--verde);
+
+    border-radius:50%;
+
+}
+
+.icone img{
+
+    width:30px;
+
+    height:30px;
+
+}
+
+.texto h3{
+
+    margin-bottom:5px;
+
+}
+
+.texto p{
+
+    color:var(--cinza);
+
+}
+
+.valor{
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    color:var(--preto);
+
+}
+/* ==========================================================
+   RODAPÉ
+========================================================== */
+
+footer{
+
+    background:var(--verde);
+
+    margin-top:60px;
+
+    box-shadow:0 -4px 10px rgba(0,0,0,.08);
+
+}
+
+.footer-container{
+
+    max-width:var(--container);
+
+    margin:auto;
+
+    padding:35px 40px;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr 1fr;
+
+    gap:30px;
+
+    align-items:center;
+
+}
+
+.footer-info p{
+
+    color:var(--cinza);
+
+    line-height:24px;
+
+}
+
+.footer-links{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:25px;
+
+    flex-wrap:wrap;
+
+}
+
+.footer-links a{
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.footer-links a:hover{
+
+    color:#000;
+
+}
+
+.footer-copy{
+
+    text-align:right;
+
+}
+
+.footer-copy p{
+
+    color:var(--cinza);
+
+    font-size:14px;
+
+}
+
+/* ==========================================================
+   EFEITOS
+========================================================== */
+
+button:hover{
+
+    transform:translateY(-3px);
+
+}
+
+button:active{
+
+    transform:scale(.98);
+
+}
+
+.menu-superior a{
+
+    position:relative;
+
+}
+
+.menu-superior a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-5px;
+
+    width:0;
+
+    height:2px;
+
+    background:#111;
+
+    transition:.3s;
+
+}
+
+.menu-superior a:hover::after{
+
+    width:100%;
+
+}
+
+.card-indicador,
+.card-alerta,
+.grafico-card,
+.movimentacao-item{
+
+    transition:.3s ease;
+
+}
+
+.card-indicador:hover,
+.card-alerta:hover,
+.grafico-card:hover{
+
+    box-shadow:0 12px 30px rgba(0,0,0,.15);
+
+}
+
+input:focus{
+
+    border-color:#95A96B;
+
+    box-shadow:0 0 0 3px rgba(149,169,107,.20);
+
+}
+
+/* ==========================================================
+   RESPONSIVIDADE
+========================================================== */
+
+@media(max-width:1200px){
+
+    .painel-indicadores{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .graficos{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:992px){
+
+    .header{
+
+        flex-direction:column;
+
+        gap:20px;
+
+        padding:25px;
+
+    }
+
+    .menu-superior{
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+    }
+
+    .pesquisa{
+
+        width:100%;
+
+        max-width:450px;
+
+    }
+
+    .cards-indicadores{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .grid-alertas{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .footer-container{
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+    }
+
+    .footer-copy{
+
+        text-align:center;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .conteudo{
+
+        padding:25px;
+
+    }
+
+    .acoes-resumo{
+
+        flex-direction:column;
+
+    }
+
+    .acoes-resumo button{
+
+        width:100%;
+
+    }
+
+    .filtros{
+
+        flex-wrap:wrap;
+
+    }
+
+    .cards-indicadores{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .movimentacao-item{
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+    }
+
+    .icone{
+
+        margin:auto;
+
+    }
+
+    .valor{
+
+        margin-top:10px;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .header{
+
+        padding:20px;
+
+    }
+
+    .logo-area{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    .logo-area h1{
+
+        font-size:20px;
+
+    }
+
+    .titulo-secao h2{
+
+        font-size:28px;
+
+    }
+
+    .resumo h2{
+
+        font-size:30px;
+
+    }
+
+    .grafico-card,
+    .grafico-evolucao,
+    .card-alerta,
+    .card-indicador{
+
+        padding:18px;
+
+    }
+
+    .footer-links{
+
+        flex-direction:column;
+
+        gap:12px;
+
+    }
+
+}
