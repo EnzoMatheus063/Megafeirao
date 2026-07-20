@@ -359,7 +359,7 @@ const evolucao = {
 
     descricao: "Comparativo dos últimos meses.",
 
-    imagem: "../Assets/images/grafico-evolucao.png"
+    imagem: "../Assets/grafico_evolucao.png"
 
 };
 
@@ -368,7 +368,7 @@ evolucao.titulo;
 
 document.getElementById("descricaoEvolucao").textContent =
 evolucao.descricao;
-
+    
 document.getElementById("imagemEvolucao").src =
 evolucao.imagem;
 
@@ -489,7 +489,7 @@ const movimentacoes = {
 
         {
 
-            icone:"../Assets/images/pedido.png",
+            icone:"../Assets/pedidos-confirmados.png",
 
             titulo:"Pedidos Confirmados",
 
@@ -501,7 +501,7 @@ const movimentacoes = {
 
         {
 
-            icone:"../Assets/images/entrada.png",
+            icone:"../Assets/entrada-estoque.png",
 
             titulo:"Entradas no Estoque",
 
@@ -513,7 +513,7 @@ const movimentacoes = {
 
         {
 
-            icone:"../Assets/images/estoque.png",
+            icone:"../Assets/estoque-baixo.png",
 
             titulo:"Estoque Baixo",
 
@@ -525,7 +525,7 @@ const movimentacoes = {
 
         {
 
-            icone:"../Assets/images/cancelamento.png",
+            icone:"../Assets/cancelamentos.png",
 
             titulo:"Cancelamentos",
 

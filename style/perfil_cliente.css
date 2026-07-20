@@ -1,0 +1,965 @@
+/* ==========================================================
+   RESET
+========================================================== */
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    background:#E8DCB5;
+
+    color:#222;
+
+    display:flex;
+
+    min-height:100vh;
+
+}
+
+img{
+
+    max-width:100%;
+
+    display:block;
+
+}
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+button{
+
+    cursor:pointer;
+
+    border:none;
+
+    transition:.3s;
+
+}
+
+input,
+select{
+
+    outline:none;
+
+}
+
+/* ==========================================================
+   VARIÁVEIS
+========================================================== */
+
+:root{
+
+    --verde:#DDE5C6;
+
+    --bege:#E8DCB5;
+
+    --branco:#FFFFFF;
+
+    --cinza:#6B6B6B;
+
+    --preto:#1F1F1F;
+
+    --radius:12px;
+
+    --shadow:0 8px 20px rgba(0,0,0,.08);
+
+    --menu:280px;
+
+}
+
+/* ==========================================================
+   MENU LATERAL
+========================================================== */
+
+.menu-lateral{
+
+    width:var(--menu);
+
+    background:var(--verde);
+
+    padding:35px 25px;
+
+    position:fixed;
+
+    left:0;
+
+    top:0;
+
+    bottom:0;
+
+    overflow:auto;
+
+    box-shadow:var(--shadow);
+
+}
+
+.logo-area{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    margin-bottom:40px;
+
+}
+
+.logo-area img{
+
+    width:90px;
+
+    height:90px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    margin-bottom:15px;
+
+}
+
+.logo-area h1{
+
+    font-size:24px;
+
+    text-align:center;
+
+}
+
+.menu-lateral nav ul{
+
+    list-style:none;
+
+}
+
+.menu-lateral nav li{
+
+    margin-bottom:18px;
+
+}
+
+.menu-lateral nav a{
+
+    display:block;
+
+    padding:14px 18px;
+
+    border-radius:8px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.menu-lateral nav a:hover{
+
+    background:#FFFFFF;
+
+}
+
+/* ==========================================================
+   CONTEÚDO
+========================================================== */
+
+.pagina{
+
+    margin-left:var(--menu);
+
+    width:calc(100% - var(--menu));
+
+    display:flex;
+
+    flex-direction:column;
+
+    min-height:100vh;
+
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.header{
+
+    background:#FFFFFF;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px 40px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.menu-superior{
+
+    display:flex;
+
+    gap:25px;
+
+}
+
+.menu-superior a{
+
+    font-weight:bold;
+
+}
+
+.menu-superior a:hover{
+
+    color:#000;
+
+}
+
+.pesquisa{
+
+    width:320px;
+
+}
+
+.pesquisa input{
+
+    width:100%;
+
+    padding:12px;
+
+    border:1px solid #CCCCCC;
+
+    border-radius:8px;
+
+}
+
+/* ==========================================================
+   HERO
+========================================================== */
+
+.hero-perfil{
+
+    background:#FFFFFF;
+
+    margin:35px;
+
+    padding:35px;
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:30px;
+
+}
+
+.perfil-esquerda{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+
+}
+
+.perfil-esquerda img{
+
+    width:140px;
+
+    height:140px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+}
+
+.dados-perfil h2{
+
+    font-size:34px;
+
+    margin-bottom:10px;
+
+}
+
+.badges{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-bottom:15px;
+
+}
+
+.badges span{
+
+    background:var(--verde);
+
+    padding:8px 16px;
+
+    border-radius:30px;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+}
+
+.dados-perfil p{
+
+    color:var(--cinza);
+
+    max-width:500px;
+
+}
+
+.perfil-direita{
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+.perfil-direita button{
+
+    padding:14px 28px;
+
+    border-radius:8px;
+
+    font-weight:bold;
+
+}
+
+#btnDescartarHero{
+
+    background:#F2F2F2;
+
+}
+
+#btnSalvarHero{
+
+    background:#1F1F1F;
+
+    color:#FFFFFF;
+
+}
+/* ==========================================================
+   EDITAR PERFIL
+========================================================== */
+
+.editar-perfil{
+
+    background:var(--branco);
+
+    margin:0 35px 35px;
+
+    padding:35px;
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+}
+
+.titulo-secao{
+
+    margin-bottom:30px;
+
+}
+
+.titulo-secao h2{
+
+    font-size:30px;
+
+    margin-bottom:8px;
+
+}
+
+.titulo-secao p{
+
+    color:var(--cinza);
+
+}
+
+.acoes-edicao{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    margin-bottom:25px;
+
+}
+
+.acoes-edicao button{
+
+    padding:14px 28px;
+
+    background:#1F1F1F;
+
+    color:#FFFFFF;
+
+    border-radius:8px;
+
+    font-weight:bold;
+
+}
+
+.abas{
+
+    display:flex;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+.abas button{
+
+    padding:12px 24px;
+
+    border-radius:8px;
+
+    background:#F3F3F3;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.abas button:hover{
+
+    background:var(--verde);
+
+}
+
+/* ==========================================================
+   INFORMAÇÕES BÁSICAS
+========================================================== */
+
+.informacoes-basicas{
+
+    background:var(--branco);
+
+    margin:0 35px 35px;
+
+    padding:35px;
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+}
+
+/* ==========================================================
+   FORMULÁRIOS
+========================================================== */
+
+.grid-form{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:25px;
+
+}
+
+.campo{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.campo label{
+
+    font-weight:bold;
+
+    margin-bottom:8px;
+
+    color:var(--preto);
+
+}
+
+.campo input,
+.campo select{
+
+    width:100%;
+
+    padding:14px;
+
+    border:1px solid #CCCCCC;
+
+    border-radius:8px;
+
+    background:#FFFFFF;
+
+    font-size:15px;
+
+    transition:.3s;
+
+}
+
+.campo input:focus,
+.campo select:focus{
+
+    border-color:#A6B98C;
+
+    box-shadow:0 0 0 3px rgba(166,185,140,.25);
+
+}
+
+.campo small{
+
+    margin-top:6px;
+
+    color:var(--cinza);
+
+    font-size:13px;
+
+}
+
+/* ==========================================================
+   BOTÕES DOS FORMULÁRIOS
+========================================================== */
+
+.acoes-formulario{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:15px;
+
+    margin-top:35px;
+
+}
+
+.acoes-formulario button{
+
+    padding:14px 28px;
+
+    border-radius:8px;
+
+    font-weight:bold;
+
+}
+
+.acoes-formulario button[type="reset"]{
+
+    background:#F2F2F2;
+
+    color:#222;
+
+}
+
+.acoes-formulario button[type="submit"]{
+
+    background:#1F1F1F;
+
+    color:#FFFFFF;
+
+}
+
+.acoes-formulario button:hover{
+
+    transform:translateY(-2px);
+
+}
+/* ==========================================================
+   CONTATO
+========================================================== */
+
+.contato{
+
+    background:var(--branco);
+
+    margin:0 35px 35px;
+
+    padding:35px;
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+}
+
+/* ==========================================================
+   PREFERÊNCIAS
+========================================================== */
+
+.preferencias{
+
+    background:var(--branco);
+
+    margin:0 35px 35px;
+
+    padding:35px;
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+}
+
+/* ==========================================================
+   CARDS E SEÇÕES
+========================================================== */
+
+.informacoes-basicas,
+.contato,
+.preferencias{
+
+    transition:.3s;
+
+}
+
+.informacoes-basicas:hover,
+.contato:hover,
+.preferencias:hover{
+
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
+
+}
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+footer{
+
+    margin-top:auto;
+
+    background:var(--verde);
+
+    padding:35px;
+
+}
+
+.footer-container{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:30px;
+
+}
+
+.footer-container a{
+
+    color:var(--preto);
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.footer-container a:hover{
+
+    color:#000;
+
+    transform:translateY(-2px);
+
+}
+
+.footer-container p{
+
+    width:100%;
+
+    text-align:center;
+
+    margin-top:15px;
+
+    color:var(--cinza);
+
+    font-size:14px;
+
+}
+
+/* ==========================================================
+   ANIMAÇÕES
+========================================================== */
+
+button{
+
+    transition:all .3s ease;
+
+}
+
+button:hover{
+
+    transform:translateY(-3px);
+
+}
+
+button:active{
+
+    transform:scale(.97);
+
+}
+
+input,
+select{
+
+    transition:all .3s ease;
+
+}
+
+input:hover,
+select:hover{
+
+    border-color:#A6B98C;
+
+}
+
+input:focus,
+select:focus{
+
+    border-color:#95A96B;
+
+    box-shadow:0 0 0 4px rgba(149,169,107,.20);
+
+}
+
+.menu-lateral a{
+
+    position:relative;
+
+}
+
+.menu-lateral a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:18px;
+
+    bottom:8px;
+
+    width:0;
+
+    height:2px;
+
+    background:#1F1F1F;
+
+    transition:.3s;
+
+}
+
+.menu-lateral a:hover::after{
+
+    width:calc(100% - 36px);
+
+}
+/* ==========================================================
+   RESPONSIVIDADE
+========================================================== */
+
+@media(max-width:1200px){
+
+    .grid-form{
+
+        grid-template-columns:1fr 1fr;
+
+    }
+
+}
+
+@media(max-width:992px){
+
+    body{
+
+        flex-direction:column;
+
+    }
+
+    .menu-lateral{
+
+        position:relative;
+
+        width:100%;
+
+        height:auto;
+
+    }
+
+    .pagina{
+
+        margin-left:0;
+
+        width:100%;
+
+    }
+
+    .hero-perfil{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    .perfil-esquerda{
+
+        flex-direction:column;
+
+    }
+
+    .perfil-direita{
+
+        width:100%;
+
+        justify-content:center;
+
+    }
+
+    .header{
+
+        flex-direction:column;
+
+        gap:20px;
+
+    }
+
+    .pesquisa{
+
+        width:100%;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .grid-form{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .abas{
+
+        flex-direction:column;
+
+    }
+
+    .acoes-formulario{
+
+        flex-direction:column;
+
+    }
+
+    .acoes-formulario button{
+
+        width:100%;
+
+    }
+
+    .acoes-edicao{
+
+        justify-content:center;
+
+    }
+
+    .acoes-edicao button{
+
+        width:100%;
+
+    }
+
+    .hero-perfil{
+
+        margin:20px;
+
+        padding:25px;
+
+    }
+
+    .informacoes-basicas,
+    .contato,
+    .preferencias,
+    .editar-perfil{
+
+        margin:20px;
+
+        padding:25px;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    .logo-area img{
+
+        width:70px;
+
+        height:70px;
+
+    }
+
+    .dados-perfil h2{
+
+        font-size:28px;
+
+    }
+
+    .titulo-secao h2{
+
+        font-size:24px;
+
+    }
+
+    .footer-container{
+
+        flex-direction:column;
+
+        gap:15px;
+
+    }
+
+}

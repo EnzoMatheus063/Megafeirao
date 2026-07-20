@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Meu Perfil</title>
+
+    <link
+        rel="stylesheet"
+        href="../Style/perfil_cliente.css">
+
+</head>
+
+<body>
+
+<!-- ======================================================
+     MENU LATERAL
+====================================================== -->
+
+<aside class="menu-lateral">
+
+    <div class="logo-area">
+
+        <img
+            id="logoPerfil"
+            src=""
+            alt="Perfil">
+
+        <h1 id="tituloMenu"></h1>
+
+    </div>
+
+    <nav>
+
+        <ul>
+
+            <li>
+
+                <a
+                    id="menuDados"
+                    href="#informacoesBasicas">
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    id="menuSeguranca"
+                    href="#seguranca">
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    id="menuPedidos"
+                    href="#pedidos">
+                </a>
+
+            </li>
+
+            <li>
+
+                <a
+                    id="menuPagamentos"
+                    href="#pagamentos">
+                </a>
+
+            </li>
+
+        </ul>
+
+    </nav>
+
+</aside>
+
+<!-- ======================================================
+     CONTEÚDO PRINCIPAL
+====================================================== -->
+
+<div class="pagina">
+
+<!-- ======================================================
+     HEADER
+====================================================== -->
+
+<header class="header">
+
+    <nav class="menu-superior">
+
+        <a
+            id="linkInicio"
+            href="#">
+        </a>
+
+        <a
+            id="linkPedidos"
+            href="#">
+        </a>
+
+        <a
+            id="linkFavoritos"
+            href="#">
+        </a>
+
+    </nav>
+
+    <div class="pesquisa">
+
+        <input
+            type="text"
+            id="campoPesquisa"
+            placeholder="">
+
+    </div>
+
+</header>
+
+<!-- ======================================================
+     HERO
+====================================================== -->
+
+<section class="hero-perfil">
+
+    <div class="perfil-esquerda">
+
+        <img
+            id="fotoPerfil"
+            src=""
+            alt="Foto do usuário">
+
+        <div class="dados-perfil">
+
+            <h2 id="nomeUsuario"></h2>
+
+            <div class="badges">
+
+                <span id="badgeConta"></span>
+
+                <span id="badgePlano"></span>
+
+            </div>
+
+            <p id="descricaoPerfil"></p>
+
+        </div>
+
+    </div>
+
+    <div class="perfil-direita">
+
+        <button
+            id="btnDescartarHero">
+        </button>
+
+        <button
+            id="btnSalvarHero">
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ======================================================
+     EDITAR PERFIL
+====================================================== -->
+
+<section class="editar-perfil">
+
+    <div class="titulo-secao">
+
+        <h2 id="tituloEditar"></h2>
+
+        <p id="descricaoEditar"></p>
+
+    </div>
+
+    <div class="acoes-edicao">
+
+        <button
+            id="btnSalvarPerfil">
+        </button>
+
+    </div>
+
+    <div class="abas">
+
+        <button
+            id="abaPerfil">
+        </button>
+
+        <button
+            id="abaContato">
+        </button>
+
+        <button
+            id="abaPreferencias">
+        </button>
+
+    </div>
+
+</section>
+<!-- ======================================================
+     INFORMAÇÕES BÁSICAS
+====================================================== -->
+
+<section
+    class="informacoes-basicas"
+    id="informacoesBasicas">
+
+    <div class="titulo-secao">
+
+        <h2 id="tituloInformacoes"></h2>
+
+        <p id="descricaoInformacoes"></p>
+
+    </div>
+
+    <form id="formInformacoes">
+
+        <div class="grid-form">
+
+            <!-- Nome -->
+
+            <div class="campo">
+
+                <label
+                    id="lblNome"
+                    for="nome">
+                </label>
+
+                <input
+                    type="text"
+                    id="nome"
+                    placeholder="">
+
+            </div>
+
+            <!-- Data -->
+
+            <div class="campo">
+
+                <label
+                    id="lblNascimento"
+                    for="dataNascimento">
+                </label>
+
+                <input
+                    type="date"
+                    id="dataNascimento">
+
+            </div>
+
+            <!-- CPF -->
+
+            <div class="campo">
+
+                <label
+                    id="lblCpf"
+                    for="cpf">
+                </label>
+
+                <input
+                    type="text"
+                    id="cpf"
+                    placeholder="">
+
+                <small id="txtCpf"></small>
+
+            </div>
+
+            <!-- Gênero -->
+
+            <div class="campo">
+
+                <label
+                    id="lblGenero"
+                    for="genero">
+                </label>
+
+                <select id="genero">
+
+                    <option value=""></option>
+
+                    <option value="Masculino"></option>
+
+                    <option value="Feminino"></option>
+
+                    <option value="Outro"></option>
+
+                    <option value="Prefiro não informar"></option>
+
+                </select>
+
+                <small id="txtGenero"></small>
+
+            </div>
+
+        </div>
+
+        <!-- Botões -->
+
+        <div class="acoes-formulario">
+
+            <button
+                type="reset"
+                id="btnDescartarInfo">
+            </button>
+
+            <button
+                type="submit"
+                id="btnSalvarInfo">
+            </button>
+
+        </div>
+
+    </form>
+
+</section>
+<!-- ======================================================
+     CONTATO
+====================================================== -->
+
+<section
+    class="contato"
+    id="contato">
+
+    <div class="titulo-secao">
+
+        <h2 id="tituloContato"></h2>
+
+        <p id="descricaoContato"></p>
+
+    </div>
+
+    <form id="formContato">
+
+        <div class="grid-form">
+
+            <!-- E-mail -->
+
+            <div class="campo">
+
+                <label
+                    id="lblEmail"
+                    for="email">
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="">
+
+                <small id="txtEmail"></small>
+
+            </div>
+
+            <!-- Telefone -->
+
+            <div class="campo">
+
+                <label
+                    id="lblTelefone"
+                    for="telefone">
+                </label>
+
+                <input
+                    type="tel"
+                    id="telefone"
+                    placeholder="">
+
+                <small id="txtTelefone"></small>
+
+            </div>
+
+            <!-- CEP -->
+
+            <div class="campo">
+
+                <label
+                    id="lblCep"
+                    for="cep">
+                </label>
+
+                <input
+                    type="text"
+                    id="cep"
+                    placeholder="">
+
+                <small id="txtCep"></small>
+
+            </div>
+
+            <!-- Cidade -->
+
+            <div class="campo">
+
+                <label
+                    id="lblCidade"
+                    for="cidade">
+                </label>
+
+                <input
+                    type="text"
+                    id="cidade"
+                    placeholder="">
+
+                <small id="txtCidade"></small>
+
+            </div>
+
+            <!-- Estado -->
+
+            <div class="campo">
+
+                <label
+                    id="lblEstado"
+                    for="estado">
+                </label>
+
+                <select id="estado">
+
+                    <option value=""></option>
+
+                    <option value="AC"></option>
+                    <option value="AL"></option>
+                    <option value="AP"></option>
+                    <option value="AM"></option>
+                    <option value="BA"></option>
+                    <option value="CE"></option>
+                    <option value="DF"></option>
+                    <option value="ES"></option>
+                    <option value="GO"></option>
+                    <option value="MA"></option>
+                    <option value="MT"></option>
+                    <option value="MS"></option>
+                    <option value="MG"></option>
+                    <option value="PA"></option>
+                    <option value="PB"></option>
+                    <option value="PR"></option>
+                    <option value="PE"></option>
+                    <option value="PI"></option>
+                    <option value="RJ"></option>
+                    <option value="RN"></option>
+                    <option value="RS"></option>
+                    <option value="RO"></option>
+                    <option value="RR"></option>
+                    <option value="SC"></option>
+                    <option value="SP"></option>
+                    <option value="SE"></option>
+                    <option value="TO"></option>
+
+                </select>
+
+                <small id="txtEstado"></small>
+
+            </div>
+
+            <!-- Endereço -->
+
+            <div class="campo">
+
+                <label
+                    id="lblEndereco"
+                    for="endereco">
+                </label>
+
+                <input
+                    type="text"
+                    id="endereco"
+                    placeholder="">
+
+                <small id="txtEndereco"></small>
+
+            </div>
+
+        </div>
+
+        <div class="acoes-formulario">
+
+            <button
+                type="reset"
+                id="btnDescartarContato">
+            </button>
+
+            <button
+                type="submit"
+                id="btnSalvarContato">
+            </button>
+
+        </div>
+
+    </form>
+
+</section>
+<!-- ======================================================
+     PREFERÊNCIAS
+====================================================== -->
+
+<section
+    class="preferencias"
+    id="preferencias">
+
+    <div class="titulo-secao">
+
+        <h2 id="tituloPreferencias"></h2>
+
+        <p id="descricaoPreferencias"></p>
+
+    </div>
+
+    <form id="formPreferencias">
+
+        <div class="grid-form">
+
+            <!-- Idioma -->
+
+            <div class="campo">
+
+                <label
+                    id="lblIdioma"
+                    for="idioma">
+                </label>
+
+                <select id="idioma">
+
+                    <option value=""></option>
+                    <option value="pt-br"></option>
+                    <option value="en"></option>
+                    <option value="es"></option>
+
+                </select>
+
+                <small id="txtIdioma"></small>
+
+            </div>
+
+            <!-- Notificações -->
+
+            <div class="campo">
+
+                <label
+                    id="lblNotificacoes"
+                    for="notificacoes">
+                </label>
+
+                <select id="notificacoes">
+
+                    <option value=""></option>
+                    <option value="Todas"></option>
+                    <option value="Somente importantes"></option>
+                    <option value="Nenhuma"></option>
+
+                </select>
+
+                <small id="txtNotificacoes"></small>
+
+            </div>
+
+            <!-- Preferência de Contato -->
+
+            <div class="campo">
+
+                <label
+                    id="lblContatoPreferido"
+                    for="contatoPreferido">
+                </label>
+
+                <select id="contatoPreferido">
+
+                    <option value=""></option>
+                    <option value="Email"></option>
+                    <option value="Telefone"></option>
+                    <option value="WhatsApp"></option>
+
+                </select>
+
+                <small id="txtContatoPreferido"></small>
+
+            </div>
+
+            <!-- Promoções -->
+
+            <div class="campo">
+
+                <label
+                    id="lblPromocoes"
+                    for="promocoes">
+                </label>
+
+                <select id="promocoes">
+
+                    <option value=""></option>
+                    <option value="Ativar"></option>
+                    <option value="Desativar"></option>
+
+                </select>
+
+                <small id="txtPromocoes"></small>
+
+            </div>
+
+        </div>
+
+        <div class="acoes-formulario">
+
+            <button
+                type="reset"
+                id="btnDescartarPreferencias">
+            </button>
+
+            <button
+                type="submit"
+                id="btnSalvarPreferencias">
+            </button>
+
+        </div>
+
+    </form>
+
+</section>
+
+<!-- ======================================================
+     RODAPÉ
+====================================================== -->
+
+<footer>
+
+    <div class="footer-container">
+
+        <a
+            id="footerAtendimento"
+            href="#">
+        </a>
+
+        <a
+            id="footerTroca"
+            href="#">
+        </a>
+
+        <a
+            id="footerFrete"
+            href="#">
+        </a>
+
+        <a
+            id="footerPagamento"
+            href="#">
+        </a>
+
+        <p id="footerCopyright"></p>
+
+    </div>
+
+</footer>
+
+</div>
+
+<!-- ======================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script src="../js/perfil_cliente.js"></script>
+
+</body>
+
+</html>

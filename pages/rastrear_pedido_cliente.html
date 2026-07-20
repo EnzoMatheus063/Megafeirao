@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Rastrear Pedido</title>
+
+    <link
+        rel="stylesheet"
+        href="../Style/rastrear_pedido_cliente.css">
+
+</head>
+
+<body>
+
+<!-- ==========================================================
+    HEADER
+=========================================================== -->
+
+<header class="header">
+
+    <div class="logo">
+
+        <img
+            id="logoPagina"
+            src=""
+            alt="Logo">
+
+        <h1 id="tituloPagina"></h1>
+
+    </div>
+
+    <nav class="menu">
+
+        <a
+            id="menuAjuda"
+            href="#">
+        </a>
+
+        <a
+            id="menuSuporte"
+            href="#">
+        </a>
+
+    </nav>
+
+</header>
+
+<!-- ==========================================================
+    HERO
+=========================================================== -->
+
+<section class="hero">
+
+    <h2 id="tituloHero"></h2>
+
+    <p id="descricaoHero"></p>
+
+    <div class="hero-botoes">
+
+        <button id="btnCancelarPedido">
+        </button>
+
+        <button id="btnCompartilhar">
+        </button>
+
+    </div>
+
+    <div class="hero-abas">
+
+        <button id="abaAndamento">
+        </button>
+
+        <button id="abaDetalhes">
+        </button>
+
+        <button id="abaPagamento">
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ==========================================================
+    ESTIMATIVA
+=========================================================== -->
+
+<section class="estimativa">
+
+    <div class="titulo-secao">
+
+        <h2 id="tituloEstimativa"></h2>
+
+        <p id="descricaoEstimativa"></p>
+
+    </div>
+
+    <div class="cards-estimativa">
+
+        <!-- Tempo -->
+
+        <article class="card">
+
+            <span id="tempoTitulo"></span>
+
+            <h3 id="tempoValor"></h3>
+
+            <small id="tempoDescricao"></small>
+
+        </article>
+
+        <!-- Distância -->
+
+        <article class="card">
+
+            <span id="distanciaTitulo"></span>
+
+            <h3 id="distanciaValor"></h3>
+
+            <small id="distanciaDescricao"></small>
+
+        </article>
+
+        <!-- Status -->
+
+        <article class="card">
+
+            <span id="statusTitulo"></span>
+
+            <h3 id="statusValor"></h3>
+
+            <small id="statusDescricao"></small>
+
+        </article>
+
+    </div>
+
+</section>
+
+<!-- ==========================================================
+    ACOMPANHAMENTO
+=========================================================== -->
+
+<section class="acompanhamento">
+
+    <div class="titulo-secao">
+
+        <h2 id="tituloAcompanhamento"></h2>
+
+        <p id="descricaoAcompanhamento"></p>
+
+    </div>
+
+    <div class="timeline">
+
+        <!-- Etapa 1 -->
+
+        <div class="etapa">
+
+            <img
+                id="iconeEtapa1"
+                src=""
+                alt="">
+
+            <h3 id="tituloEtapa1"></h3>
+
+            <span id="horaEtapa1"></span>
+
+            <strong id="statusEtapa1"></strong>
+
+        </div>
+
+        <!-- Etapa 2 -->
+
+        <div class="etapa">
+
+            <img
+                id="iconeEtapa2"
+                src=""
+                alt="">
+
+            <h3 id="tituloEtapa2"></h3>
+
+            <span id="horaEtapa2"></span>
+
+            <strong id="statusEtapa2"></strong>
+
+        </div>
+
+        <!-- Etapa 3 -->
+
+        <div class="etapa">
+
+            <img
+                id="iconeEtapa3"
+                src=""
+                alt="">
+
+            <h3 id="tituloEtapa3"></h3>
+
+            <span id="horaEtapa3"></span>
+
+            <strong id="statusEtapa3"></strong>
+
+        </div>
+
+        <!-- Etapa 4 -->
+
+        <div class="etapa">
+
+            <img
+                id="iconeEtapa4"
+                src=""
+                alt="">
+
+            <h3 id="tituloEtapa4"></h3>
+
+            <span id="horaEtapa4"></span>
+
+            <strong id="statusEtapa4"></strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================================
+    MAPA
+=========================================================== -->
+
+<section class="mapa">
+
+    <div class="titulo-secao">
+
+        <h2 id="tituloMapa"></h2>
+
+        <p id="descricaoMapa"></p>
+
+    </div>
+
+    <div class="container-mapa">
+
+        <img
+            id="imagemMapa"
+            src=""
+            alt="Mapa">
+
+        <div class="texto-mapa">
+
+            <span id="textoMapa"></span>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================================
+    INFORMAÇÕES DO PEDIDO
+=========================================================== -->
+
+<section class="informacoes-pedido">
+
+    <div class="titulo-secao">
+
+        <h2 id="tituloInformacoes"></h2>
+
+        <p id="descricaoInformacoes"></p>
+
+    </div>
+
+    <div class="grid-informacoes">
+
+        <!-- ITENS -->
+
+        <article class="info-card">
+
+            <img
+                id="iconeItens"
+                src=""
+                alt="Itens">
+
+            <div class="info-conteudo">
+
+                <h3 id="tituloItens"></h3>
+
+                <span id="subtituloItens"></span>
+
+                <p id="descricaoItens"></p>
+
+            </div>
+
+        </article>
+
+        <!-- ENDEREÇO -->
+
+        <article class="info-card">
+
+            <img
+                id="iconeEndereco"
+                src=""
+                alt="Endereço">
+
+            <div class="info-conteudo">
+
+                <h3 id="tituloEndereco"></h3>
+
+                <span id="subtituloEndereco"></span>
+
+                <p id="descricaoEndereco"></p>
+
+            </div>
+
+        </article>
+
+        <!-- PAGAMENTO -->
+
+        <article class="info-card">
+
+            <img
+                id="iconePagamento"
+                src=""
+                alt="Pagamento">
+
+            <div class="info-conteudo">
+
+                <h3 id="tituloPagamento"></h3>
+
+                <span id="subtituloPagamento"></span>
+
+                <p id="descricaoPagamento"></p>
+
+            </div>
+
+        </article>
+
+        <!-- OBSERVAÇÃO -->
+
+        <article class="info-card">
+
+            <img
+                id="iconeObservacao"
+                src=""
+                alt="Observação">
+
+            <div class="info-conteudo">
+
+                <h3 id="tituloObservacao"></h3>
+
+                <span id="subtituloObservacao"></span>
+
+                <p id="descricaoObservacao"></p>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+<!-- ==========================================================
+    AVISO
+=========================================================== -->
+
+<section class="aviso">
+
+    <div class="aviso-card">
+
+        <p id="textoAviso"></p>
+
+    </div>
+
+</section>
+<!-- ==========================================================
+    RODAPÉ
+=========================================================== -->
+
+<footer class="footer">
+
+    <div class="footer-links">
+
+        <a
+            id="footerPrivacidade"
+            href="#">
+        </a>
+
+        <a
+            id="footerTermos"
+            href="#">
+        </a>
+
+        <a
+            id="footerAjuda"
+            href="#">
+        </a>
+
+        <span
+            id="footerCopyright">
+        </span>
+
+    </div>
+
+</footer>
+
+<!-- ==========================================================
+    MODAL (FUTURA IMPLEMENTAÇÃO)
+=========================================================== -->
+
+<section
+    id="modalCompartilhar"
+    class="modal">
+
+    <div class="modal-conteudo">
+
+        <h2 id="tituloModal"></h2>
+
+        <p id="descricaoModal"></p>
+
+        <input
+            type="text"
+            id="linkCompartilhamento"
+            readonly>
+
+        <div class="modal-botoes">
+
+            <button
+                id="btnCopiarLink">
+            </button>
+
+            <button
+                id="btnFecharModal">
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================================
+    LOADING
+=========================================================== -->
+
+<section
+    id="loadingPedido"
+    class="loading">
+
+    <div class="spinner"></div>
+
+    <p id="textoLoading"></p>
+
+</section>
+
+<!-- ==========================================================
+    JAVASCRIPT
+=========================================================== -->
+
+<script src="../js/rastrear_pedido_cliente.js"></script>
+
+</body>
+
+</html>
