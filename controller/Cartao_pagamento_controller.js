@@ -3,7 +3,7 @@
 // passe aqui o caminho correto do seu arquivo model
 //==========================================
 
-const Cartao_pagamento_model = require("../model/cartao_pagamento_model");
+const Cartao_pagamento_model = require("../model/Cartao_pagamento_models.js");
 
 //==========================================
 // CADASTRAR CARTÃO DE PAGAMENTO

@@ -1,4 +1,4 @@
-const Pedidos_has_Produtos_model = require("../model/Pedidos_has_Produtos_model.js");
+const Pedidos_has_Produtos_model = require("../model/Pedidos_has_produtos_models");
 
 // LISTAR TODOS OS RELACIONAMENTOS
 exports.listar = (req, res) => {

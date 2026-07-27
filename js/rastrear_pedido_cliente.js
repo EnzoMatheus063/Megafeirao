@@ -317,7 +317,7 @@ rastreamento.mapa = {
 
     descricao:"Acompanhe a posição atual do entregador.",
 
-    imagem:"../Assets/images/mapa.png",
+    imagem:"../Assets/mapa.png",
 
     texto:"O entregador está a aproximadamente 4,3 km do destino."
 
@@ -347,7 +347,7 @@ rastreamento.informacoes = {
 
     itens:{
 
-        icone:"../Assets/images/itens.png",
+        icone:"../Assets/produtos.png",
 
         titulo:"Itens",
 
@@ -359,7 +359,7 @@ rastreamento.informacoes = {
 
     endereco:{
 
-        icone:"../Assets/images/endereco.png",
+        icone:"../Assets/mapa.png",
 
         titulo:"Endereço",
 
@@ -371,7 +371,7 @@ rastreamento.informacoes = {
 
     pagamento:{
 
-        icone:"../Assets/images/cartao.png",
+        icone:"../Assets/pagamento.png",
 
         titulo:"Pagamento",
 
@@ -383,7 +383,7 @@ rastreamento.informacoes = {
 
     observacao:{
 
-        icone:"../Assets/images/observacao.png",
+        icone:"../Assets/informacao.png",
 
         titulo:"Observações",
 

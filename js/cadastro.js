@@ -383,3 +383,133 @@ document.getElementById("btnCadastrar")
     this.style.opacity = "1";
 
 });
+
+
+document.getElementById("btnCadastrar").addEventListener("click", () => {
+ 
+    const nome = document.getElementById("nome").value.trim();
+ 
+    const Cpf = document.getElementById("Cpf").value.trim();
+ 
+    const Telefone = document.getElementById("Telefone").value.trim();
+ 
+    const Email = document.getElementById("Email").value.trim();
+ 
+    const senha = document.getElementById("senha").value;
+ 
+    const nascimento =
+        document.getElementById("nascimento").value;
+ 
+      // verifica se todos os campos foram preenchidos
+    if (
+        nome == "" ||
+        Cpf == "" ||
+        Telefone == "" ||
+        Email == "" ||
+        senha == "" ||
+        nascimento == ""
+    ) {
+ 
+        mensagem.style.color = "red";
+        mensagem.innerHTML = "Preencha todos os campos.";
+        
+ 
+        return;
+ 
+    }
+ 
+    if (senha.length < 8 || senha.length > 13) {
+ 
+        mensagem.style.color = "red";
+        mensagem.innerHTML =
+            "A senha deve possuir no máximo 13 caracteres.";
+ 
+        return;
+ 
+    }
+ 
+    if (!email.includes("@")) {
+ 
+        mensagem.style.color = "red";
+        mensagem.innerHTML = "Digite um e-mail válido.";
+ 
+        return;
+ 
+    }
+ 
+    mensagem.style.color = "green";
+ 
+    mensagem.innerHTML =
+        "Cadastro realizado com sucesso!";
+ 
+    // Objeto pronto para enviar ao Node.js
+ 
+    const cliente = {
+ 
+        nome: nome,
+ 
+        cpf: cpf.replace(/\D/g, ""),
+ 
+        telefone: telefone.replace(/\D/g, ""),
+ 
+        email: email,
+ 
+        senha: senha,
+ 
+        data_nascimento: dataNascimento,
+ 
+        Loja_idLoja: 1
+ 
+    };
+ 
+    console.log(cliente);
+ 
+ 
+    fetch("http://localhost:3000/clientes", {
+ 
+        method: "POST",
+ 
+        headers: {
+            "Content-Type": "application/json"
+        },
+ 
+        body: JSON.stringify(cliente)
+ 
+    })
+        .then(res => res.json())
+ 
+        .then(resposta => {
+ 
+            if (resposta.sucesso) {
+ 
+                mensagem.style.color = "green";
+                mensagem.innerHTML = resposta.mensagem;
+ 
+                // Limpa os campos
+                document.getElementById("nome").value = "";
+                document.getElementById("cpf").value = "";
+                document.getElementById("telefone").value = "";
+                document.getElementById("email").value = "";
+                document.getElementById("senha").value = "";
+                document.getElementById("dataNascimento").value = "";
+ 
+            } else {
+ 
+                mensagem.style.color = "red";
+                mensagem.innerHTML = resposta.mensagem;
+ 
+            }
+ 
+        })
+ 
+        .catch(() => {
+ 
+            mensagem.style.color = "red";
+            mensagem.innerHTML = "Erro ao conectar com o servidor.";
+ 
+        });
+ 
+ 
+});
+ 
+ 

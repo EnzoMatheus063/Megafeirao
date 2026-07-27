@@ -81,7 +81,7 @@ nome varchar(200) not null,
 cpf mediumint (12) not null,
 telefone mediumint(15) not null,
 email varchar (120) not null,
-senhar varchar(13) not null,
+senha varchar(13) not null,
 data_nascimento date not null,
 Loja_idLoja int,
 foreign key (Loja_idLoja) References loja (idLoja)
@@ -313,3 +313,26 @@ produto_idproduto int,
 foreign key (Banner_idBanner)  references Banner (idBanner),
 foreign key (produto_idproduto)  references produto (idproduto)
 );
+
+-- DML - COMANDO DE MODELAGEM DO BD
+-- INSERIR, EDITAR, EXCLUIR, LISTAR
+
+-- LISTAGEM DE TABELAS
+SHOW TABLES;
+
+-- INSERT - INSERIR DADOS NA TABELA
+INSERT INTO ENDERECO
+(rua,cep,bairro,numero,complemento,tipo)
+values ("Rodoviário",77827200,"Rodoviário",437,"AO LADO DO SENAC","COMERCIAL");
+
+INSERT INTO Lojista(nome,cpf,email,senha,telefone)
+values("Jõao",09012209022,"joao@gmail.com","123abc",6399001-1234);
+
+-- lista de dados da tabela
+select * from Endereco;
+select * from Lojista;
+select * from Loja;
+
+-- CADASTRAR OS DADOS DA LOJA
+INSERT INTO Loja (nome, whatsapp,telefone, email,endereco_idendereco,Lojista_idLojista)
+values("megafeirao","6399001-1234",6399001-1234,"megafeirao@gmail.com",1,1);

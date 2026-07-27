@@ -1,4 +1,4 @@
-// nesse arquivo, definimos as rotas relacionadas aos clientes e associamos cada rota a uma função do ClienteController. As rotas são:
+// nesse arquivo, definimos as rotas relacionadas aos clientes e associamos cada rota a uma função do CarrinhoController. As rotas são:
 // POST /Carrinho: para cadastrar um novo cliente.
 // GET /Carrinho: para listar todos os clientes.
 // GET /Carrinho/:id: para buscar um cliente específico pelo ID.
@@ -10,7 +10,7 @@ const express = require("express");
 // Importando o módulo express para criar rotas e lidar com requisições HTTP.
 const router = express.Router();
 // Criando um objeto router para definir as rotas relacionadas aos clientes.
-const ClienteController = require("../controller/Carrinho.js");
+const CarrinhoController = require("../controller/Carrinho_controller.js");
 
 router.post("/", CarrinhoController.cadastrar);
 

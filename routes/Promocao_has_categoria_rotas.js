@@ -10,7 +10,7 @@ const express = require("express");
 // Importando o módulo express para criar rotas e lidar com requisições HTTP.
 const router = express.Router();
 // Criando um objeto router para definir as rotas relacionadas aos clientes.
-const ClienteController = require("../controller/Promocao_has_categoria_controller.js");
+const Promocao_has_categoriaController = require("../controller/Promocao_has_categoria_controller.js");
 
 router.post("/", Promocao_has_categoriaController.cadastrar);
 
