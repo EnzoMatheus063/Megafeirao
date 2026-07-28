@@ -3,7 +3,7 @@
 // passe aqui o caminho correto do seu arquivo model
 //==========================================
 
-const Cliente_model = require("../model/Cliente_model");
+const clienteModel = require("../model/Cliente_model");
 
 //==========================================
 // CADASTRAR CLIENTE
@@ -13,6 +13,12 @@ function cadastrar(req, res) {
 
     const cliente = req.body;
 
+    // Caso não seja enviado o código da loja
+    if (!cliente.Loja_idLoja) {
+
+        cliente.Loja_idLoja = 1;
+
+    }
     // Validação dos campos obrigatórios
 
     if (
@@ -21,8 +27,8 @@ function cadastrar(req, res) {
         !cliente.telefone ||
         !cliente.email ||
         !cliente.senha ||
-        !cliente.data_nascimento ||
-        !cliente.Loja_idLoja
+        !cliente.data_nascimento
+
     ) {
 
         return res.status(400).json({
@@ -32,16 +38,11 @@ function cadastrar(req, res) {
 
     }
 
-    // Caso não seja enviado o código da loja
-    if (!cliente.Loja_idLoja) {
 
-        cliente.Loja_idLoja = 1;
-
-    }
 
     // Verifica se já existe um usuário com o mesmo e-mail
 
-    Cliente_model.buscarPorEmail(cliente.email, (erro, resultado) => {
+    clienteModel.buscarPorEmail(cliente.email, (erro, resultado) => {
 
         if (erro) {
 
@@ -63,7 +64,7 @@ function cadastrar(req, res) {
 
         // Cadastra o cliente
 
-        Cliente_model.cadastrar(cliente, (erro, resultado) => {
+        clienteModel.cadastrar(cliente, (erro, resultado) => {
 
             if (erro) {
 
@@ -94,7 +95,7 @@ function cadastrar(req, res) {
 
 function listar(req, res) {
 
-    Cliente_model.listar((erro, resultado) => {
+    clienteModel.listar((erro, resultado) => {
 
         if (erro) {
 
@@ -119,7 +120,7 @@ function buscarPorId(req, res) {
 
     const id = req.params.id;
 
-    Cliente_model.buscarPorId(id, (erro, resultado) => {
+    clienteModel.buscarPorId(id, (erro, resultado) => {
 
         if (erro) {
 
@@ -155,7 +156,7 @@ function atualizar(req, res) {
     // Obtém os dados atualizados do cliente a partir do corpo da requisição
     const cliente = req.body;
 
-    Cliente_model.atualizar(id, cliente, (erro, resultado) => {
+    clienteModel.atualizar(id, cliente, (erro, resultado) => {
 
         if (erro) {
 
@@ -183,7 +184,7 @@ function excluir(req, res) {
     // Obtém o ID do cliente a ser excluído a partir dos parâmetros da URL
     const id = req.params.id;
 
-    Cliente_model.excluir(id, (erro, resultado) => {
+    clienteModel.excluir(id, (erro, resultado) => {
 
         if (erro) {
 
