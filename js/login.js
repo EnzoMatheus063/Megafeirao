@@ -291,29 +291,7 @@ pagina.footer.links[3];
     EVENTOS
 =====================================================*/
 
-document
-.getElementById("form-login")
-.addEventListener("submit", function(e){
 
-    e.preventDefault();
-
-    const email =
-        document.getElementById("email").value.trim();
-
-    const senha =
-        document.getElementById("senha").value.trim();
-
-    if(email === "" || senha === ""){
-
-        alert("Preencha todos os campos.");
-
-        return;
-
-    }
-
-    alert("Login realizado com sucesso!");
-
-});
 
 
 document
@@ -343,12 +321,70 @@ document
 });
 
 
-document
-.getElementById("btnEntrarHero")
-.addEventListener("click", function(){
 
-    document
-        .getElementById("email")
-        .focus();
 
+
+// metodo de login do cliente
+
+const btnEntrar = document.getElementById("btnEntrar");
+
+btnEntrar.addEventListener("click", () => {
+
+    const email = document.getElementById("email").value.trim();
+    const senha = document.getElementById("senha").value;
+
+    const mensagem = document.getElementById("mensagem");
+
+    if (email === "" || senha === "") {
+
+        mensagem.innerHTML = "Preencha todos os campos.";
+        mensagem.style.color = "red";
+        return;
+
+    }
+
+    if (senha.length < 8) {
+
+        mensagem.innerHTML = "A senha deve possuir no mínimo 8 caracteres.";
+        mensagem.style.color = "red";
+        return;
+
+    }
+
+    fetch("http://localhost:3000/clientes/login", {
+
+    method: "POST",
+
+    headers: {
+        "Content-Type": "application/json"
+    },
+
+    body: JSON.stringify({
+        email,
+        senha
+    })
+
+})
+
+.then(res => res.json())
+
+.then(resposta => {
+
+    if (resposta.sucesso) {
+
+        localStorage.setItem(
+            "cliente",
+            JSON.stringify(resposta.cliente)
+        );
+
+        window.location.href = "../index.html";
+
+    } else {
+
+        mensagem.innerHTML = resposta.mensagem;
+        mensagem.style.color = "red";
+
+    }
+
+});
 });

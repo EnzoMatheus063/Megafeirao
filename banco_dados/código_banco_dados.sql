@@ -4,28 +4,32 @@
 CREATE DATABASE MEGAFEIRAO;
 
 -- COMANDO PARA EXCLUIR O BANCO DE DADOS
-DROP DATABASE MEGAFEIRAO;
+-- DROP DATABASE MEGAFEIRAO;
 
 -- INICIALIZAR O BANCO DE DADOS
 USE MEGAFEIRAO;
 
+
+
+
+
 -- CRIAR TABELAS QUE NÃO TEM CHAVE ESTRANGEIRA
 CREATE TABLE logista(
-idlojista int primary key auto_increment,
+idlogista int primary key auto_increment,
 nome varchar(200) not null,
-cpf mediumint(12) not null unique,
+cpf varchar(12) not null unique,
 cnpj varchar(120) unique,
 email varchar(120) not null,
 senha varchar (13) not null,
-telefone mediumint(14) 
+telefone varchar(14) 
 );
 -- COMANDO PARA EXCLUIR UMA TABELA
-DROP TABLE LOGISTA;
+-- DROP TABLE LOGISTA;
 
 CREATE TABLE ENDERECO(
 idEndereco int primary key auto_increment,
 rua varchar(45) not null,
-cep mediumint(11) not null,
+cep varchar(11) not null,
 bairro varchar(45) not null,
 numero int,
 complemento varchar(200),
@@ -64,10 +68,10 @@ whatsapp varchar(50),
 instagram varchar(50),
 facebook varchar(50),
 linkedin varchar(50),
-telefone mediumint(14) not null,
+telefone varchar(14) not null,
 email varchar(120) not null,
 Endereco_idEndereco int,
-Lojista_idLojista int,
+Logista_idLogista int,
 FOREIGN KEY (Endereco_idEndereco) References Endereco (idEndereco),
 
 FOREIGN KEY (Logista_idLogista) References Logista (idLogista)
@@ -78,10 +82,10 @@ FOREIGN KEY (Logista_idLogista) References Logista (idLogista)
 create table Cliente(
 idCliente int primary key auto_increment,
 nome varchar(200) not null,
-cpf mediumint (12) not null,
-telefone mediumint(15) not null,
+cpf varchar (45) not null,
+telefone varchar(15) not null,
 email varchar (120) not null,
-senha varchar(13) not null,
+senha varchar(45) not null,
 data_nascimento date not null,
 Loja_idLoja int,
 foreign key (Loja_idLoja) References loja (idLoja)
@@ -131,9 +135,8 @@ preco_promocional float,
 quantidade_estoque int not null,
 ativo boolean, 
 loja_idLoja int,
-loja_logista_idLogista int,
 marca_idMarca int,
- Categoria_idCategoria int,
+Categoria_idCategoria int,
  foreign key (loja_idLoja) references Loja (idLoja),
  foreign key (Marca_idMarca) references Marca (idMarca),
  foreign key (Categoria_idCategoria) references Categoria (idCategoria)
@@ -152,7 +155,8 @@ create table carrinho(
 idCarrinho int primary key auto_increment,
 Quantidade_Produto int not null,
 Preco_Total float not null,
-Cliente_idCliente int
+Cliente_idCliente int,
+foreign key (Cliente_idCliente) references Cliente (idCliente)
 );
 
 create table Pedidos(
@@ -201,13 +205,6 @@ Banner_idBanner int,
 foreign key (Banner_idBanner) references Banner (idBanner)
 );
 
-Create table carrinho(
-idCarrinho int primary key auto_increment,
-quantidade_produto int not null,
-preco_total float not null,
-Cliente_idCliente int,
-foreign key (Cliente_idCliente) References Cliente (idCliente)
-);
 
 create table Avaliacao_Produto(
 idAvaliacao_Produto int primary key auto_increment,
@@ -271,19 +268,14 @@ foreign key (Cupom_idCupom)  references Cupom (idCupom),
 foreign key (Categoria_idCategoria)  references Categoria (idCategoria)
 );
 
-create table produto_has_Categoria(
-produto_idproduto int,
-Categoria_idCategoria int,
-foreign key (produto_idproduto)  references produto (idProduto),
-foreign key (Categoria_idCategoria)  references Categoria (idCategoria)
-);
+
 
 
 create table Cartao_pagamento(
 numero int,
-data_vencimento MEDIUMINT(40),
+data_vencimento varchar(40),
 cvc int,
-cpf MEDIUMINT(11),
+cpf varchar(11),
 nome_propietario VARCHAR(200),
 nome_indentificacao VARCHAR(45),
 bandeira VARCHAR(45),
@@ -325,14 +317,27 @@ INSERT INTO ENDERECO
 (rua,cep,bairro,numero,complemento,tipo)
 values ("Rodoviário",77827200,"Rodoviário",437,"AO LADO DO SENAC","COMERCIAL");
 
-INSERT INTO Lojista(nome,cpf,email,senha,telefone)
+INSERT INTO Logista(nome,cpf,email,senha,telefone)
 values("Jõao",09012209022,"joao@gmail.com","123abc",6399001-1234);
 
 -- lista de dados da tabela
 select * from Endereco;
-select * from Lojista;
+select * from Logista;
 select * from Loja;
+select * from cliente;
 
 -- CADASTRAR OS DADOS DA LOJA
-INSERT INTO Loja (nome, whatsapp,telefone, email,endereco_idendereco,Lojista_idLojista)
+INSERT INTO Loja (nome, whatsapp,telefone, email,endereco_idendereco,Logista_idLogista)
 values("megafeirao","6399001-1234",6399001-1234,"megafeirao@gmail.com",1,1);
+INSERT INTO Cliente
+(nome, cpf, telefone, email, senha, data_nascimento, Loja_idLoja)
+VALUES
+(
+'Teste',
+'12345678901',
+'63999999999',
+'teste@gmail.com',
+'Senha@123',
+'2000-01-01',
+1
+);

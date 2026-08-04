@@ -979,3 +979,43 @@ window.addEventListener("load", function(){
     console.log("Painel de Conteúdo do Lojista carregado com sucesso.");
 
 });
+
+
+
+
+const selectCategoria =
+    document.getElementById("categoriaProduto");
+
+fetch("http://localhost:3000/categoria")
+
+    .then(res => res.json())
+
+    .then(categorias => {
+
+        categorias.forEach(categoria => {
+
+            const option =
+                document.createElement("option");
+
+            option.value =
+                categoria.idCategoria;
+
+            option.textContent =
+                categoria.nome;
+
+            selectCategoria.appendChild(option);
+
+        });
+
+    })
+
+    .catch(erro => {
+
+        console.error("Erro ao carregar categorias:", erro);
+
+    });
+
+
+    /*=========================
+    OBJETO PRODUTO
+=========================*/
