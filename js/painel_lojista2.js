@@ -1060,3 +1060,166 @@ fetch("http://localhost:3000/categoria", {
         console.error("Erro ao cadastrar categoria:", erro);
         alert("Erro ao cadastrar categoria.");
     });
+
+    <section class="cadastros-auxiliares">
+
+    <div class="grid-cadastros">
+
+        <article class="card-auxiliar">
+
+        </article>
+
+    </div>
+
+</section>
+/* ==========================================================
+   CADASTRO DE INFORMAÇÕES DO PRODUTO
+========================================================== */
+
+const informacoesProduto = {
+
+    titulo:"Informações Complementares",
+
+    descricao:"Cadastre marcas, categorias, cores, tamanhos e imagens para utilizar nos produtos.",
+
+    marca:{
+
+        titulo:"Marca",
+
+        nome:"Nome da Marca",
+
+        logo:"Logo da Marca",
+
+        botao:"Salvar Marca"
+
+    },
+
+    categoria:{
+
+        titulo:"Categoria",
+
+        nome:"Nome da Categoria",
+
+        botao:"Salvar Categoria"
+
+    },
+
+    cor:{
+
+        titulo:"Cor",
+
+        nome:"Nome da Cor",
+
+        codigo:"Código da Cor",
+
+        botao:"Salvar Cor"
+
+    },
+
+    tamanho:{
+
+        titulo:"Tamanho",
+
+        nome:"Descrição do Tamanho",
+
+        botao:"Salvar Tamanho"
+
+    },
+
+    imagem:{
+
+        titulo:"Imagem do Produto",
+
+        produto:"Produto",
+
+        arquivo:"Imagem",
+
+        botao:"Salvar Imagem"
+
+    }
+
+};
+
+/* ==========================================================
+   TÍTULO DA ÁREA
+========================================================== */
+
+document.getElementById("tituloInformacoesProduto").textContent =
+informacoesProduto.titulo;
+
+document.getElementById("descricaoInformacoesProduto").textContent =
+informacoesProduto.descricao;
+
+/* ==========================================================
+   MARCA
+========================================================== */
+
+document.getElementById("tituloMarca").textContent =
+informacoesProduto.marca.titulo;
+
+document.getElementById("lblNomeMarca").textContent =
+informacoesProduto.marca.nome;
+
+document.getElementById("lblLogoMarca").textContent =
+informacoesProduto.marca.logo;
+
+document.getElementById("btnSalvarMarca").textContent =
+informacoesProduto.marca.botao;
+
+/* ==========================================================
+   CATEGORIA
+========================================================== */
+
+document.getElementById("tituloCategoriaCadastro").textContent =
+informacoesProduto.categoria.titulo;
+
+document.getElementById("lblNomeCategoriaCadastro").textContent =
+informacoesProduto.categoria.nome;
+
+document.getElementById("btnSalvarCategoria").textContent =
+informacoesProduto.categoria.botao;
+
+/* ==========================================================
+   COR
+========================================================== */
+
+document.getElementById("tituloCor").textContent =
+informacoesProduto.cor.titulo;
+
+document.getElementById("lblNomeCor").textContent =
+informacoesProduto.cor.nome;
+
+document.getElementById("lblCodigoCor").textContent =
+informacoesProduto.cor.codigo;
+
+document.getElementById("btnSalvarCor").textContent =
+informacoesProduto.cor.botao;
+
+/* ==========================================================
+   TAMANHO
+========================================================== */
+
+document.getElementById("tituloTamanho").textContent =
+informacoesProduto.tamanho.titulo;
+
+document.getElementById("lblNomeTamanho").textContent =
+informacoesProduto.tamanho.nome;
+
+document.getElementById("btnSalvarTamanho").textContent =
+informacoesProduto.tamanho.botao;
+
+/* ==========================================================
+   IMAGEM
+========================================================== */
+
+document.getElementById("tituloImagemProdutoCadastro").textContent =
+informacoesProduto.imagem.titulo;
+
+document.getElementById("lblProdutoImagemCadastro").textContent =
+informacoesProduto.imagem.produto;
+
+document.getElementById("lblArquivoImagem").textContent =
+informacoesProduto.imagem.arquivo;
+
+document.getElementById("btnSalvarImagemProduto").textContent =
+informacoesProduto.imagem.botao;  

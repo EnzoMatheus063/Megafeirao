@@ -223,6 +223,277 @@
 
 </section>
 
+
+<!-- ==========================================================
+     CADASTROS AUXILIARES
+========================================================== -->
+
+<section class="cadastros-auxiliares">
+
+    <div class="titulo-secao">
+
+        <div>
+
+            <h2 id="tituloCadastrosAuxiliares">
+                Cadastros Auxiliares
+            </h2>
+
+            <p id="descricaoCadastrosAuxiliares">
+
+                Cadastre Marca, Categoria, Cor, Tamanho e Imagens
+                individualmente.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="grid-cadastros">
+
+        <!-- ================================================= -->
+        <!-- MARCA -->
+        <!-- ================================================= -->
+
+        <article class="card-auxiliar">
+
+            <h3>Marca</h3>
+
+            <div class="campo">
+
+                <label for="marcaNome">
+
+                    Nome
+
+                </label>
+
+                <input
+
+                    id="marcaNome"
+
+                    type="text"
+
+                    placeholder="Nome da Marca">
+
+            </div>
+
+            <div class="campo">
+
+                <label for="marcaLogo">
+
+                    Logo
+
+                </label>
+
+                <input
+
+                    id="marcaLogo"
+
+                    type="file">
+
+            </div>
+
+            <button
+
+                id="btnSalvarMarca"
+
+                type="button">
+
+                Salvar Marca
+
+            </button>
+
+        </article>
+
+        <!-- ================================================= -->
+        <!-- CATEGORIA -->
+        <!-- ================================================= -->
+
+        <article class="card-auxiliar">
+
+            <h3>Categoria</h3>
+
+            <div class="campo">
+
+                <label for="categoriaNomeAux">
+
+                    Nome Categoria
+
+                </label>
+
+                <input
+
+                    id="categoriaNomeAux"
+
+                    type="text"
+
+                    placeholder="Nome da Categoria">
+
+            </div>
+
+            <button
+
+                id="btnSalvarCategoriaAux"
+
+                type="button">
+
+                Salvar Categoria
+
+            </button>
+
+        </article>
+
+        <!-- ================================================= -->
+        <!-- COR -->
+        <!-- ================================================= -->
+
+        <article class="card-auxiliar">
+
+            <h3>Cores</h3>
+
+            <div class="campo">
+
+                <label for="corNome">
+
+                    Nome
+
+                </label>
+
+                <input
+
+                    id="corNome"
+
+                    type="text"
+
+                    placeholder="Nome da Cor">
+
+            </div>
+
+            <div class="campo">
+
+                <label for="codigoCor">
+
+                    Código da Cor
+
+                </label>
+
+                <input
+
+                    id="codigoCor"
+
+                    type="color">
+
+            </div>
+
+            <button
+
+                id="btnSalvarCor"
+
+                type="button">
+
+                Salvar Cor
+
+            </button>
+
+        </article>
+
+        <!-- ================================================= -->
+        <!-- TAMANHO -->
+        <!-- ================================================= -->
+
+        <article class="card-auxiliar">
+
+            <h3>Tamanho</h3>
+
+            <div class="campo">
+
+                <label for="nomeTamanhoAux">
+
+                    Tamanho
+
+                </label>
+
+                <input
+
+                    id="nomeTamanhoAux"
+
+                    type="text"
+
+                    placeholder="Ex.: P, M, G, GG">
+
+            </div>
+
+            <button
+
+                id="btnSalvarTamanho"
+
+                type="button">
+
+                Salvar Tamanho
+
+            </button>
+
+        </article>
+
+        <!-- ================================================= -->
+        <!-- IMAGEM -->
+        <!-- ================================================= -->
+
+        <article class="card-auxiliar card-imagem">
+
+            <h3>Imagem Produto</h3>
+
+            <div class="campo">
+
+                <label for="produtoImagemAux">
+
+                    Produto
+
+                </label>
+
+                <select id="produtoImagemAux">
+
+                    <option value="">
+
+                        Selecione...
+
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="campo">
+
+                <label for="arquivoImagemAux">
+
+                    Arquivo
+
+                </label>
+
+                <input
+
+                    id="arquivoImagemAux"
+
+                    type="file">
+
+            </div>
+
+            <button
+
+                id="btnSalvarImagem"
+
+                type="button">
+
+                Salvar Imagem
+
+            </button>
+
+        </article>
+
+    </div>
+
+</section>
 <!-- ==========================================================
      ÚLTIMOS PRODUTOS
 ========================================================== -->
@@ -768,7 +1039,210 @@
     </form>
 
 </section>
+<!-- ==========================================================
+     CADASTRO DE INFORMAÇÕES DO PRODUTO
+========================================================== -->
 
+<section class="cadastro-informacoes-produto">
+
+    <div class="titulo-secao">
+
+        <div>
+
+            <h2 id="tituloInformacoesProduto"></h2>
+
+            <p id="descricaoInformacoesProduto"></p>
+
+        </div>
+
+    </div>
+
+    <div class="grid-informacoes-produto">
+
+        <!-- =========================
+             MARCA
+        ========================== -->
+
+        <article class="card-informacao">
+
+            <h3 id="tituloMarca"></h3>
+
+            <div class="campo">
+
+                <label
+                    id="lblNomeMarca"
+                    for="nomeMarca">
+                </label>
+
+                <input
+                    id="nomeMarca"
+                    type="text">
+
+            </div>
+
+            <div class="campo">
+
+                <label
+                    id="lblLogoMarca"
+                    for="logoMarca">
+                </label>
+
+                <input
+                    id="logoMarca"
+                    type="file">
+
+            </div>
+
+            <button
+                id="btnSalvarMarca"
+                type="button">
+            </button>
+
+        </article>
+
+        <!-- =========================
+             CATEGORIA
+        ========================== -->
+
+        <article class="card-informacao">
+
+            <h3 id="tituloCategoriaCadastro"></h3>
+
+            <div class="campo">
+
+                <label
+                    id="lblNomeCategoriaCadastro"
+                    for="nomeCategoria">
+                </label>
+
+                <input
+                    id="nomeCategoria"
+                    type="text">
+
+            </div>
+
+            <button
+                id="btnSalvarCategoria"
+                type="button">
+            </button>
+
+        </article>
+
+        <!-- =========================
+             COR
+        ========================== -->
+
+        <article class="card-informacao">
+
+            <h3 id="tituloCor"></h3>
+
+            <div class="campo">
+
+                <label
+                    id="lblNomeCor"
+                    for="nomeCor">
+                </label>
+
+                <input
+                    id="nomeCor"
+                    type="text">
+
+            </div>
+
+            <div class="campo">
+
+                <label
+                    id="lblCodigoCor"
+                    for="codigoCor">
+                </label>
+
+                <input
+                    id="codigoCor"
+                    type="color">
+
+            </div>
+
+            <button
+                id="btnSalvarCor"
+                type="button">
+            </button>
+
+        </article>
+
+        <!-- =========================
+             TAMANHO
+        ========================== -->
+
+        <article class="card-informacao">
+
+            <h3 id="tituloTamanho"></h3>
+
+            <div class="campo">
+
+                <label
+                    id="lblNomeTamanho"
+                    for="nomeTamanho">
+                </label>
+
+                <input
+                    id="nomeTamanho"
+                    type="text">
+
+            </div>
+
+            <button
+                id="btnSalvarTamanho"
+                type="button">
+            </button>
+
+        </article>
+
+        <!-- =========================
+             IMAGEM DO PRODUTO
+        ========================== -->
+
+        <article class="card-informacao">
+
+            <h3 id="tituloImagemProdutoCadastro"></h3>
+
+            <div class="campo">
+
+                <label
+                    id="lblProdutoImagemCadastro"
+                    for="produtoImagemCadastro">
+                </label>
+
+                <select id="produtoImagemCadastro">
+
+                    <option value=""></option>
+
+                </select>
+
+            </div>
+
+            <div class="campo">
+
+                <label
+                    id="lblArquivoImagem"
+                    for="arquivoImagemProduto">
+                </label>
+
+                <input
+                    id="arquivoImagemProduto"
+                    type="file">
+
+            </div>
+
+            <button
+                id="btnSalvarImagemProduto"
+                type="button">
+            </button>
+
+        </article>
+
+    </div>
+
+</section>
 <!-- ==========================================================
      RESUMO DO CONTEÚDO
 ========================================================== -->
