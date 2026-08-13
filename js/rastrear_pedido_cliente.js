@@ -353,7 +353,7 @@ rastreamento.informacoes = {
 
         subtitulo:"Produtos",
 
-        descricao:"01 Hambúrguer Artesanal, 01 Batata Frita Grande e 01 Refrigerante 600ml."
+        descricao:"Arroz namorado 5kg, Feijão carioca 1kg, Óleo de soja 900ml"
 
     },
 

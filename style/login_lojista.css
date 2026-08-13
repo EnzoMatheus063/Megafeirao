@@ -1,0 +1,1521 @@
+/* ==========================================================
+   RESET
+========================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #E4D6AD;
+    color: #111;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* ==========================================================
+   CABEÇALHO
+========================================================== */
+
+.cabecalho {
+    width: 100%;
+    height: 30px;
+
+    background: #C6D5B0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 8px;
+
+    position: relative;
+    z-index: 1000;
+}
+
+.cabecalho-esquerda {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.icone-logo {
+    font-size: 9px;
+    line-height: 1;
+}
+
+.nome-logo {
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.links-superiores {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 7px;
+}
+
+.links-superiores a:hover {
+    text-decoration: underline;
+}
+
+.separador-topo {
+    color: #555;
+}
+
+
+/* ==========================================================
+   BOTÃO MENU MOBILE
+========================================================== */
+
+.btn-menu-mobile {
+    display: none;
+
+    border: none;
+    background: transparent;
+
+    font-size: 20px;
+    line-height: 1;
+
+    padding: 2px;
+
+    color: #111;
+}
+
+
+/* ==========================================================
+   ESTRUTURA PRINCIPAL
+========================================================== */
+
+.estrutura {
+    display: flex;
+    width: 100%;
+    min-height: calc(100vh - 30px);
+}
+
+
+/* ==========================================================
+   MENU LATERAL
+========================================================== */
+
+.menu-lateral {
+    width: 85px;
+    min-width: 85px;
+
+    background: #E3D7AF;
+
+    min-height: calc(100vh - 30px);
+
+    border-right: 1px solid rgba(0, 0, 0, 0.04);
+
+    position: relative;
+    z-index: 900;
+}
+
+.menu-navegacao {
+    display: flex;
+    flex-direction: column;
+
+    padding-top: 5px;
+}
+
+.item-menu {
+    width: 100%;
+    min-height: 27px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 0 9px;
+
+    font-size: 7px;
+
+    color: #111;
+
+    transition:
+        background 0.2s ease,
+        padding 0.2s ease;
+}
+
+.item-menu:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.item-menu.ativo {
+    background: rgba(0, 0, 0, 0.035);
+}
+
+.icone-menu {
+    width: 10px;
+    min-width: 10px;
+
+    text-align: center;
+
+    font-size: 7px;
+}
+
+.texto-menu {
+    white-space: nowrap;
+}
+
+
+/* ==========================================================
+   CONTEÚDO PRINCIPAL
+========================================================== */
+
+.conteudo-principal {
+    width: calc(100% - 85px);
+    flex: 1;
+
+    min-width: 0;
+
+    overflow: hidden;
+}
+
+
+/* ==========================================================
+   APRESENTAÇÃO
+========================================================== */
+
+.secao-apresentacao {
+    width: 100%;
+
+    min-height: 203px;
+
+    background: #666666;
+
+    color: #fff;
+
+    padding: 23px;
+}
+
+.apresentacao-conteudo {
+    width: 100%;
+    max-width: 820px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 35px;
+}
+
+.apresentacao-texto {
+    flex: 1;
+    min-width: 0;
+
+    max-width: 430px;
+}
+
+.apresentacao-texto h1 {
+    font-size: 17px;
+    line-height: 1.2;
+
+    margin-bottom: 8px;
+}
+
+.apresentacao-texto p {
+    font-size: 7px;
+    line-height: 1.5;
+
+    margin-bottom: 10px;
+
+    color: #eee;
+}
+
+.campo-apresentacao {
+    width: 141px;
+    max-width: 100%;
+
+    height: 15px;
+
+    border: none;
+    border-radius: 2px;
+
+    padding: 3px 6px;
+
+    font-size: 6px;
+
+    background: #f7f7f7;
+    color: #777;
+
+    margin-bottom: 9px;
+
+    display: block;
+}
+
+.botoes-apresentacao {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+    margin-bottom: 9px;
+}
+
+.btn-criar-conta,
+.btn-entrar-apresentacao {
+    min-height: 19px;
+
+    border-radius: 3px;
+
+    border: 1px solid rgba(255, 255, 255, 0.45);
+
+    font-size: 6px;
+
+    padding: 0 14px;
+
+    color: #fff;
+}
+
+.btn-criar-conta {
+    background: transparent;
+}
+
+.btn-entrar-apresentacao {
+    background: #000;
+    border-color: #000;
+
+    min-width: 78px;
+}
+
+.btn-criar-conta:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.btn-entrar-apresentacao:hover {
+    background: #222;
+}
+
+.acoes-secundarias {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 5px;
+}
+
+.btn-secundario {
+    min-height: 15px;
+
+    border: none;
+    border-radius: 2px;
+
+    padding: 0 9px;
+
+    font-size: 5px;
+
+    color: #fff;
+
+    background: #888;
+}
+
+.btn-secundario:hover {
+    background: #999;
+}
+
+
+/* ==========================================================
+   IMAGEM DA APRESENTAÇÃO
+========================================================== */
+
+.imagem-apresentacao {
+    width: 204px;
+    height: 157px;
+
+    flex: 0 0 204px;
+
+    background: #a5a5a5;
+
+    overflow: hidden;
+}
+
+.imagem-apresentacao img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* ==========================================================
+   SEÇÃO DE ACESSO
+========================================================== */
+
+.secao-acesso {
+    width: 100%;
+
+    background: #E4D6AD;
+
+    padding: 24px 23px;
+
+    min-height: 270px;
+}
+
+.acesso-container {
+    width: 100%;
+    max-width: 820px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: flex-start;
+
+    gap: 23px;
+}
+
+
+/* ==========================================================
+   IMAGEM DO ACESSO
+========================================================== */
+
+.imagem-acesso {
+    width: 204px;
+    height: 222px;
+
+    flex: 0 0 204px;
+
+    background: #766F5B;
+
+    overflow: hidden;
+}
+
+.imagem-acesso img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* ==========================================================
+   FORMULÁRIO
+========================================================== */
+
+.formulario-acesso {
+    flex: 1;
+    min-width: 0;
+
+    max-width: 400px;
+}
+
+.formulario-acesso h2 {
+    font-size: 16px;
+    line-height: 1.2;
+
+    margin-bottom: 10px;
+}
+
+.descricao-acesso {
+    font-size: 6px;
+    font-weight: 600;
+
+    margin-bottom: 22px;
+}
+
+.campo-formulario {
+    margin-bottom: 14px;
+}
+
+.campo-formulario label {
+    display: block;
+
+    font-size: 6px;
+    font-weight: 600;
+
+    margin-bottom: 4px;
+}
+
+.campo-formulario input[type="text"],
+.campo-formulario input[type="password"] {
+    width: 100%;
+    max-width: 203px;
+
+    height: 15px;
+
+    border: 1px solid #ddd;
+    border-radius: 3px;
+
+    background: #fff;
+
+    outline: none;
+
+    padding: 3px 7px;
+
+    font-size: 6px;
+}
+
+.campo-formulario input:focus {
+    border-color: #777;
+
+    box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+.campo-formulario small {
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 5px;
+
+    color: #777;
+
+    max-width: 250px;
+}
+
+
+/* ==========================================================
+   PERFIL
+========================================================== */
+
+.opcoes-perfil {
+    display: flex;
+
+    gap: 5px;
+
+    width: 100%;
+    max-width: 203px;
+}
+
+.perfil-opcao {
+    flex: 1;
+
+    min-width: 0;
+
+    height: 15px;
+
+    background: rgba(205, 193, 151, 0.55);
+
+    border-radius: 3px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    font-size: 5px;
+
+    text-align: center;
+
+    padding: 2px;
+
+    transition: 0.2s ease;
+}
+
+.perfil-opcao:hover {
+    background: rgba(190, 177, 135, 0.8);
+}
+
+.perfil-opcao input {
+    display: none;
+}
+
+.perfil-opcao:has(input:checked) {
+    background: #c5ba91;
+
+    font-weight: 600;
+}
+
+
+/* ==========================================================
+   MENSAGEM
+========================================================== */
+
+.mensagem-login {
+    min-height: 11px;
+
+    font-size: 6px;
+
+    margin: -4px 0 5px;
+
+    color: #9b1717;
+}
+
+
+/* ==========================================================
+   BOTÕES DO LOGIN
+========================================================== */
+
+.botoes-login {
+    display: flex;
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 5px;
+}
+
+.btn-esqueci-senha,
+.btn-entrar-painel {
+    min-height: 20px;
+
+    border-radius: 3px;
+
+    font-size: 6px;
+
+    padding: 0 14px;
+}
+
+.btn-esqueci-senha {
+    background: transparent;
+
+    border: 1px solid #777;
+}
+
+.btn-entrar-painel {
+    background: #000;
+
+    color: #fff;
+
+    border: 1px solid #000;
+}
+
+.btn-esqueci-senha:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.btn-entrar-painel:hover {
+    background: #222;
+}
+
+
+/* ==========================================================
+   BENEFÍCIOS
+========================================================== */
+
+.secao-beneficios {
+    width: 100%;
+
+    border-top: 1px solid rgba(0, 0, 0, 0.03);
+
+    background: #E4D6AD;
+
+    padding: 24px 23px 30px;
+
+    min-height: 314px;
+}
+
+.beneficios-cabecalho {
+    width: 100%;
+    max-width: 400px;
+
+    text-align: center;
+
+    margin: 0 auto 27px;
+}
+
+.beneficios-cabecalho h2 {
+    font-size: 16px;
+    line-height: 1.15;
+
+    max-width: 220px;
+
+    margin: 0 auto 10px;
+}
+
+.beneficios-cabecalho p {
+    font-size: 6px;
+    line-height: 1.5;
+}
+
+
+/* ==========================================================
+   GRID DOS CARDS
+========================================================== */
+
+.grid-beneficios {
+    width: 100%;
+    max-width: 430px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 15px;
+}
+
+.card-beneficio {
+    min-width: 0;
+    min-height: 73px;
+
+    border: 1px solid rgba(125, 112, 77, 0.15);
+
+    border-radius: 3px;
+
+    padding: 6px;
+
+    display: flex;
+
+    gap: 7px;
+
+    background: rgba(231, 218, 179, 0.25);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.card-beneficio:hover {
+    transform: translateY(-2px);
+
+    background: rgba(235, 223, 188, 0.5);
+}
+
+.icone-card {
+    width: 40px;
+    height: 40px;
+
+    min-width: 40px;
+
+    background: rgba(220, 214, 194, 0.7);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 10px;
+}
+
+.conteudo-card {
+    flex: 1;
+    min-width: 0;
+
+    padding-top: 1px;
+}
+
+.conteudo-card h3 {
+    font-size: 7px;
+
+    margin-bottom: 3px;
+}
+
+.subtitulo-card {
+    display: block;
+
+    font-size: 5px;
+
+    color: #666;
+
+    margin-bottom: 4px;
+}
+
+.conteudo-card p {
+    font-size: 5px;
+
+    line-height: 1.35;
+
+    max-width: 160px;
+}
+
+.indicadores-card {
+    display: flex;
+
+    gap: 4px;
+
+    margin-top: 4px;
+
+    font-size: 6px;
+}
+
+
+/* ==========================================================
+   RODAPÉ
+========================================================== */
+
+.rodape {
+    width: 100%;
+
+    background: #E4D6AD;
+
+    border-top: 1px solid rgba(0, 0, 0, 0.03);
+
+    min-height: 84px;
+
+    padding: 24px 20px 15px;
+
+    display: flex;
+
+    justify-content: center;
+
+    text-align: center;
+}
+
+.rodape-conteudo {
+    width: 100%;
+    max-width: 700px;
+}
+
+.rodape-linha {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    font-size: 7px;
+
+    margin-bottom: 11px;
+}
+
+.rodape-linha a:hover {
+    text-decoration: underline;
+}
+
+.rodape-separador {
+    color: #777;
+}
+
+.rodape p {
+    font-size: 7px;
+}
+
+
+/* ==========================================================
+   TABLETS GRANDES
+   769px até 1100px
+========================================================== */
+
+@media (max-width: 1100px) {
+
+    .menu-lateral {
+        width: 100px;
+        min-width: 100px;
+    }
+
+    .conteudo-principal {
+        width: calc(100% - 100px);
+    }
+
+    .apresentacao-conteudo,
+    .acesso-container {
+        max-width: 850px;
+    }
+
+    .apresentacao-conteudo {
+        gap: 25px;
+    }
+
+    .imagem-apresentacao {
+        width: 190px;
+        flex-basis: 190px;
+    }
+
+    .imagem-acesso {
+        width: 190px;
+        flex-basis: 190px;
+    }
+}
+
+
+/* ==========================================================
+   TABLETS
+   601px até 768px
+========================================================== */
+
+@media (max-width: 768px) {
+
+    .cabecalho {
+        height: 40px;
+    }
+
+    .estrutura {
+        min-height: calc(100vh - 40px);
+    }
+
+    .menu-lateral {
+        width: 80px;
+        min-width: 80px;
+
+        min-height: calc(100vh - 40px);
+    }
+
+    .conteudo-principal {
+        width: calc(100% - 80px);
+    }
+
+    .item-menu {
+        min-height: 35px;
+
+        padding: 0 7px;
+
+        gap: 6px;
+
+        font-size: 7px;
+    }
+
+    .secao-apresentacao {
+        padding: 25px 18px;
+    }
+
+    .apresentacao-conteudo {
+        gap: 18px;
+    }
+
+    .apresentacao-texto h1 {
+        font-size: 16px;
+    }
+
+    .imagem-apresentacao {
+        width: 170px;
+        height: 135px;
+
+        flex-basis: 170px;
+    }
+
+    .secao-acesso {
+        padding: 25px 18px;
+    }
+
+    .acesso-container {
+        gap: 18px;
+    }
+
+    .imagem-acesso {
+        width: 170px;
+        height: 210px;
+
+        flex-basis: 170px;
+    }
+
+    .formulario-acesso h2 {
+        font-size: 15px;
+    }
+
+    .grid-beneficios {
+        max-width: 100%;
+    }
+}
+
+
+/* ==========================================================
+   CELULAR
+   Até 600px
+========================================================== */
+
+@media (max-width: 600px) {
+
+    /* ------------------------------------------------------
+       CABEÇALHO
+    ------------------------------------------------------ */
+
+    .cabecalho {
+        height: 48px;
+
+        padding: 0 12px;
+
+        position: sticky;
+        top: 0;
+    }
+
+    .btn-menu-mobile {
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        width: 32px;
+        height: 32px;
+    }
+
+    .icone-logo {
+        font-size: 13px;
+    }
+
+    .nome-logo {
+        font-size: 13px;
+    }
+
+    .links-superiores {
+        font-size: 9px;
+    }
+
+
+    /* ------------------------------------------------------
+       ESTRUTURA
+    ------------------------------------------------------ */
+
+    .estrutura {
+        display: block;
+
+        min-height: auto;
+    }
+
+
+    /* ------------------------------------------------------
+       MENU MOBILE
+    ------------------------------------------------------ */
+
+    .menu-lateral {
+        position: fixed;
+
+        top: 48px;
+        left: -220px;
+
+        width: 210px;
+        min-width: 210px;
+
+        height: calc(100vh - 48px);
+
+        min-height: 0;
+
+        overflow-y: auto;
+
+        z-index: 2000;
+
+        transition: left 0.25s ease;
+
+        box-shadow:
+            3px 0 15px rgba(0, 0, 0, 0.18);
+    }
+
+    .menu-lateral.aberto {
+        left: 0;
+    }
+
+    .menu-navegacao {
+        padding-top: 10px;
+    }
+
+    .item-menu {
+        min-height: 48px;
+
+        padding: 0 18px;
+
+        gap: 12px;
+
+        font-size: 12px;
+    }
+
+    .icone-menu {
+        width: 18px;
+        min-width: 18px;
+
+        font-size: 12px;
+    }
+
+    .texto-menu {
+        white-space: normal;
+    }
+
+
+    /* ------------------------------------------------------
+       CONTEÚDO
+    ------------------------------------------------------ */
+
+    .conteudo-principal {
+        width: 100%;
+    }
+
+
+    /* ------------------------------------------------------
+       APRESENTAÇÃO
+    ------------------------------------------------------ */
+
+    .secao-apresentacao {
+        padding: 35px 20px;
+    }
+
+    .apresentacao-conteudo {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 25px;
+    }
+
+    .apresentacao-texto {
+        width: 100%;
+        max-width: none;
+    }
+
+    .apresentacao-texto h1 {
+        font-size: 23px;
+
+        margin-bottom: 12px;
+    }
+
+    .apresentacao-texto p {
+        font-size: 10px;
+
+        line-height: 1.5;
+
+        margin-bottom: 15px;
+    }
+
+    .campo-apresentacao {
+        width: 100%;
+
+        height: 38px;
+
+        padding: 8px 10px;
+
+        font-size: 9px;
+    }
+
+    .botoes-apresentacao {
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 8px;
+    }
+
+    .btn-criar-conta,
+    .btn-entrar-apresentacao {
+        width: 100%;
+
+        min-height: 38px;
+
+        font-size: 9px;
+
+        padding: 5px;
+    }
+
+    .acoes-secundarias {
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        width: 100%;
+
+        gap: 8px;
+    }
+
+    .btn-secundario {
+        width: 100%;
+
+        min-height: 32px;
+
+        font-size: 8px;
+    }
+
+    .imagem-apresentacao {
+        width: 100%;
+
+        height: 220px;
+
+        flex: none;
+    }
+
+
+    /* ------------------------------------------------------
+       ACESSO
+    ------------------------------------------------------ */
+
+    .secao-acesso {
+        padding: 35px 20px;
+    }
+
+    .acesso-container {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 28px;
+    }
+
+    .imagem-acesso {
+        width: 100%;
+
+        height: 220px;
+
+        flex: none;
+    }
+
+    .formulario-acesso {
+        width: 100%;
+
+        max-width: none;
+    }
+
+    .formulario-acesso h2 {
+        font-size: 23px;
+
+        margin-bottom: 12px;
+    }
+
+    .descricao-acesso {
+        font-size: 9px;
+
+        margin-bottom: 25px;
+    }
+
+    .campo-formulario {
+        margin-bottom: 18px;
+    }
+
+    .campo-formulario label {
+        font-size: 10px;
+
+        margin-bottom: 6px;
+    }
+
+    .campo-formulario input[type="text"],
+    .campo-formulario input[type="password"] {
+        width: 100%;
+
+        max-width: none;
+
+        height: 40px;
+
+        padding: 8px 10px;
+
+        font-size: 10px;
+    }
+
+    .campo-formulario small {
+        font-size: 8px;
+
+        line-height: 1.4;
+
+        max-width: none;
+    }
+
+
+    /* ------------------------------------------------------
+       PERFIL
+    ------------------------------------------------------ */
+
+    .opcoes-perfil {
+        width: 100%;
+
+        max-width: none;
+
+        gap: 8px;
+    }
+
+    .perfil-opcao {
+        width: 50%;
+
+        height: 40px;
+
+        font-size: 9px;
+
+        padding: 5px;
+    }
+
+
+    /* ------------------------------------------------------
+       MENSAGEM
+    ------------------------------------------------------ */
+
+    .mensagem-login {
+        min-height: 16px;
+
+        font-size: 9px;
+
+        line-height: 1.4;
+    }
+
+
+    /* ------------------------------------------------------
+       BOTÕES LOGIN
+    ------------------------------------------------------ */
+
+    .botoes-login {
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 8px;
+    }
+
+    .btn-esqueci-senha,
+    .btn-entrar-painel {
+        width: 100%;
+
+        min-height: 40px;
+
+        padding: 5px;
+
+        font-size: 9px;
+    }
+
+
+    /* ------------------------------------------------------
+       BENEFÍCIOS
+    ------------------------------------------------------ */
+
+    .secao-beneficios {
+        padding: 40px 20px;
+
+        min-height: auto;
+    }
+
+    .beneficios-cabecalho {
+        margin-bottom: 30px;
+    }
+
+    .beneficios-cabecalho h2 {
+        font-size: 22px;
+
+        max-width: 300px;
+
+        line-height: 1.2;
+    }
+
+    .beneficios-cabecalho p {
+        font-size: 9px;
+
+        line-height: 1.5;
+    }
+
+
+    /* ------------------------------------------------------
+       CARDS
+    ------------------------------------------------------ */
+
+    .grid-beneficios {
+        width: 100%;
+
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+    .card-beneficio {
+        width: 100%;
+
+        min-height: 105px;
+
+        padding: 12px;
+
+        gap: 12px;
+    }
+
+    .icone-card {
+        width: 58px;
+        min-width: 58px;
+
+        height: 58px;
+
+        font-size: 14px;
+    }
+
+    .conteudo-card h3 {
+        font-size: 11px;
+
+        margin-bottom: 5px;
+    }
+
+    .subtitulo-card {
+        font-size: 8px;
+
+        margin-bottom: 6px;
+    }
+
+    .conteudo-card p {
+        max-width: none;
+
+        font-size: 8px;
+
+        line-height: 1.4;
+    }
+
+    .indicadores-card {
+        font-size: 9px;
+
+        margin-top: 7px;
+    }
+
+
+    /* ------------------------------------------------------
+       RODAPÉ
+    ------------------------------------------------------ */
+
+    .rodape {
+        min-height: auto;
+
+        padding: 30px 15px 20px;
+    }
+
+    .rodape-linha {
+        flex-direction: column;
+
+        gap: 7px;
+
+        font-size: 9px;
+    }
+
+    .rodape-separador {
+        display: none;
+    }
+
+    .rodape p {
+        font-size: 9px;
+
+        line-height: 1.5;
+    }
+}
+
+
+/* ==========================================================
+   CELULAR PEQUENO
+   Até 400px
+========================================================== */
+
+@media (max-width: 400px) {
+
+    .cabecalho {
+        padding: 0 8px;
+    }
+
+    .links-superiores {
+        display: none;
+    }
+
+    .nome-logo {
+        font-size: 12px;
+    }
+
+    .secao-apresentacao,
+    .secao-acesso,
+    .secao-beneficios {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .apresentacao-texto h1 {
+        font-size: 20px;
+    }
+
+    .apresentacao-texto p {
+        font-size: 9px;
+    }
+
+    .botoes-apresentacao {
+        grid-template-columns: 1fr;
+    }
+
+    .acoes-secundarias {
+        grid-template-columns: 1fr;
+    }
+
+    .imagem-apresentacao,
+    .imagem-acesso {
+        height: 170px;
+    }
+
+    .formulario-acesso h2 {
+        font-size: 20px;
+    }
+
+    .opcoes-perfil {
+        flex-direction: column;
+    }
+
+    .perfil-opcao {
+        width: 100%;
+    }
+
+    .botoes-login {
+        grid-template-columns: 1fr;
+    }
+
+    .card-beneficio {
+        padding: 10px;
+    }
+
+    .icone-card {
+        width: 50px;
+        min-width: 50px;
+
+        height: 50px;
+    }
+}
+
+
+/* ==========================================================
+   CELULAR MUITO PEQUENO
+   Até 320px
+========================================================== */
+
+@media (max-width: 320px) {
+
+    .nome-logo {
+        font-size: 11px;
+    }
+
+    .secao-apresentacao {
+        padding: 25px 12px;
+    }
+
+    .secao-acesso {
+        padding: 25px 12px;
+    }
+
+    .secao-beneficios {
+        padding: 30px 12px;
+    }
+
+    .apresentacao-texto h1 {
+        font-size: 18px;
+    }
+
+    .imagem-apresentacao,
+    .imagem-acesso {
+        height: 145px;
+    }
+
+    .beneficios-cabecalho h2 {
+        font-size: 19px;
+    }
+
+    .card-beneficio {
+        gap: 8px;
+    }
+
+    .icone-card {
+        width: 45px;
+        min-width: 45px;
+
+        height: 45px;
+    }
+}

@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title id="tituloPagina">
+        Painel do Lojista
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="../style/login_lojista.css">
+
+</head>
+
+<body>
+
+    <!-- =====================================================
+         CABEÇALHO
+    ====================================================== -->
+
+    <header class="cabecalho">
+
+        <div class="cabecalho-esquerda">
+
+            <button
+                type="button"
+                id="btnMenuMobile"
+                class="btn-menu-mobile"
+                aria-label="Abrir menu">
+
+                ☰
+
+            </button>
+
+            <div class="logo-area">
+
+                <span
+                    id="iconeLogo"
+                    class="icone-logo">
+                </span>
+
+                <span
+                    id="nomeLogo"
+                    class="nome-logo">
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <nav class="links-superiores">
+
+            <a
+                href="#"
+                id="linkAjuda">
+            </a>
+
+            <span class="separador-topo">
+                |
+            </span>
+
+            <a
+                href="#"
+                id="linkSeguranca">
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =====================================================
+         ESTRUTURA PRINCIPAL
+    ====================================================== -->
+
+    <div class="estrutura">
+
+
+        <!-- =================================================
+             MENU LATERAL
+        ================================================== -->
+
+        <aside
+            id="menuLateral"
+            class="menu-lateral">
+
+            <nav class="menu-navegacao">
+
+                <a
+                    href="#"
+                    id="menuCadastro"
+                    class="item-menu ativo">
+
+                    <span
+                        id="iconeCadastro"
+                        class="icone-menu">
+                    </span>
+
+                    <span
+                        id="textoCadastro"
+                        class="texto-menu">
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="#"
+                    id="menuPedidos"
+                    class="item-menu">
+
+                    <span
+                        id="iconePedidos"
+                        class="icone-menu">
+                    </span>
+
+                    <span
+                        id="textoPedidos"
+                        class="texto-menu">
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="#"
+                    id="menuPagamentos"
+                    class="item-menu">
+
+                    <span
+                        id="iconePagamentos"
+                        class="icone-menu">
+                    </span>
+
+                    <span
+                        id="textoPagamentos"
+                        class="texto-menu">
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="#"
+                    id="menuDesempenho"
+                    class="item-menu">
+
+                    <span
+                        id="iconeDesempenho"
+                        class="icone-menu">
+                    </span>
+
+                    <span
+                        id="textoDesempenho"
+                        class="texto-menu">
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="#"
+                    id="menuConfiguracoes"
+                    class="item-menu">
+
+                    <span
+                        id="iconeConfiguracoes"
+                        class="icone-menu">
+                    </span>
+
+                    <span
+                        id="textoConfiguracoes"
+                        class="texto-menu">
+                    </span>
+
+                </a>
+
+            </nav>
+
+        </aside>
+
+
+        <!-- =================================================
+             CONTEÚDO PRINCIPAL
+        ================================================== -->
+
+        <main class="conteudo-principal">
+
+
+            <!-- =============================================
+                 SEÇÃO DE APRESENTAÇÃO
+            ============================================== -->
+
+            <section
+                id="secaoApresentacao"
+                class="secao-apresentacao">
+
+                <div class="apresentacao-conteudo">
+
+                    <div class="apresentacao-texto">
+
+                        <h1 id="tituloApresentacao"></h1>
+
+                        <p id="descricaoApresentacao"></p>
+
+
+                        <input
+                            type="text"
+                            id="campoApresentacao"
+                            class="campo-apresentacao"
+                            readonly>
+
+
+                        <div class="botoes-apresentacao">
+
+                            <button
+                                type="button"
+                                id="btnCriarConta"
+                                class="btn-criar-conta">
+                            </button>
+
+
+                            <button
+                                type="button"
+                                id="btnEntrarApresentacao"
+                                class="btn-entrar-apresentacao">
+                            </button>
+
+                        </div>
+
+
+                        <div class="acoes-secundarias">
+
+                            <button
+                                type="button"
+                                id="btnLoginSecundario"
+                                class="btn-secundario">
+                            </button>
+
+
+                            <button
+                                type="button"
+                                id="btnRecuperarAcesso"
+                                class="btn-secundario">
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="imagem-apresentacao">
+
+                        <img
+                          
+                            src="../assets/painel_lojista.png"
+                            alt="Imagem de apresentação">
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =============================================
+                 SEÇÃO DE ACESSO
+            ============================================== -->
+
+            <section
+                id="secaoAcesso"
+                class="secao-acesso">
+
+
+                <div class="acesso-container">
+
+
+                    <!-- IMAGEM / ESPAÇO VISUAL -->
+
+                    <div class="imagem-acesso">
+
+                        <img
+                           
+                            src="../assets/aréa_lojista.png"
+                            alt="Imagem de acesso">
+
+                    </div>
+
+
+                    <!-- FORMULÁRIO -->
+
+                    <div class="formulario-acesso">
+
+                        <h2 id="tituloAcesso"></h2>
+
+                        <p
+                            id="descricaoAcesso"
+                            class="descricao-acesso">
+                        </p>
+
+
+                        <form
+                            id="formularioLogin"
+                            novalidate>
+
+
+                            <!-- CPF / CNPJ -->
+
+                            <div class="campo-formulario">
+
+                                <label
+                                    id="labelDocumento"
+                                    for="documento">
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="documento"
+                                    name="documento"
+                                    autocomplete="username">
+
+                                <small
+                                    id="ajudaDocumento">
+                                </small>
+
+                            </div>
+
+
+                            <!-- SENHA -->
+
+                            <div class="campo-formulario">
+
+                                <label
+                                    id="labelSenha"
+                                    for="senha">
+                                </label>
+
+                                <input
+                                    type="password"
+                                    id="senha"
+                                    name="senha"
+                                    autocomplete="current-password">
+
+                                <small
+                                    id="ajudaSenha">
+                                </small>
+
+                            </div>
+
+
+                            <!-- PERFIL -->
+
+                            <div class="campo-formulario">
+
+                                <label
+                                    id="labelPerfil">
+                                </label>
+
+
+                                <div class="opcoes-perfil">
+
+
+                                    <label
+                                        id="opcaoLojista"
+                                        class="perfil-opcao">
+
+                                        <input
+                                            type="radio"
+                                            name="perfil"
+                                            id="perfilLojista"
+                                            value="lojista"
+                                            checked>
+
+                                        <span
+                                            id="textoPerfilLojista">
+                                        </span>
+
+                                    </label>
+
+
+                                    <label
+                                        id="opcaoRepresentante"
+                                        class="perfil-opcao">
+
+                                        <input
+                                            type="radio"
+                                            name="perfil"
+                                            id="perfilRepresentante"
+                                            value="representante">
+
+                                        <span
+                                            id="textoPerfilRepresentante">
+                                        </span>
+
+                                    </label>
+
+                                </div>
+
+
+                                <small
+                                    id="ajudaPerfil">
+                                </small>
+
+                            </div>
+
+
+                            <!-- MENSAGEM -->
+
+                            <p
+                                id="mensagemLogin"
+                                class="mensagem-login">
+                            </p>
+
+
+                            <!-- BOTÕES -->
+
+                            <div class="botoes-login">
+
+                                <button
+                                    type="button"
+                                    id="btnEsqueciSenha"
+                                    class="btn-esqueci-senha">
+                                </button>
+
+
+                                <button
+                                    type="submit"
+                                    id="btnEntrarPainel"
+                                    class="btn-entrar-painel">
+                                </button>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =============================================
+                 SEÇÃO DE BENEFÍCIOS
+            ============================================== -->
+
+            <section
+                id="secaoBeneficios"
+                class="secao-beneficios">
+
+
+                <div class="beneficios-cabecalho">
+
+                    <h2 id="tituloBeneficios"></h2>
+
+                    <p id="descricaoBeneficios"></p>
+
+                </div>
+
+
+                <div class="grid-beneficios">
+
+
+                    <!-- CARD 1 -->
+
+                    <article
+                        id="cardGestao"
+                        class="card-beneficio">
+
+                        <div class="icone-card">
+
+                            <span
+                                id="iconeGestao">
+                            </span>
+
+                        </div>
+
+                        <div class="conteudo-card">
+
+                            <h3 id="tituloGestao"></h3>
+
+                            <span
+                                id="subtituloGestao"
+                                class="subtitulo-card">
+                            </span>
+
+                            <p id="descricaoGestao"></p>
+
+                            <div
+                                id="indicadoresGestao"
+                                class="indicadores-card">
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- CARD 2 -->
+
+                    <article
+                        id="cardProdutos"
+                        class="card-beneficio">
+
+                        <div class="icone-card">
+
+                            <span
+                                id="iconeProdutos">
+                            </span>
+
+                        </div>
+
+                        <div class="conteudo-card">
+
+                            <h3 id="tituloProdutos"></h3>
+
+                            <span
+                                id="subtituloProdutos"
+                                class="subtitulo-card">
+                            </span>
+
+                            <p id="descricaoProdutos"></p>
+
+                            <div
+                                id="indicadoresProdutos"
+                                class="indicadores-card">
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- CARD 3 -->
+
+                    <article
+                        id="cardPagamentos"
+                        class="card-beneficio">
+
+                        <div class="icone-card">
+
+                            <span
+                                id="iconePagamentosCard">
+                            </span>
+
+                        </div>
+
+                        <div class="conteudo-card">
+
+                            <h3 id="tituloPagamentos"></h3>
+
+                            <span
+                                id="subtituloPagamentos"
+                                class="subtitulo-card">
+                            </span>
+
+                            <p id="descricaoPagamentos"></p>
+
+                            <div
+                                id="indicadoresPagamentos"
+                                class="indicadores-card">
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- CARD 4 -->
+
+                    <article
+                        id="cardRelatorios"
+                        class="card-beneficio">
+
+                        <div class="icone-card">
+
+                            <span
+                                id="iconeRelatorios">
+                            </span>
+
+                        </div>
+
+                        <div class="conteudo-card">
+
+                            <h3 id="tituloRelatorios"></h3>
+
+                            <span
+                                id="subtituloRelatorios"
+                                class="subtitulo-card">
+                            </span>
+
+                            <p id="descricaoRelatorios"></p>
+
+                            <div
+                                id="indicadoresRelatorios"
+                                class="indicadores-card">
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         RODAPÉ
+    ====================================================== -->
+
+    <footer class="rodape">
+
+        <div class="rodape-conteudo">
+
+            <div class="rodape-linha">
+
+                <span id="copyright"></span>
+
+                <span class="rodape-separador">
+                    |
+                </span>
+
+                <a
+                    href="#"
+                    id="linkPrivacidade">
+                </a>
+
+                <span class="rodape-separador">
+                    |
+                </span>
+
+                <a
+                    href="#"
+                    id="linkTermos">
+                </a>
+
+            </div>
+
+
+            <p id="suporte"></p>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script
+        src="../js/login_lojista.js">
+    </script>
+
+</body>
+
+</html>

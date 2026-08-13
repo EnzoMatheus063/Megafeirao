@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Detalhes do Produto</title>
+
+    <link
+        rel="stylesheet"
+        href="../style/produto2.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- =====================================================
+         CABEÇALHO
+    ====================================================== -->
+
+    <header class="cabecalho">
+
+        <div class="cabecalho-conteudo">
+
+            <!-- Título da página -->
+            <div class="logo-area">
+
+                <span
+                    id="iconeLogo"
+                    class="icone-logo"
+                >
+                    ●
+                </span>
+
+                <span
+                    id="tituloPagina"
+                    class="titulo-pagina"
+                >
+                    Detalhes do Produto
+                </span>
+
+            </div>
+
+
+            <!-- Menu principal -->
+            <nav class="menu-principal">
+
+                <a
+                    href="#"
+                    id="menuInicio"
+                >
+                    Início
+                </a>
+
+                <a
+                    href="#"
+                    id="menuCategorias"
+                >
+                    Categorias
+                </a>
+
+                <a
+                    href="#"
+                    id="menuOfertas"
+                >
+                    Ofertas
+                </a>
+
+                <div class="campo-busca">
+
+                    <input
+                        type="text"
+                        id="campoBusca"
+                        placeholder="Buscar"
+                    >
+
+                    <button
+                        type="button"
+                        id="btnBuscar"
+                        aria-label="Buscar"
+                    >
+                        🔍
+                    </button>
+
+                </div>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO PRINCIPAL
+    ====================================================== -->
+
+    <main class="conteudo-principal">
+
+
+        <!-- =================================================
+             INFORMAÇÕES PRINCIPAIS DO PRODUTO
+        ================================================== -->
+
+        <section
+            class="produto-principal"
+            id="produtoPrincipal"
+        >
+
+            <h1
+                id="nomeProduto"
+                class="nome-produto"
+            >
+                Nome do Produto
+            </h1>
+
+            <p
+                id="subtituloProduto"
+                class="subtitulo-produto"
+            >
+                Confira o produto e escolha a melhor opção.
+            </p>
+
+
+            <!-- Botões principais -->
+
+            <div class="acoes-produto">
+
+                <button
+                    type="button"
+                    id="btnAdicionarTopo"
+                    class="btn btn-secundario"
+                >
+                    Adicionar ao carrinho
+                </button>
+
+                <button
+                    type="button"
+                    id="btnComprarTopo"
+                    class="btn btn-principal"
+                >
+                    Comprar agora
+                </button>
+
+            </div>
+
+
+            <!-- Abas -->
+
+            <div class="abas-produto">
+
+                <button
+                    type="button"
+                    id="abaDescricao"
+                    class="aba ativa"
+                >
+                    Descrição
+                </button>
+
+                <button
+                    type="button"
+                    id="abaDetalhes"
+                    class="aba"
+                >
+                    Detalhes
+                </button>
+
+                <button
+                    type="button"
+                    id="abaAvaliacoes"
+                    class="aba"
+                >
+                    Avaliações
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             DESCRIÇÃO DO PRODUTO
+        ================================================== -->
+
+        <section
+            class="secao-descricao"
+            id="secaoDescricao"
+        >
+
+            <div class="imagem-descricao">
+
+                <img
+                   
+                    src="../assets/produto1.png"
+                    alt="Imagem do produto"
+                >
+
+            </div>
+
+
+            <div class="texto-descricao">
+
+                <h2>
+                    Descrição
+                </h2>
+
+                <p id="descricaoProduto">
+                    Descrição do produto.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             GALERIA DE IMAGENS
+        ================================================== -->
+
+        <section
+            class="galeria-produto"
+            id="galeriaProduto"
+        >
+
+            <article class="imagem-produto-card">
+
+                <img
+                    id="imagemProduto1"
+                    src="../assets/produto1.png"
+                    alt="Imagem 01 do produto"
+                >
+
+                <div class="informacao-imagem">
+
+                    <p id="nomeImagem01">
+                        Carne picanha Grill Kg
+                    </p>
+
+                    <strong id="descricaoImagem01">
+                        Imagem 01
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+            <article class="imagem-produto-card">
+
+                <img
+ 
+                    src="../Assets/produto1.png"
+                    alt="Imagem 02 do produto"
+                >
+
+                <div class="informacao-imagem">
+
+
+                    <strong id="descricaoImagem02">
+                        Imagem 02
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+            <article class="imagem-produto-card">
+
+                <img
+
+                    src="../Assets/produto1.png"
+                    alt="Imagem 03 do produto"
+                >
+
+                <div class="informacao-imagem">
+
+                    <p id="nomeImagem03">
+                        Carne picanha Grill Kg
+                    </p>
+
+                    <strong id="descricaoImagem03">
+                        Imagem 03
+                    </strong>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+
+        <!-- =================================================
+             QUANTIDADE E PREÇO
+        ================================================== -->
+
+        <section
+            class="secao-quantidade-preco"
+            id="secaoQuantidadePreco"
+        >
+
+            <div class="titulo-secao">
+
+                <h2>
+                    Quantidade e Preço
+                </h2>
+
+                <p>
+                    Escolha quantos itens deseja comprar e confirme.
+                </p>
+
+            </div>
+
+
+            <div class="informacoes-compra">
+
+
+                <!-- Disponibilidade -->
+
+                <article class="informacao-card">
+
+                    <div class="miniatura-card">
+
+                        <img
+                            id="imagemDisponibilidade"
+                            src="../Assets/disponibilidade.png"
+                            alt="Produto"
+                        >
+
+                    </div>
+
+                    <div class="informacao-card-texto">
+
+                        <h3>
+                            Disponibilidade
+                        </h3>
+
+                        <p>
+                            Por unidade
+                        </p>
+
+                        <strong id="estoqueProduto">
+                            Em estoque: 24 unidades
+                        </strong>
+
+                        <div class="mini-informacoes">
+
+                            <span id="pesoProduto">
+                                Peso: 1kg
+                            </span>
+
+                            <span id="tipoProduto">
+                                Tipo: Resfriado
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Preço -->
+
+                <article class="informacao-card">
+
+                    <div class="miniatura-card">
+
+                        <img
+                            id="imagemPreco"
+                            src="../Assets/cifrão.png"
+                            alt="Produto"
+                        >
+
+                    </div>
+
+                    <div class="informacao-card-texto">
+
+                        <h3>
+                            Preço
+                        </h3>
+
+                        <p>
+                            Por unidade
+                        </p>
+
+                        <strong
+                            id="precoProduto"
+                            class="preco"
+                        >
+                            R$ 25,70
+                        </strong>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ESCOLHA DA QUANTIDADE
+        ================================================== -->
+
+        <section
+            class="secao-escolha"
+            id="secaoEscolha"
+        >
+
+            <div class="titulo-secao">
+
+                <h2>
+                    Escolha a quantidade
+                </h2>
+
+                <p>
+                    Selecione o número de itens e adicione ao carrinho
+                    ou compre imediatamente.
+                </p>
+
+            </div>
+
+
+            <div class="quantidade-area">
+
+                <label
+                    for="quantidadeProduto"
+                >
+                    Quantidade
+                </label>
+
+                <input
+                    type="number"
+                    id="quantidadeProduto"
+                    min="1"
+                    value="1"
+                >
+
+                <small id="limiteQuantidade">
+                    Máx. 1 item por compra
+                </small>
+
+            </div>
+
+
+            <div class="acoes-quantidade">
+
+                <button
+                    type="button"
+                    id="btnAdicionarCarrinho"
+                    class="btn btn-secundario"
+                >
+                    Adicionar ao carrinho
+                </button>
+
+                <button
+                    type="button"
+                    id="btnComprarAgora"
+                    class="btn btn-principal"
+                >
+                    Comprar agora
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             AVALIAÇÕES
+        ================================================== -->
+
+        <section
+            class="secao-avaliacoes"
+            id="secaoAvaliacoes"
+        >
+
+            <div class="avaliacoes-introducao">
+
+                <h2>
+                    Avaliações do Produto
+                </h2>
+
+                <p>
+                    Confira opiniões reais de quem já comprou.
+                </p>
+
+
+                <div class="botoes-avaliacao">
+
+                    <button
+                        type="button"
+                        id="btnVerTodasAvaliacoes"
+                        class="btn btn-secundario"
+                    >
+                        Ver todas
+                    </button>
+
+                    <button
+                        type="button"
+                        id="btnEscreverAvaliacao"
+                        class="btn btn-principal"
+                    >
+                        Escrever avaliação
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Lista de avaliações -->
+
+            <div class="lista-avaliacoes">
+
+
+                <article class="avaliacao-card">
+
+                    <div class="avaliacao-topo">
+
+                        <span
+                            id="nomeAvaliador01"
+                            class="nome-avaliador"
+                        >
+                            Mariana S.
+                        </span>
+
+                        <span
+                            id="estrelasAvaliacao01"
+                            class="estrelas"
+                        >
+                            ★★★★★
+                        </span>
+
+                    </div>
+
+                    <p id="textoAvaliacao01">
+                        Muito gostoso.
+                    </p>
+
+                </article>
+
+
+                <article class="avaliacao-card">
+
+                    <div class="avaliacao-topo">
+
+                        <span
+                            id="nomeAvaliador02"
+                            class="nome-avaliador"
+                        >
+                            Carlos M.
+                        </span>
+
+                        <span
+                            id="estrelasAvaliacao02"
+                            class="estrelas"
+                        >
+                            ★★★★★
+                        </span>
+
+                    </div>
+
+                    <p id="textoAvaliacao02">
+                        Chegou em ótimo estado.
+                    </p>
+
+                </article>
+
+
+                <article class="avaliacao-card">
+
+                    <div class="avaliacao-topo">
+
+                        <span
+                            id="nomeAvaliador03"
+                            class="nome-avaliador"
+                        >
+                            Fernanda A.
+                        </span>
+
+                        <span
+                            id="estrelasAvaliacao03"
+                            class="estrelas"
+                        >
+                            ★★★★★
+                        </span>
+
+                    </div>
+
+                    <p id="textoAvaliacao03">
+                        Ótimo preço.
+                    </p>
+
+                </article>
+
+
+                <article class="avaliacao-card">
+
+                    <div class="avaliacao-topo">
+
+                        <span
+                            id="nomeAvaliador04"
+                            class="nome-avaliador"
+                        >
+                            Rafael P.
+                        </span>
+
+                        <span
+                            id="estrelasAvaliacao04"
+                            class="estrelas"
+                        >
+                            ★★★★★
+                        </span>
+
+                    </div>
+
+                    <p id="textoAvaliacao04">
+                        Muito bem embalado.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         MENSAGEM DO SISTEMA
+    ====================================================== -->
+
+    <div
+        id="mensagemSistema"
+        class="mensagem-sistema"
+        aria-live="polite"
+    >
+    </div>
+
+
+    <!-- =====================================================
+         RODAPÉ
+    ====================================================== -->
+
+    <footer class="rodape">
+
+        <p id="textoRodape">
+            Mega Feirão - Todos os direitos reservados.
+        </p>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+
+    <script src="../js/produto2.js"></script>
+
+</body>
+
+</html>

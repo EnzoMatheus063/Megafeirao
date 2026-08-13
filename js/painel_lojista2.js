@@ -1,72 +1,71 @@
 /* ==========================================================
+   PAINEL DO LOJISTA
+   JAVASCRIPT PRINCIPAL
+========================================================== */
+
+
+/* ==========================================================
    DADOS DO PAINEL
 ========================================================== */
 
 const painel = {
 
-    /* ==========================================
-       LOGO
-    ========================================== */
+    logo: {
 
-    logo:{
+        imagem: "../Assets/logo.png",
 
-        imagem:"../Assets/logo.png",
-
-        titulo:"Painel do Lojista"
+        titulo: "Painel do Lojista"
 
     },
 
-    /* ==========================================
-       MENU
-    ========================================== */
+    menu: {
 
-    menu:{
+        produtos: "Produtos",
 
-        produtos:"Produtos",
+        banners: "Banners",
 
-        banners:"Banners",
+        promocoes: "Promoções",
 
-        promocoes:"Promoções",
+        vendas: "Vendas",
 
-        vendas:"Vendas",
-
-        configuracoes:"Configurações"
+        configuracoes: "Configurações"
 
     },
 
-    /* ==========================================
-       PESQUISA
-    ========================================== */
+    pesquisa: {
 
-    pesquisa:{
-
-        placeholder:"Pesquisar produtos, banners ou promoções..."
+        placeholder:
+        "Pesquisar produtos, banners ou promoções..."
 
     },
 
-    /* ==========================================
-       HERO
-    ========================================== */
+    hero: {
 
-    hero:{
+        titulo:
+        "Gerencie todo o conteúdo da sua loja",
 
-        titulo:"Gerencie todo o conteúdo da sua loja",
+        descricao:
+        "Cadastre produtos, banners e promoções de forma rápida e organizada.",
 
-        descricao:"Cadastre produtos, banners e promoções de forma rápida e organizada.",
+        rascunhos:
+        "Ver Rascunhos",
 
-        rascunhos:"Ver Rascunhos",
+        novoCadastro:
+        "Novo Cadastro",
 
-        novoCadastro:"Novo Cadastro",
+        filtroProdutos:
+        "Produtos",
 
-        filtroProdutos:"Produtos",
+        filtroBanners:
+        "Banners",
 
-        filtroBanners:"Banners",
-
-        filtroPromocoes:"Promoções"
+        filtroPromocoes:
+        "Promoções"
 
     }
 
 };
+
 
 /* ==========================================================
    LOGO
@@ -77,6 +76,7 @@ painel.logo.imagem;
 
 document.getElementById("logoTitulo").textContent =
 painel.logo.titulo;
+
 
 /* ==========================================================
    MENU
@@ -97,12 +97,14 @@ painel.menu.vendas;
 document.getElementById("menuConfiguracoes").textContent =
 painel.menu.configuracoes;
 
+
 /* ==========================================================
    PESQUISA
 ========================================================== */
 
 document.getElementById("campoPesquisa").placeholder =
 painel.pesquisa.placeholder;
+
 
 /* ==========================================================
    HERO
@@ -129,47 +131,66 @@ painel.hero.filtroBanners;
 document.getElementById("btnFiltroPromocoes").textContent =
 painel.hero.filtroPromocoes;
 
+
 /* ==========================================================
    CADASTRO DE PRODUTO
 ========================================================== */
 
 const cadastroProduto = {
 
-    titulo:"Cadastro de Produto",
+    titulo:
+    "Cadastro de Produto",
 
-    descricao:"Preencha os dados do produto para disponibilizá-lo na loja.",
+    descricao:
+    "Preencha os dados do produto para disponibilizá-lo na loja.",
 
-    imagem:"../Assets/produto1.png",
+    imagem:
+    "../Assets/produto1.png",
 
-    labels:{
+    labels: {
 
-        nome:"Nome do Produto",
+        nome:
+        "Nome do Produto",
 
-        sku:"Carne Picanha Grill",
+        sku:
+        "Código do Produto",
 
-        categoria:"Categoria",
+        categoria:
+        "Categoria",
 
-        preco:"Preço",
+        preco:
+        "Preço",
 
-        precoPromo:"Preço Promocional",
+        precoPromo:
+        "Preço Promocional",
 
-        estoque:"Estoque",
+        estoque:
+        "Estoque",
 
-        descricao:"Descrição Curta",
+        descricao:
+        "Descrição Curta",
 
-        imagem:"Imagem"
+        imagem:
+        "Imagem"
 
     },
 
-    botoes:{
+    botoes: {
 
-        rascunho:"Salvar Rascunho",
+        rascunho:
+        "Salvar Rascunho",
 
-        salvar:"Salvar Produto"
+        salvar:
+        "Salvar Produto"
 
     }
 
 };
+
+
+/* ==========================================================
+   PREENCHIMENTO DO CADASTRO DE PRODUTO
+========================================================== */
 
 document.getElementById("tituloCadastroProduto").textContent =
 cadastroProduto.titulo;
@@ -209,99 +230,189 @@ cadastroProduto.botoes.rascunho;
 
 document.getElementById("btnSalvarProduto").textContent =
 cadastroProduto.botoes.salvar;
+
+
+/* ==========================================================
+   CARREGAR CATEGORIAS DO BANCO
+========================================================== */
+
+const selectCategoria =
+document.getElementById("categoriaProduto");
+
+if (selectCategoria) {
+
+    fetch("http://localhost:3000/categoria")
+
+        .then(function(response) {
+
+            if (!response.ok) {
+
+                throw new Error(
+                    "Erro ao buscar categorias."
+                );
+
+            }
+
+            return response.json();
+
+        })
+
+        .then(function(categorias) {
+
+            categorias.forEach(function(categoria) {
+
+                const option =
+                document.createElement("option");
+
+                option.value =
+                categoria.idCategoria;
+
+                option.textContent =
+                categoria.nome;
+
+                selectCategoria.appendChild(option);
+
+            });
+
+        })
+
+        .catch(function(erro) {
+
+            console.error(
+                "Erro ao carregar categorias:",
+                erro
+            );
+
+        });
+
+}
+
+
 /* ==========================================================
    PRODUTOS CADASTRADOS
 ========================================================== */
 
 const produtos = {
 
-    titulo:"Seus Produtos",
+    titulo:
+    "Seus Produtos",
 
-    descricao:"Produtos cadastrados recentemente.",
+    descricao:
+    "Produtos cadastrados recentemente.",
 
-    lista:[
+    lista: [
 
         {
 
-            imagem:"../Assets/produto1.png",
+            imagem:
+            "../Assets/produto1.png",
 
-            nome:"Carne Picanha Grill ",
+            nome:
+            "Carne Picanha Grill",
 
-            descricao:"Este item possui peso variável e seu valor total poderá ser alterado após a separação",
+            descricao:
+            "Este item possui peso variável e seu valor total poderá ser alterado após a separação",
 
-            preco:"R$ 105,97",
+            preco:
+            "R$ 105,97",
 
-            estoque:"Estoque: 12"
+            estoque:
+            "Estoque: 12"
 
         },
 
         {
 
-            imagem:"../Assets/produto2.png",
+            imagem:
+            "../Assets/produto2.png",
 
-            nome:"Ovos Iana 20X1",
+            nome:
+            "Ovos Iana 20X1",
 
-            descricao:"extra branco, tamanho médio, 20 unidades",
+            descricao:
+            "Extra branco, tamanho médio, 20 unidades",
 
-            preco:"R$ 14,97",
+            preco:
+            "R$ 14,97",
 
-            estoque:"Estoque: 48"
-
-        },
-
-        {
-
-            imagem:"../Assets/produto3.png",
-
-            nome:"Whisky Glenfiddich",
-
-            descricao:"Whisky Escocês Single Malt 12 Anos Glenfiddich Garrafa 750ml",
-
-            preco:"R$ 534,97",
-
-            estoque:"Estoque: 23"
+            estoque:
+            "Estoque: 48"
 
         },
 
         {
 
-            imagem:"../Assets/produto4.png",
+            imagem:
+            "../Assets/produto3.png",
 
-            nome:" ARROZ NAMORADO BRANCO TP1 5kg ",
+            nome:
+            "Whisky Glenfiddich",
 
-            descricao:"Arroz Namorado Branco Tipo 1 5kg - Pacote com 5kg de arroz branco tipo 1, ideal para o preparo de refeições saborosas e nutritivas.",
+            descricao:
+            "Whisky Escocês Single Malt 12 Anos Glenfiddich Garrafa 750ml",
 
-            preco:"R$ 19,85",
+            preco:
+            "R$ 534,97",
 
-            estoque:"Estoque: 15"
-
-        },
-
-        {
-
-            imagem:"../Assets/produto5.png",
-
-            nome:"Cerveja Skol c/15uni 269ML",
-
-            descricao:"Cerveja Skol Pilsen c/15uni 269ML",
-
-            preco:"R$ 38,55",
-
-            estoque:"Estoque: 8"
+            estoque:
+            "Estoque: 23"
 
         },
 
         {
 
-            imagem:"../Assets/produto6.png",
+            imagem:
+            "../Assets/produto4.png",
 
-            nome:" Condicionador Seda Cocriações Liso Perfeito Frasco 325ml ",
+            nome:
+            "Arroz Namorado Branco TP1 5kg",
 
-            descricao:" Condicionador Seda Cocriações Liso Perfeito Frasco 325ml - Fórmula enriquecida com ingredientes que ajudam a controlar o frizz e deixar os fios mais lisos e sedosos.",
+            descricao:
+            "Arroz Namorado Branco Tipo 1 5kg - Pacote com 5kg de arroz branco tipo 1.",
 
-            preco:"R$ 15,97",
+            preco:
+            "R$ 19,85",
 
-            estoque:"Estoque: 34"
+            estoque:
+            "Estoque: 15"
+
+        },
+
+        {
+
+            imagem:
+            "../Assets/produto5.png",
+
+            nome:
+            "Cerveja Skol c/15uni 269ML",
+
+            descricao:
+            "Cerveja Skol Pilsen c/15uni 269ML",
+
+            preco:
+            "R$ 38,55",
+
+            estoque:
+            "Estoque: 8"
+
+        },
+
+        {
+
+            imagem:
+            "../Assets/produto6.png",
+
+            nome:
+            "Condicionador Seda Liso Perfeito",
+
+            descricao:
+            "Condicionador Seda Cocriações Liso Perfeito Frasco 325ml.",
+
+            preco:
+            "R$ 15,97",
+
+            estoque:
+            "Estoque: 34"
 
         }
 
@@ -309,8 +420,9 @@ const produtos = {
 
 };
 
+
 /* ==========================================================
-   TÍTULO DA SEÇÃO
+   TÍTULO DOS PRODUTOS
 ========================================================== */
 
 document.getElementById("tituloProdutos").textContent =
@@ -319,157 +431,352 @@ produtos.titulo;
 document.getElementById("descricaoProdutos").textContent =
 produtos.descricao;
 
-/* ==========================================================
-   PRODUTO 1
-========================================================== */
-
-document.getElementById("produtoImagem1").src =
-produtos.lista[0].imagem;
-
-document.getElementById("produtoNome1").textContent =
-produtos.lista[0].nome;
-
-document.getElementById("produtoDescricao1").textContent =
-produtos.lista[0].descricao;
-
-document.getElementById("produtoPreco1").textContent =
-produtos.lista[0].preco;
-
-document.getElementById("produtoEstoque1").textContent =
-produtos.lista[0].estoque;
-
-document.getElementById("btnEditarProduto1").textContent = "Editar";
-document.getElementById("btnExcluirProduto1").textContent = "Excluir";
-document.getElementById("btnVisualizarProduto1").textContent = "Visualizar";
 
 /* ==========================================================
-   PRODUTO 2
+   PREENCHIMENTO DOS 6 PRODUTOS
 ========================================================== */
 
-document.getElementById("produtoImagem2").src = produtos.lista[1].imagem;
-document.getElementById("produtoNome2").textContent = produtos.lista[1].nome;
-document.getElementById("produtoDescricao2").textContent = produtos.lista[1].descricao;
-document.getElementById("produtoPreco2").textContent = produtos.lista[1].preco;
-document.getElementById("produtoEstoque2").textContent = produtos.lista[1].estoque;
+for (
+    let i = 1;
+    i <= produtos.lista.length;
+    i++
+) {
 
-document.getElementById("btnEditarProduto2").textContent = "Editar";
-document.getElementById("btnExcluirProduto2").textContent = "Excluir";
-document.getElementById("btnVisualizarProduto2").textContent = "Visualizar";
+    const produto =
+    produtos.lista[i - 1];
+
+    document.getElementById(
+        "produtoImagem" + i
+    ).src = produto.imagem;
+
+    document.getElementById(
+        "produtoNome" + i
+    ).textContent = produto.nome;
+
+    document.getElementById(
+        "produtoDescricao" + i
+    ).textContent = produto.descricao;
+
+    document.getElementById(
+        "produtoPreco" + i
+    ).textContent = produto.preco;
+
+    document.getElementById(
+        "produtoEstoque" + i
+    ).textContent = produto.estoque;
+
+    document.getElementById(
+        "btnEditarProduto" + i
+    ).textContent = "Editar";
+
+    document.getElementById(
+        "btnExcluirProduto" + i
+    ).textContent = "Excluir";
+
+    document.getElementById(
+        "btnVisualizarProduto" + i
+    ).textContent = "Visualizar";
+
+}
+
 
 /* ==========================================================
-   PRODUTO 3
+   CADASTRO DE INFORMAÇÕES DO PRODUTO
 ========================================================== */
 
-document.getElementById("produtoImagem3").src = produtos.lista[2].imagem;
-document.getElementById("produtoNome3").textContent = produtos.lista[2].nome;
-document.getElementById("produtoDescricao3").textContent = produtos.lista[2].descricao;
-document.getElementById("produtoPreco3").textContent = produtos.lista[2].preco;
-document.getElementById("produtoEstoque3").textContent = produtos.lista[2].estoque;
+const informacoesProduto = {
 
-document.getElementById("btnEditarProduto3").textContent = "Editar";
-document.getElementById("btnExcluirProduto3").textContent = "Excluir";
-document.getElementById("btnVisualizarProduto3").textContent = "Visualizar";
+    titulo:
+    "Informações Complementares",
+
+    descricao:
+    "Cadastre marcas, categorias, cores, tamanhos e imagens para utilizar nos produtos.",
+
+    marca: {
+
+        titulo:
+        "Marca",
+
+        nome:
+        "Nome da Marca",
+
+        logo:
+        "Logo da Marca",
+
+        botao:
+        "Salvar Marca"
+
+    },
+
+    categoria: {
+
+        titulo:
+        "Categoria",
+
+        nome:
+        "Nome da Categoria",
+
+        botao:
+        "Salvar Categoria"
+
+    },
+
+    cor: {
+
+        titulo:
+        "Cor",
+
+        nome:
+        "Nome da Cor",
+
+        codigo:
+        "Código da Cor",
+
+        botao:
+        "Salvar Cor"
+
+    },
+
+    tamanho: {
+
+        titulo:
+        "Tamanho",
+
+        nome:
+        "Descrição do Tamanho",
+
+        botao:
+        "Salvar Tamanho"
+
+    },
+
+    imagem: {
+
+        titulo:
+        "Imagem do Produto",
+
+        produto:
+        "Produto",
+
+        arquivo:
+        "Imagem",
+
+        botao:
+        "Salvar Imagem"
+
+    }
+
+};
+
 
 /* ==========================================================
-   PRODUTO 4
+   TÍTULO DA ÁREA
 ========================================================== */
 
-document.getElementById("produtoImagem4").src = produtos.lista[3].imagem;
-document.getElementById("produtoNome4").textContent = produtos.lista[3].nome;
-document.getElementById("produtoDescricao4").textContent = produtos.lista[3].descricao;
-document.getElementById("produtoPreco4").textContent = produtos.lista[3].preco;
-document.getElementById("produtoEstoque4").textContent = produtos.lista[3].estoque;
+document.getElementById(
+    "tituloInformacoesProduto"
+).textContent =
+informacoesProduto.titulo;
 
-document.getElementById("btnEditarProduto4").textContent = "Editar";
-document.getElementById("btnExcluirProduto4").textContent = "Excluir";
-document.getElementById("btnVisualizarProduto4").textContent = "Visualizar";
+document.getElementById(
+    "descricaoInformacoesProduto"
+).textContent =
+informacoesProduto.descricao;
+
 
 /* ==========================================================
-   PRODUTO 5
+   MARCA
 ========================================================== */
 
-document.getElementById("produtoImagem5").src = produtos.lista[4].imagem;
-document.getElementById("produtoNome5").textContent = produtos.lista[4].nome;
-document.getElementById("produtoDescricao5").textContent = produtos.lista[4].descricao;
-document.getElementById("produtoPreco5").textContent = produtos.lista[4].preco;
-document.getElementById("produtoEstoque5").textContent = produtos.lista[4].estoque;
+document.getElementById(
+    "tituloMarca"
+).textContent =
+informacoesProduto.marca.titulo;
 
-document.getElementById("btnEditarProduto5").textContent = "Editar";
-document.getElementById("btnExcluirProduto5").textContent = "Excluir";
-document.getElementById("btnVisualizarProduto5").textContent = "Visualizar";
+document.getElementById(
+    "lblNomeMarca"
+).textContent =
+informacoesProduto.marca.nome;
+
+document.getElementById(
+    "lblLogoMarca"
+).textContent =
+informacoesProduto.marca.logo;
+
+document.getElementById(
+    "btnSalvarMarca"
+).textContent =
+informacoesProduto.marca.botao;
+
 
 /* ==========================================================
-   PRODUTO 6
+   CATEGORIA
 ========================================================== */
 
-document.getElementById("produtoImagem6").src = produtos.lista[5].imagem;
-document.getElementById("produtoNome6").textContent = produtos.lista[5].nome;
-document.getElementById("produtoDescricao6").textContent = produtos.lista[5].descricao;
-document.getElementById("produtoPreco6").textContent = produtos.lista[5].preco;
-document.getElementById("produtoEstoque6").textContent = produtos.lista[5].estoque;
+document.getElementById(
+    "tituloCategoriaCadastro"
+).textContent =
+informacoesProduto.categoria.titulo;
 
-document.getElementById("btnEditarProduto6").textContent = "Editar";
-document.getElementById("btnExcluirProduto6").textContent = "Excluir";
-document.getElementById("btnVisualizarProduto6").textContent = "Visualizar";
+document.getElementById(
+    "lblNomeCategoriaCadastro"
+).textContent =
+informacoesProduto.categoria.nome;
+
+document.getElementById(
+    "btnSalvarCategoria"
+).textContent =
+informacoesProduto.categoria.botao;
+
+
+/* ==========================================================
+   COR
+========================================================== */
+
+document.getElementById(
+    "tituloCor"
+).textContent =
+informacoesProduto.cor.titulo;
+
+document.getElementById(
+    "lblNomeCor"
+).textContent =
+informacoesProduto.cor.nome;
+
+document.getElementById(
+    "lblCodigoCor"
+).textContent =
+informacoesProduto.cor.codigo;
+
+document.getElementById(
+    "btnSalvarCor"
+).textContent =
+informacoesProduto.cor.botao;
+
+
+/* ==========================================================
+   TAMANHO
+========================================================== */
+
+document.getElementById(
+    "tituloTamanho"
+).textContent =
+informacoesProduto.tamanho.titulo;
+
+document.getElementById(
+    "lblNomeTamanho"
+).textContent =
+informacoesProduto.tamanho.nome;
+
+document.getElementById(
+    "btnSalvarTamanho"
+).textContent =
+informacoesProduto.tamanho.botao;
+
+
+/* ==========================================================
+   IMAGEM DO PRODUTO
+========================================================== */
+
+document.getElementById(
+    "tituloImagemProdutoCadastro"
+).textContent =
+informacoesProduto.imagem.titulo;
+
+document.getElementById(
+    "lblProdutoImagemCadastro"
+).textContent =
+informacoesProduto.imagem.produto;
+
+document.getElementById(
+    "lblArquivoImagem"
+).textContent =
+informacoesProduto.imagem.arquivo;
+
+document.getElementById(
+    "btnSalvarImagemProduto"
+).textContent =
+informacoesProduto.imagem.botao;
+
+
 /* ==========================================================
    CADASTRO DE BANNER
 ========================================================== */
 
 const banners = {
 
-    titulo:"Cadastro de Banner",
+    titulo:
+    "Cadastro de Banner",
 
-    descricao:"Cadastre banners promocionais para destacar campanhas na página inicial.",
+    descricao:
+    "Cadastre banners promocionais para destacar campanhas na página inicial.",
 
-    imagem:"../Assets/banner.png",
+    imagem:
+    "../Assets/banner.png",
 
-    labels:{
+    labels: {
 
-        titulo:"Título do Banner",
+        titulo:
+        "Título do Banner",
 
-        tipo:"Tipo de Banner",
+        tipo:
+        "Tipo de Banner",
 
-        imagem:"Imagem",
+        imagem:
+        "Imagem",
 
-        textoPrincipal:"Texto Principal",
+        textoPrincipal:
+        "Texto Principal",
 
-        textoSecundario:"Texto Secundário",
+        textoSecundario:
+        "Texto Secundário",
 
-        link:"Link do Botão"
+        link:
+        "Link do Botão"
 
     },
 
-    botoes:{
+    botoes: {
 
-        preview:"Pré-visualizar",
+        preview:
+        "Pré-visualizar",
 
-        salvar:"Salvar Banner"
+        salvar:
+        "Salvar Banner"
 
     },
 
-    lista:[
+    lista: [
 
         {
 
-            imagem:"../Assets/banner1.png",
+            imagem:
+            "../Assets/banner1.png",
 
-            titulo:"Mega Feirão",
+            titulo:
+            "Mega Feirão",
 
-            descricao:"Descontos de até 70% em toda a loja.",
+            descricao:
+            "Descontos de até 70% em toda a loja.",
 
-            status:"Ativo"
+            status:
+            "Ativo"
 
         },
 
         {
 
-            imagem:"../Assets/banner2.png",
+            imagem:
+            "../Assets/banner2.png",
 
-            titulo:"Volta às Aulas",
+            titulo:
+            "Volta às Aulas",
 
-            descricao:"Ofertas especiais em informática.",
+            descricao:
+            "Ofertas especiais em informática.",
 
-            status:"Agendado"
+            status:
+            "Agendado"
 
         }
 
@@ -477,98 +784,121 @@ const banners = {
 
 };
 
+
 /* ==========================================================
    FORMULÁRIO DE BANNER
 ========================================================== */
 
-document.getElementById("tituloBanner").textContent =
+document.getElementById(
+    "tituloBanner"
+).textContent =
 banners.titulo;
 
-document.getElementById("descricaoBanner").textContent =
+document.getElementById(
+    "descricaoBanner"
+).textContent =
 banners.descricao;
 
-document.getElementById("imagemBanner").src =
+document.getElementById(
+    "imagemBanner"
+).src =
 banners.imagem;
 
-document.getElementById("lblTituloBanner").textContent =
+document.getElementById(
+    "lblTituloBanner"
+).textContent =
 banners.labels.titulo;
 
-document.getElementById("lblTipoBanner").textContent =
+document.getElementById(
+    "lblTipoBanner"
+).textContent =
 banners.labels.tipo;
 
-document.getElementById("lblImagemBanner").textContent =
+document.getElementById(
+    "lblImagemBanner"
+).textContent =
 banners.labels.imagem;
 
-document.getElementById("lblTextoPrincipal").textContent =
+document.getElementById(
+    "lblTextoPrincipal"
+).textContent =
 banners.labels.textoPrincipal;
 
-document.getElementById("lblTextoSecundario").textContent =
+document.getElementById(
+    "lblTextoSecundario"
+).textContent =
 banners.labels.textoSecundario;
 
-document.getElementById("lblLinkBanner").textContent =
+document.getElementById(
+    "lblLinkBanner"
+).textContent =
 banners.labels.link;
 
-document.getElementById("btnPreviewBanner").textContent =
+document.getElementById(
+    "btnPreviewBanner"
+).textContent =
 banners.botoes.preview;
 
-document.getElementById("btnSalvarBanner").textContent =
+document.getElementById(
+    "btnSalvarBanner"
+).textContent =
 banners.botoes.salvar;
+
 
 /* ==========================================================
    BANNERS CADASTRADOS
 ========================================================== */
 
-document.getElementById("tituloCampanhas").textContent =
+document.getElementById(
+    "tituloCampanhas"
+).textContent =
 "Banners e Campanhas";
 
-document.getElementById("descricaoCampanhas").textContent =
+document.getElementById(
+    "descricaoCampanhas"
+).textContent =
 "Campanhas cadastradas recentemente.";
 
-/* Banner 1 */
 
-document.getElementById("bannerImagem1").src =
-banners.lista[0].imagem;
+for (
+    let i = 1;
+    i <= banners.lista.length;
+    i++
+) {
 
-document.getElementById("bannerTitulo1").textContent =
-banners.lista[0].titulo;
+    const banner =
+    banners.lista[i - 1];
 
-document.getElementById("bannerDescricao1").textContent =
-banners.lista[0].descricao;
+    document.getElementById(
+        "bannerImagem" + i
+    ).src = banner.imagem;
 
-document.getElementById("bannerStatus1").textContent =
-banners.lista[0].status;
+    document.getElementById(
+        "bannerTitulo" + i
+    ).textContent = banner.titulo;
 
-document.getElementById("btnEditarBanner1").textContent =
-"Editar";
+    document.getElementById(
+        "bannerDescricao" + i
+    ).textContent = banner.descricao;
 
-document.getElementById("btnExcluirBanner1").textContent =
-"Excluir";
+    document.getElementById(
+        "bannerStatus" + i
+    ).textContent = banner.status;
 
-document.getElementById("btnVisualizarBanner1").textContent =
-"Visualizar";
+    document.getElementById(
+        "btnEditarBanner" + i
+    ).textContent = "Editar";
 
-/* Banner 2 */
+    document.getElementById(
+        "btnExcluirBanner" + i
+    ).textContent = "Excluir";
 
-document.getElementById("bannerImagem2").src =
-banners.lista[1].imagem;
+    document.getElementById(
+        "btnVisualizarBanner" + i
+    ).textContent = "Visualizar";
 
-document.getElementById("bannerTitulo2").textContent =
-banners.lista[1].titulo;
+}
 
-document.getElementById("bannerDescricao2").textContent =
-banners.lista[1].descricao;
-
-document.getElementById("bannerStatus2").textContent =
-banners.lista[1].status;
-
-document.getElementById("btnEditarBanner2").textContent =
-"Editar";
-
-document.getElementById("btnExcluirBanner2").textContent =
-"Excluir";
-
-document.getElementById("btnVisualizarBanner2").textContent =
-"Visualizar";
 
 /* ==========================================================
    PROMOÇÕES
@@ -576,83 +906,110 @@ document.getElementById("btnVisualizarBanner2").textContent =
 
 const promocoes = {
 
-    titulo:"Cadastro de Promoção",
+    titulo:
+    "Cadastro de Promoção",
 
-    descricao:"Cadastre promoções para aumentar as vendas da sua loja.",
+    descricao:
+    "Cadastre promoções para aumentar as vendas da sua loja.",
 
-    imagem:"../Assets/promocao_inverno.png",
+    imagem:
+    "../Assets/promocao_inverno.png",
 
-    labels:{
+    labels: {
 
-        nome:"Nome da Promoção",
+        nome:
+        "Nome da Promoção",
 
-        tipo:"Tipo de Desconto",
+        tipo:
+        "Tipo de Desconto",
 
-        valor:"Valor do Desconto",
+        valor:
+        "Valor do Desconto",
 
-        inicio:"Data de Início",
+        inicio:
+        "Data de Início",
 
-        fim:"Data de Término",
+        fim:
+        "Data de Término",
 
-        aplicar:"Aplicar em"
+        aplicar:
+        "Aplicar em"
 
     },
 
-    botoes:{
+    botoes: {
 
-        rascunho:"Salvar Rascunho",
+        rascunho:
+        "Salvar Rascunho",
 
-        salvar:"Salvar Promoção"
+        salvar:
+        "Salvar Promoção"
 
     },
 
-    status:[
+    status: [
 
         {
 
-            titulo:"Promoção de Inverno",
+            titulo:
+            "Promoção de Inverno",
 
-            descricao:"Até 40% OFF",
+            descricao:
+            "Até 40% OFF",
 
-            situacao:"Ativa",
+            situacao:
+            "Ativa",
 
-            imagem:"../Assets/promocao_inverno.png"
+            imagem:
+            "../Assets/promocao_inverno.png"
 
         },
 
         {
 
-            titulo:"Black Friday",
+            titulo:
+            "Black Friday",
 
-            descricao:"Programada",
+            descricao:
+            "Programada",
 
-            situacao:"Agendada",
+            situacao:
+            "Agendada",
 
-            imagem:"../Assets/promocao_black_friday.png"
-
-        },
-
-        {
-
-            titulo:"Liquidacao",
-
-            descricao:"Em edição",
-
-            situacao:"Rascunho",
-
-            imagem:"../Assets/promocao_liquidacao.png"
+            imagem:
+            "../Assets/promocao_black_friday.png"
 
         },
 
         {
 
-            titulo:"Dia dos Namorados",
+            titulo:
+            "Liquidação",
 
-            descricao:"Encerrada",
+            descricao:
+            "Em edição",
 
-            situacao:"Expirada",
+            situacao:
+            "Rascunho",
 
-            imagem:"../Assets/promocao_dia_namorados.png"
+            imagem:
+            "../Assets/promocao_liquidacao.png"
+
+        },
+
+        {
+
+            titulo:
+            "Dia dos Namorados",
+
+            descricao:
+            "Encerrada",
+
+            situacao:
+            "Expirada",
+
+            imagem:
+            "../Assets/promocao_dia_namorados.png"
 
         }
 
@@ -660,153 +1017,228 @@ const promocoes = {
 
 };
 
+
 /* ==========================================================
    FORMULÁRIO DE PROMOÇÃO
 ========================================================== */
 
-document.getElementById("tituloCadastroPromocao").textContent =
+document.getElementById(
+    "tituloCadastroPromocao"
+).textContent =
 promocoes.titulo;
 
-document.getElementById("descricaoCadastroPromocao").textContent =
+document.getElementById(
+    "descricaoCadastroPromocao"
+).textContent =
 promocoes.descricao;
 
-document.getElementById("imagemPromocao").src =
+document.getElementById(
+    "imagemPromocao"
+).src =
 promocoes.imagem;
 
-document.getElementById("lblNomePromocao").textContent =
+document.getElementById(
+    "lblNomePromocao"
+).textContent =
 promocoes.labels.nome;
 
-document.getElementById("lblTipoDesconto").textContent =
+document.getElementById(
+    "lblTipoDesconto"
+).textContent =
 promocoes.labels.tipo;
 
-document.getElementById("lblValorDesconto").textContent =
+document.getElementById(
+    "lblValorDesconto"
+).textContent =
 promocoes.labels.valor;
 
-document.getElementById("lblInicioPromocao").textContent =
+document.getElementById(
+    "lblInicioPromocao"
+).textContent =
 promocoes.labels.inicio;
 
-document.getElementById("lblFimPromocao").textContent =
+document.getElementById(
+    "lblFimPromocao"
+).textContent =
 promocoes.labels.fim;
 
-document.getElementById("lblAplicarEm").textContent =
+document.getElementById(
+    "lblAplicarEm"
+).textContent =
 promocoes.labels.aplicar;
 
-document.getElementById("btnSalvarRascunhoPromocao").textContent =
+document.getElementById(
+    "btnSalvarRascunhoPromocao"
+).textContent =
 promocoes.botoes.rascunho;
 
-document.getElementById("btnSalvarPromocao").textContent =
+document.getElementById(
+    "btnSalvarPromocao"
+).textContent =
 promocoes.botoes.salvar;
+
 
 /* ==========================================================
    STATUS DAS PROMOÇÕES
 ========================================================== */
 
-for(let i=1;i<=4;i++){
+for (
+    let i = 1;
+    i <= promocoes.status.length;
+    i++
+) {
 
-    document.getElementById("statusImagem"+i).src =
-    promocoes.status[i-1].imagem;
+    const promocao =
+    promocoes.status[i - 1];
 
-    document.getElementById("statusTitulo"+i).textContent =
-    promocoes.status[i-1].titulo;
+    document.getElementById(
+        "statusImagem" + i
+    ).src = promocao.imagem;
 
-    document.getElementById("statusDescricao"+i).textContent =
-    promocoes.status[i-1].descricao;
+    document.getElementById(
+        "statusTitulo" + i
+    ).textContent = promocao.titulo;
 
-    document.getElementById("statusSituacao"+i).textContent =
-    promocoes.status[i-1].situacao;
+    document.getElementById(
+        "statusDescricao" + i
+    ).textContent = promocao.descricao;
+
+    document.getElementById(
+        "statusSituacao" + i
+    ).textContent = promocao.situacao;
 
 }
+
+
 /* ==========================================================
    RESUMO DO PAINEL
 ========================================================== */
 
 const resumo = {
 
-    titulo:"Resumo Geral",
+    titulo:
+    "Resumo Geral",
 
-    descricao:"Acompanhe rapidamente os principais números da sua loja.",
+    descricao:
+    "Acompanhe rapidamente os principais números da sua loja.",
 
-    cards:[
+    cards: [
 
         {
 
-            titulo:"Produtos",
+            titulo:
+            "Produtos",
 
-            valor:"126",
+            valor:
+            "126",
 
-            descricao:"Produtos cadastrados"
+            descricao:
+            "Produtos cadastrados"
 
         },
 
         {
 
-            titulo:"Banners",
+            titulo:
+            "Banners",
 
-            valor:"8",
+            valor:
+            "8",
 
-            descricao:"Campanhas disponíveis"
+            descricao:
+            "Campanhas disponíveis"
 
         },
 
         {
 
-            titulo:"Promoções",
+            titulo:
+            "Promoções",
 
-            valor:"14",
+            valor:
+            "14",
 
-            descricao:"Promoções cadastradas"
+            descricao:
+            "Promoções cadastradas"
 
         }
 
     ],
 
-    grafico:{
+    grafico: {
 
-        titulo:"Cadastros por Mês",
+        titulo:
+        "Cadastros por Mês",
 
-        descricao:"Quantidade de conteúdos cadastrados nos últimos meses.",
+        descricao:
+        "Quantidade de conteúdos cadastrados nos últimos meses.",
 
-        imagem:"../Assets/grafico_banners.png"
+        imagem:
+        "../Assets/grafico_banners.png"
 
     }
 
 };
 
+
 /* ==========================================================
    RESUMO
 ========================================================== */
 
-document.getElementById("tituloResumo").textContent =
+document.getElementById(
+    "tituloResumo"
+).textContent =
 resumo.titulo;
 
-document.getElementById("descricaoResumo").textContent =
+document.getElementById(
+    "descricaoResumo"
+).textContent =
 resumo.descricao;
 
-for(let i = 1; i <= 3; i++){
 
-    document.getElementById("tituloResumoCard"+i).textContent =
-    resumo.cards[i-1].titulo;
+for (
+    let i = 1;
+    i <= resumo.cards.length;
+    i++
+) {
 
-    document.getElementById("valorResumoCard"+i).textContent =
-    resumo.cards[i-1].valor;
+    document.getElementById(
+        "tituloResumoCard" + i
+    ).textContent =
+    resumo.cards[i - 1].titulo;
 
-    document.getElementById("descricaoResumoCard"+i).textContent =
-    resumo.cards[i-1].descricao;
+    document.getElementById(
+        "valorResumoCard" + i
+    ).textContent =
+    resumo.cards[i - 1].valor;
+
+    document.getElementById(
+        "descricaoResumoCard" + i
+    ).textContent =
+    resumo.cards[i - 1].descricao;
 
 }
+
 
 /* ==========================================================
    GRÁFICO
 ========================================================== */
 
-document.getElementById("tituloGrafico").textContent =
+document.getElementById(
+    "tituloGrafico"
+).textContent =
 resumo.grafico.titulo;
 
-document.getElementById("descricaoGrafico").textContent =
+document.getElementById(
+    "descricaoGrafico"
+).textContent =
 resumo.grafico.descricao;
 
-document.getElementById("imagemGrafico").src =
+document.getElementById(
+    "imagemGrafico"
+).src =
 resumo.grafico.imagem;
+
 
 /* ==========================================================
    RODAPÉ
@@ -814,412 +1246,893 @@ resumo.grafico.imagem;
 
 const footer = {
 
-    dica:"Mantenha seus produtos, banners e promoções sempre atualizados para aumentar as vendas.",
+    dica:
+    "Mantenha seus produtos, banners e promoções sempre atualizados para aumentar as vendas.",
 
-    produtos:"Produtos",
+    produtos:
+    "Produtos",
 
-    banners:"Banners",
+    banners:
+    "Banners",
 
-    promocoes:"Promoções",
+    promocoes:
+    "Promoções",
 
-    ajuda:"Ajuda",
+    ajuda:
+    "Ajuda",
 
-    termos:"Termos de Uso",
+    termos:
+    "Termos de Uso",
 
-    privacidade:"Política de Privacidade",
+    privacidade:
+    "Política de Privacidade",
 
-    copyright:"© 2026 Mega Feirão - Todos os direitos reservados."
+    copyright:
+    "© 2026 Mega Feirão - Todos os direitos reservados."
 
 };
 
-document.getElementById("footerDica").textContent =
+
+/* ==========================================================
+   PREENCHIMENTO DO RODAPÉ
+========================================================== */
+
+document.getElementById(
+    "footerDica"
+).textContent =
 footer.dica;
 
-document.getElementById("footerProdutos").textContent =
+document.getElementById(
+    "footerProdutos"
+).textContent =
 footer.produtos;
 
-document.getElementById("footerBanners").textContent =
+document.getElementById(
+    "footerBanners"
+).textContent =
 footer.banners;
 
-document.getElementById("footerPromocoes").textContent =
+document.getElementById(
+    "footerPromocoes"
+).textContent =
 footer.promocoes;
 
-document.getElementById("footerAjuda").textContent =
+document.getElementById(
+    "footerAjuda"
+).textContent =
 footer.ajuda;
 
-document.getElementById("footerTermos").textContent =
+document.getElementById(
+    "footerTermos"
+).textContent =
 footer.termos;
 
-document.getElementById("footerPrivacidade").textContent =
+document.getElementById(
+    "footerPrivacidade"
+).textContent =
 footer.privacidade;
 
-document.getElementById("footerCopyright").textContent =
+document.getElementById(
+    "footerCopyright"
+).textContent =
 footer.copyright;
 
+
 /* ==========================================================
-   LINKS
+   LINKS DO RODAPÉ
 ========================================================== */
 
-document.getElementById("footerProdutos").href =
+document.getElementById(
+    "footerProdutos"
+).href =
 "produtos.html";
 
-document.getElementById("footerBanners").href =
+document.getElementById(
+    "footerBanners"
+).href =
 "banners.html";
 
-document.getElementById("footerPromocoes").href =
+document.getElementById(
+    "footerPromocoes"
+).href =
 "promocoes.html";
 
-document.getElementById("footerAjuda").href =
+document.getElementById(
+    "footerAjuda"
+).href =
 "ajuda.html";
 
-document.getElementById("footerTermos").href =
+document.getElementById(
+    "footerTermos"
+).href =
 "termos.html";
 
-document.getElementById("footerPrivacidade").href =
+document.getElementById(
+    "footerPrivacidade"
+).href =
 "privacidade.html";
 
-/* ==========================================================
-   EVENTOS DOS BOTÕES
-========================================================== */
-
-document.getElementById("btnNovoCadastro")
-.addEventListener("click", function(){
-
-    alert("Novo cadastro iniciado.");
-
-});
-
-document.getElementById("btnRascunhos")
-.addEventListener("click", function(){
-
-    alert("Abrindo rascunhos.");
-
-});
-
-document.getElementById("btnSalvarProduto")
-.addEventListener("click", function(event){
-
-    event.preventDefault();
-
-    alert("Produto salvo com sucesso!");
-
-});
-
-document.getElementById("btnSalvarBanner")
-.addEventListener("click", function(event){
-
-    event.preventDefault();
-
-    alert("Banner salvo com sucesso!");
-
-});
-
-document.getElementById("btnSalvarPromocao")
-.addEventListener("click", function(event){
-
-    event.preventDefault();
-
-    alert("Promoção salva com sucesso!");
-
-});
-
-document.getElementById("btnPreviewBanner")
-.addEventListener("click", function(){
-
-    alert("Pré-visualização do banner.");
-
-});
 
 /* ==========================================================
-   FILTROS
+   BOTÃO NOVO CADASTRO
 ========================================================== */
 
-document.getElementById("btnFiltroProdutos")
+document.getElementById(
+    "btnNovoCadastro"
+)
 .addEventListener("click", function(){
 
-    alert("Filtro: Produtos");
+    document.getElementById(
+        "formProduto"
+    ).scrollIntoView({
+
+        behavior: "smooth",
+
+        block: "start"
+
+    });
 
 });
 
-document.getElementById("btnFiltroBanners")
+
+/* ==========================================================
+   BOTÃO RASCUNHOS
+========================================================== */
+
+document.getElementById(
+    "btnRascunhos"
+)
 .addEventListener("click", function(){
 
-    alert("Filtro: Banners");
+    alert(
+        "Abrindo rascunhos."
+    );
 
 });
 
-document.getElementById("btnFiltroPromocoes")
-.addEventListener("click", function(){
 
-    alert("Filtro: Promoções");
+/* ==========================================================
+   SALVAR PRODUTO
+========================================================== */
+
+document.getElementById(
+    "btnSalvarProduto"
+)
+.addEventListener("click", function(event){
+
+    event.preventDefault();
+
+    const nome =
+    document.getElementById(
+        "nomeProduto"
+    ).value.trim();
+
+    const codigo =
+    document.getElementById(
+        "skuProduto"
+    ).value.trim();
+
+    const categoria =
+    document.getElementById(
+        "categoriaProduto"
+    ).value;
+
+    const preco =
+    document.getElementById(
+        "precoProduto"
+    ).value;
+
+    const estoque =
+    document.getElementById(
+        "estoqueProduto"
+    ).value;
+
+    if (
+        nome === "" ||
+        codigo === "" ||
+        categoria === "" ||
+        preco === "" ||
+        estoque === ""
+    ){
+
+        alert(
+            "Preencha os campos obrigatórios do produto."
+        );
+
+        return;
+
+    }
+
+    alert(
+        "Produto salvo com sucesso!"
+    );
 
 });
+
+
+/* ==========================================================
+   SALVAR RASCUNHO DO PRODUTO
+========================================================== */
+
+document.getElementById(
+    "btnSalvarRascunhoProduto"
+)
+.addEventListener("click", function(){
+
+    alert(
+        "Produto salvo como rascunho."
+    );
+
+});
+
+
+/* ==========================================================
+   PREVIEW DO BANNER
+========================================================== */
+
+document.getElementById(
+    "btnPreviewBanner"
+)
+.addEventListener("click", function(){
+
+    alert(
+        "Pré-visualização do banner."
+    );
+
+});
+
+
+/* ==========================================================
+   SALVAR BANNER
+========================================================== */
+
+document.getElementById(
+    "btnSalvarBanner"
+)
+.addEventListener("click", function(event){
+
+    event.preventDefault();
+
+    const titulo =
+    document.getElementById(
+        "tituloBannerInput"
+    ).value.trim();
+
+    if(titulo === ""){
+
+        alert(
+            "Informe o título do banner."
+        );
+
+        return;
+
+    }
+
+    alert(
+        "Banner salvo com sucesso!"
+    );
+
+});
+
+
+/* ==========================================================
+   SALVAR RASCUNHO DA PROMOÇÃO
+========================================================== */
+
+document.getElementById(
+    "btnSalvarRascunhoPromocao"
+)
+.addEventListener("click", function(){
+
+    alert(
+        "Promoção salva como rascunho."
+    );
+
+});
+
+
+/* ==========================================================
+   SALVAR PROMOÇÃO
+========================================================== */
+
+document.getElementById(
+    "btnSalvarPromocao"
+)
+.addEventListener("click", function(event){
+
+    event.preventDefault();
+
+    const nome =
+    document.getElementById(
+        "nomePromocao"
+    ).value.trim();
+
+    if(nome === ""){
+
+        alert(
+            "Informe o nome da promoção."
+        );
+
+        return;
+
+    }
+
+    alert(
+        "Promoção salva com sucesso!"
+    );
+
+});
+
+
+/* ==========================================================
+   FILTRO PRODUTOS
+========================================================== */
+
+document.getElementById(
+    "btnFiltroProdutos"
+)
+.addEventListener("click", function(){
+
+    document.getElementById(
+        "tituloProdutos"
+    ).scrollIntoView({
+
+        behavior:"smooth",
+
+        block:"start"
+
+    });
+
+});
+
+
+/* ==========================================================
+   FILTRO BANNERS
+========================================================== */
+
+document.getElementById(
+    "btnFiltroBanners"
+)
+.addEventListener("click", function(){
+
+    document.querySelector(
+        ".banners"
+    ).scrollIntoView({
+
+        behavior:"smooth",
+
+        block:"start"
+
+    });
+
+});
+
+
+/* ==========================================================
+   FILTRO PROMOÇÕES
+========================================================== */
+
+document.getElementById(
+    "btnFiltroPromocoes"
+)
+.addEventListener("click", function(){
+
+    document.querySelector(
+        ".promocoes"
+    ).scrollIntoView({
+
+        behavior:"smooth",
+
+        block:"start"
+
+    });
+
+});
+
 
 /* ==========================================================
    PESQUISA
 ========================================================== */
 
-document.getElementById("campoPesquisa")
+document.getElementById(
+    "campoPesquisa"
+)
 .addEventListener("keyup", function(event){
 
-    if(event.key === "Enter"){
+    if(event.key !== "Enter"){
 
-        alert("Pesquisar: " + this.value);
+        return;
 
     }
 
+    const pesquisa =
+    this.value.trim();
+
+    if(pesquisa === ""){
+
+        alert(
+            "Digite algo para pesquisar."
+        );
+
+        return;
+
+    }
+
+    alert(
+        "Pesquisar: " + pesquisa
+    );
+
 });
+
+
+/* ==========================================================
+   CADASTRAR MARCA
+========================================================== */
+
+document.getElementById(
+    "btnSalvarMarca"
+)
+.addEventListener("click", function(){
+
+    const nomeMarca =
+    document.getElementById(
+        "nomeMarca"
+    ).value.trim();
+
+    if(nomeMarca === ""){
+
+        alert(
+            "Informe o nome da marca."
+        );
+
+        return;
+
+    }
+
+    alert(
+        "Marca cadastrada com sucesso!"
+    );
+
+    document.getElementById(
+        "nomeMarca"
+    ).value = "";
+
+    document.getElementById(
+        "logoMarca"
+    ).value = "";
+
+});
+
+
+/* ==========================================================
+   CADASTRAR CATEGORIA
+========================================================== */
+
+document.getElementById(
+    "btnSalvarCategoria"
+)
+.addEventListener("click", function(){
+
+    const categoriaNome =
+    document.getElementById(
+        "nomeCategoria"
+    ).value.trim();
+
+    if(categoriaNome === ""){
+
+        alert(
+            "Por favor, preencha o nome da categoria."
+        );
+
+        return;
+
+    }
+
+    const novaCategoria = {
+
+        nome: categoriaNome
+
+    };
+
+
+    fetch(
+        "http://localhost:3000/categoria",
+        {
+
+            method: "POST",
+
+            headers: {
+
+                "Content-Type":
+                "application/json"
+
+            },
+
+            body:
+            JSON.stringify(
+                novaCategoria
+            )
+
+        }
+    )
+
+    .then(function(response){
+
+        if(!response.ok){
+
+            throw new Error(
+                "Erro ao cadastrar categoria."
+            );
+
+        }
+
+        return response.json();
+
+    })
+
+    .then(function(data){
+
+        console.log(
+            "Categoria cadastrada:",
+            data
+        );
+
+        alert(
+            "Categoria cadastrada com sucesso!"
+        );
+
+        document.getElementById(
+            "nomeCategoria"
+        ).value = "";
+
+
+        /* ==========================================
+           ATUALIZA AS CATEGORIAS DO PRODUTO
+        ========================================== */
+
+        if(selectCategoria){
+
+            const option =
+            document.createElement(
+                "option"
+            );
+
+            option.value =
+            data.idCategoria ||
+            data.insertId ||
+            "";
+
+            option.textContent =
+            categoriaNome;
+
+            selectCategoria.appendChild(
+                option
+            );
+
+        }
+
+    })
+
+    .catch(function(erro){
+
+        console.error(
+            "Erro ao cadastrar categoria:",
+            erro
+        );
+
+        alert(
+            "Erro ao cadastrar categoria."
+        );
+
+    });
+
+});
+
+
+/* ==========================================================
+   CADASTRAR COR
+========================================================== */
+
+document.getElementById(
+    "btnSalvarCor"
+)
+.addEventListener("click", function(){
+
+    const nomeCor =
+    document.getElementById(
+        "nomeCor"
+    ).value.trim();
+
+    const codigoCor =
+    document.getElementById(
+        "codigoCor"
+    ).value;
+
+    if(nomeCor === ""){
+
+        alert(
+            "Informe o nome da cor."
+        );
+
+        return;
+
+    }
+
+    console.log(
+        "Cor:",
+        nomeCor
+    );
+
+    console.log(
+        "Código:",
+        codigoCor
+    );
+
+    alert(
+        "Cor cadastrada com sucesso!"
+    );
+
+    document.getElementById(
+        "nomeCor"
+    ).value = "";
+
+});
+
+
+/* ==========================================================
+   CADASTRAR TAMANHO
+========================================================== */
+
+document.getElementById(
+    "btnSalvarTamanho"
+)
+.addEventListener("click", function(){
+
+    const tamanho =
+    document.getElementById(
+        "nomeTamanho"
+    ).value.trim();
+
+    if(tamanho === ""){
+
+        alert(
+            "Informe o tamanho."
+        );
+
+        return;
+
+    }
+
+    alert(
+        "Tamanho cadastrado com sucesso!"
+    );
+
+    document.getElementById(
+        "nomeTamanho"
+    ).value = "";
+
+});
+
+
+/* ==========================================================
+   CADASTRAR IMAGEM DO PRODUTO
+========================================================== */
+
+document.getElementById(
+    "btnSalvarImagemProduto"
+)
+.addEventListener("click", function(){
+
+    const produto =
+    document.getElementById(
+        "produtoImagemCadastro"
+    ).value;
+
+    const arquivo =
+    document.getElementById(
+        "arquivoImagemProduto"
+    ).files[0];
+
+    if(produto === ""){
+
+        alert(
+            "Selecione o produto."
+        );
+
+        return;
+
+    }
+
+    if(!arquivo){
+
+        alert(
+            "Selecione uma imagem."
+        );
+
+        return;
+
+    }
+
+    alert(
+        "Imagem selecionada com sucesso!"
+    );
+
+});
+
+
+/* ==========================================================
+   BOTÕES DOS PRODUTOS
+========================================================== */
+
+for(let i = 1; i <= 6; i++){
+
+    const btnEditar =
+    document.getElementById(
+        "btnEditarProduto" + i
+    );
+
+    const btnExcluir =
+    document.getElementById(
+        "btnExcluirProduto" + i
+    );
+
+    const btnVisualizar =
+    document.getElementById(
+        "btnVisualizarProduto" + i
+    );
+
+
+    if(btnEditar){
+
+        btnEditar.addEventListener(
+            "click",
+            function(){
+
+                alert(
+                    "Editando produto " + i
+                );
+
+            }
+        );
+
+    }
+
+
+    if(btnExcluir){
+
+        btnExcluir.addEventListener(
+            "click",
+            function(){
+
+                const confirmar =
+                confirm(
+                    "Deseja excluir este produto?"
+                );
+
+                if(confirmar){
+
+                    alert(
+                        "Produto excluído."
+                    );
+
+                }
+
+            }
+        );
+
+    }
+
+
+    if(btnVisualizar){
+
+        btnVisualizar.addEventListener(
+            "click",
+            function(){
+
+                alert(
+                    "Visualizando produto " + i
+                );
+
+            }
+        );
+
+    }
+
+}
+
+
+/* ==========================================================
+   BOTÕES DOS BANNERS
+========================================================== */
+
+for(let i = 1; i <= 2; i++){
+
+    const btnEditar =
+    document.getElementById(
+        "btnEditarBanner" + i
+    );
+
+    const btnExcluir =
+    document.getElementById(
+        "btnExcluirBanner" + i
+    );
+
+    const btnVisualizar =
+    document.getElementById(
+        "btnVisualizarBanner" + i
+    );
+
+
+    if(btnEditar){
+
+        btnEditar.addEventListener(
+            "click",
+            function(){
+
+                alert(
+                    "Editando banner " + i
+                );
+
+            }
+        );
+
+    }
+
+
+    if(btnExcluir){
+
+        btnExcluir.addEventListener(
+            "click",
+            function(){
+
+                const confirmar =
+                confirm(
+                    "Deseja excluir este banner?"
+                );
+
+                if(confirmar){
+
+                    alert(
+                        "Banner excluído."
+                    );
+
+                }
+
+            }
+        );
+
+    }
+
+
+    if(btnVisualizar){
+
+        btnVisualizar.addEventListener(
+            "click",
+            function(){
+
+                alert(
+                    "Visualizando banner " + i
+                );
+
+            }
+        );
+
+    }
+
+}
+
 
 /* ==========================================================
    INICIALIZAÇÃO
 ========================================================== */
 
-window.addEventListener("load", function(){
-
-    console.log("Painel de Conteúdo do Lojista carregado com sucesso.");
-
-});
-
-
-
-
-const selectCategoria =
-    document.getElementById("categoriaProduto");
-
-fetch("http://localhost:3000/categoria")
-
-    .then(res => res.json())
-
-    .then(categorias => {
-
-        categorias.forEach(categoria => {
-
-            const option =
-                document.createElement("option");
-
-            option.value =
-                categoria.idCategoria;
-
-            option.textContent =
-                categoria.nome;
-
-            selectCategoria.appendChild(option);
-
-        });
-
-    })
-
-    .catch(erro => {
-
-        console.error("Erro ao carregar categorias:", erro);
-
-    });
-
-
-    /*=========================
-    OBJETO PRODUTO
-=========================*/
-
-
-// CADASTRO DE CATEGORIA
-
-document.getElementById("btnSalvarCategoria").
-    this.addEventListener("click", function(){
-    // capturar os dados do input   
-   const categoriaNome
-    = document.getElementById("nomeCategoria").value;
-//Cria um if para validar se o campo está vazio
-   if(categoriaNome.trim() === ""){
-    alert("Por favor, preencha o campo o nome da categoria.");
-    return;
-   }
-
-});
-
-// Criar um objeto com os dados da categoria
-const novaCategoria = {
-    nome: categoriaNome
-};
-
-// Enviar os dados para o servidor
-
-fetch("http://localhost:3000/categoria", {
-    method: "POST",
-    headers: {
-        "content-type": "application/json"
-    },
-    body: JSON.stringify(novaCategoria)
-})
-    .then(response => response.json())
-    .then(data => {
-        console.log("Categoria cadastrada com sucesso:", data);
-        alert("Categoria cadastrada com sucesso!");
-        document.getElementById("nomeCategoria").value = "";
-    })
-    .catch(erro => {
-        console.error("Erro ao cadastrar categoria:", erro);
-        alert("Erro ao cadastrar categoria.");
-    });
-
-    <section class="cadastros-auxiliares">
-
-    <div class="grid-cadastros">
-
-        <article class="card-auxiliar">
-
-        </article>
-
-    </div>
-
-</section>
-/* ==========================================================
-   CADASTRO DE INFORMAÇÕES DO PRODUTO
-========================================================== */
-
-const informacoesProduto = {
-
-    titulo:"Informações Complementares",
-
-    descricao:"Cadastre marcas, categorias, cores, tamanhos e imagens para utilizar nos produtos.",
-
-    marca:{
-
-        titulo:"Marca",
-
-        nome:"Nome da Marca",
-
-        logo:"Logo da Marca",
-
-        botao:"Salvar Marca"
-
-    },
-
-    categoria:{
-
-        titulo:"Categoria",
-
-        nome:"Nome da Categoria",
-
-        botao:"Salvar Categoria"
-
-    },
-
-    cor:{
-
-        titulo:"Cor",
-
-        nome:"Nome da Cor",
-
-        codigo:"Código da Cor",
-
-        botao:"Salvar Cor"
-
-    },
-
-    tamanho:{
-
-        titulo:"Tamanho",
-
-        nome:"Descrição do Tamanho",
-
-        botao:"Salvar Tamanho"
-
-    },
-
-    imagem:{
-
-        titulo:"Imagem do Produto",
-
-        produto:"Produto",
-
-        arquivo:"Imagem",
-
-        botao:"Salvar Imagem"
+window.addEventListener(
+    "load",
+    function(){
+
+        console.log(
+            "Painel do Lojista carregado com sucesso."
+        );
 
     }
-
-};
-
-/* ==========================================================
-   TÍTULO DA ÁREA
-========================================================== */
-
-document.getElementById("tituloInformacoesProduto").textContent =
-informacoesProduto.titulo;
-
-document.getElementById("descricaoInformacoesProduto").textContent =
-informacoesProduto.descricao;
-
-/* ==========================================================
-   MARCA
-========================================================== */
-
-document.getElementById("tituloMarca").textContent =
-informacoesProduto.marca.titulo;
-
-document.getElementById("lblNomeMarca").textContent =
-informacoesProduto.marca.nome;
-
-document.getElementById("lblLogoMarca").textContent =
-informacoesProduto.marca.logo;
-
-document.getElementById("btnSalvarMarca").textContent =
-informacoesProduto.marca.botao;
-
-/* ==========================================================
-   CATEGORIA
-========================================================== */
-
-document.getElementById("tituloCategoriaCadastro").textContent =
-informacoesProduto.categoria.titulo;
-
-document.getElementById("lblNomeCategoriaCadastro").textContent =
-informacoesProduto.categoria.nome;
-
-document.getElementById("btnSalvarCategoria").textContent =
-informacoesProduto.categoria.botao;
-
-/* ==========================================================
-   COR
-========================================================== */
-
-document.getElementById("tituloCor").textContent =
-informacoesProduto.cor.titulo;
-
-document.getElementById("lblNomeCor").textContent =
-informacoesProduto.cor.nome;
-
-document.getElementById("lblCodigoCor").textContent =
-informacoesProduto.cor.codigo;
-
-document.getElementById("btnSalvarCor").textContent =
-informacoesProduto.cor.botao;
-
-/* ==========================================================
-   TAMANHO
-========================================================== */
-
-document.getElementById("tituloTamanho").textContent =
-informacoesProduto.tamanho.titulo;
-
-document.getElementById("lblNomeTamanho").textContent =
-informacoesProduto.tamanho.nome;
-
-document.getElementById("btnSalvarTamanho").textContent =
-informacoesProduto.tamanho.botao;
-
-/* ==========================================================
-   IMAGEM
-========================================================== */
-
-document.getElementById("tituloImagemProdutoCadastro").textContent =
-informacoesProduto.imagem.titulo;
-
-document.getElementById("lblProdutoImagemCadastro").textContent =
-informacoesProduto.imagem.produto;
-
-document.getElementById("lblArquivoImagem").textContent =
-informacoesProduto.imagem.arquivo;
-
-document.getElementById("btnSalvarImagemProduto").textContent =
-informacoesProduto.imagem.botao;  
+);
