@@ -5,62 +5,153 @@
 
 
 /* ==========================================================
-   DADOS DO PAINEL
+   CONFIGURAÇÃO DA API
+========================================================== */
+
+const API = "http://localhost:3000";
+
+
+/* ==========================================================
+   ROTAS DA API
+========================================================== */
+
+const ROTAS = {
+
+    categorias:
+        API + "/categorias",
+
+    marcas:
+        API + "/marcas",
+
+    cores:
+        API + "/cores",
+
+    tamanhos:
+        API + "/tamanhos",
+
+    produtos:
+        API + "/produtos",
+
+    imagens:
+        API + "/imagem_produto"
+
+};
+
+
+/* ==========================================================
+   FUNÇÃO AUXILIAR
+========================================================== */
+
+function elemento(id) {
+
+    return document.getElementById(id);
+
+}
+
+
+/* ==========================================================
+   FUNÇÃO PARA LER RESPOSTA DO SERVIDOR
+========================================================== */
+
+async function lerResposta(response) {
+
+    const texto =
+        await response.text();
+
+
+    if (!texto) {
+
+        return {};
+
+    }
+
+
+    try {
+
+        return JSON.parse(texto);
+
+    }
+    catch (erro) {
+
+        console.error(
+            "O servidor não retornou JSON:"
+        );
+
+        console.error(texto);
+
+        throw new Error(
+            "O servidor retornou uma resposta inválida."
+        );
+
+    }
+
+}
+
+
+/* ==========================================================
+   DADOS VISUAIS DO PAINEL
 ========================================================== */
 
 const painel = {
 
     logo: {
 
-        imagem: "../Assets/logo.png",
+        imagem:
+            "../Assets/logo.png",
 
-        titulo: "Painel do Lojista"
+        titulo:
+            "Painel do Lojista"
 
     },
 
     menu: {
 
-        produtos: "Produtos",
+        produtos:
+            "Produtos",
 
-        banners: "Banners",
+        banners:
+            "Banners",
 
-        promocoes: "Promoções",
+        promocoes:
+            "Promoções",
 
-        vendas: "Vendas",
+        vendas:
+            "Vendas",
 
-        configuracoes: "Configurações"
+        configuracoes:
+            "Configurações"
 
     },
 
     pesquisa: {
 
         placeholder:
-        "Pesquisar produtos, banners ou promoções..."
+            "Pesquisar produtos, banners ou promoções..."
 
     },
 
     hero: {
 
         titulo:
-        "Gerencie todo o conteúdo da sua loja",
+            "Gerencie todo o conteúdo da sua loja",
 
         descricao:
-        "Cadastre produtos, banners e promoções de forma rápida e organizada.",
+            "Cadastre produtos, banners e promoções de forma rápida e organizada.",
 
         rascunhos:
-        "Ver Rascunhos",
+            "Ver Rascunhos",
 
         novoCadastro:
-        "Novo Cadastro",
+            "Novo Cadastro",
 
         filtroProdutos:
-        "Produtos",
+            "Produtos",
 
         filtroBanners:
-        "Banners",
+            "Banners",
 
         filtroPromocoes:
-        "Promoções"
+            "Promoções"
 
     }
 
@@ -68,351 +159,1506 @@ const painel = {
 
 
 /* ==========================================================
-   LOGO
+   CABEÇALHO
 ========================================================== */
 
-document.getElementById("logoImagem").src =
-painel.logo.imagem;
+if (elemento("logoImagem")) {
 
-document.getElementById("logoTitulo").textContent =
-painel.logo.titulo;
+    elemento("logoImagem").src =
+        painel.logo.imagem;
 
-
-/* ==========================================================
-   MENU
-========================================================== */
-
-document.getElementById("menuProdutos").textContent =
-painel.menu.produtos;
-
-document.getElementById("menuBanners").textContent =
-painel.menu.banners;
-
-document.getElementById("menuPromocoes").textContent =
-painel.menu.promocoes;
-
-document.getElementById("menuVendas").textContent =
-painel.menu.vendas;
-
-document.getElementById("menuConfiguracoes").textContent =
-painel.menu.configuracoes;
+}
 
 
-/* ==========================================================
-   PESQUISA
-========================================================== */
+if (elemento("logoTitulo")) {
 
-document.getElementById("campoPesquisa").placeholder =
-painel.pesquisa.placeholder;
+    elemento("logoTitulo").textContent =
+        painel.logo.titulo;
+
+}
+
+
+if (elemento("menuProdutos")) {
+
+    elemento("menuProdutos").textContent =
+        painel.menu.produtos;
+
+}
+
+
+if (elemento("menuBanners")) {
+
+    elemento("menuBanners").textContent =
+        painel.menu.banners;
+
+}
+
+
+if (elemento("menuPromocoes")) {
+
+    elemento("menuPromocoes").textContent =
+        painel.menu.promocoes;
+
+}
+
+
+if (elemento("menuVendas")) {
+
+    elemento("menuVendas").textContent =
+        painel.menu.vendas;
+
+}
+
+
+if (elemento("menuConfiguracoes")) {
+
+    elemento("menuConfiguracoes").textContent =
+        painel.menu.configuracoes;
+
+}
+
+
+if (elemento("campoPesquisa")) {
+
+    elemento("campoPesquisa").placeholder =
+        painel.pesquisa.placeholder;
+
+}
 
 
 /* ==========================================================
    HERO
 ========================================================== */
 
-document.getElementById("tituloHero").textContent =
-painel.hero.titulo;
+if (elemento("tituloHero")) {
 
-document.getElementById("descricaoHero").textContent =
-painel.hero.descricao;
+    elemento("tituloHero").textContent =
+        painel.hero.titulo;
 
-document.getElementById("btnRascunhos").textContent =
-painel.hero.rascunhos;
+}
 
-document.getElementById("btnNovoCadastro").textContent =
-painel.hero.novoCadastro;
 
-document.getElementById("btnFiltroProdutos").textContent =
-painel.hero.filtroProdutos;
+if (elemento("descricaoHero")) {
 
-document.getElementById("btnFiltroBanners").textContent =
-painel.hero.filtroBanners;
+    elemento("descricaoHero").textContent =
+        painel.hero.descricao;
 
-document.getElementById("btnFiltroPromocoes").textContent =
-painel.hero.filtroPromocoes;
+}
+
+
+if (elemento("btnRascunhos")) {
+
+    elemento("btnRascunhos").textContent =
+        painel.hero.rascunhos;
+
+}
+
+
+if (elemento("btnNovoCadastro")) {
+
+    elemento("btnNovoCadastro").textContent =
+        painel.hero.novoCadastro;
+
+}
+
+
+if (elemento("btnFiltroProdutos")) {
+
+    elemento("btnFiltroProdutos").textContent =
+        painel.hero.filtroProdutos;
+
+}
+
+
+if (elemento("btnFiltroBanners")) {
+
+    elemento("btnFiltroBanners").textContent =
+        painel.hero.filtroBanners;
+
+}
+
+
+if (elemento("btnFiltroPromocoes")) {
+
+    elemento("btnFiltroPromocoes").textContent =
+        painel.hero.filtroPromocoes;
+
+}
 
 
 /* ==========================================================
-   CADASTRO DE PRODUTO
+   CADASTRO DE PRODUTO - TEXTOS
 ========================================================== */
 
 const cadastroProduto = {
 
     titulo:
-    "Cadastro de Produto",
+        "Cadastro de Produto",
 
     descricao:
-    "Preencha os dados do produto para disponibilizá-lo na loja.",
+        "Preencha os dados do produto para disponibilizá-lo na loja.",
 
     imagem:
-    "../Assets/produto1.png",
+        "../Assets/produto1.png",
 
     labels: {
 
         nome:
-        "Nome do Produto",
+            "Nome do Produto",
 
         sku:
-        "Código do Produto",
+            "Código do Produto",
 
         categoria:
-        "Categoria",
+            "Categoria",
 
         preco:
-        "Preço",
+            "Preço",
 
         precoPromo:
-        "Preço Promocional",
+            "Preço Promocional",
 
         estoque:
-        "Estoque",
+            "Estoque",
 
         descricao:
-        "Descrição Curta",
+            "Descrição Curta",
 
         imagem:
-        "Imagem"
+            "Imagem"
 
     },
 
     botoes: {
 
         rascunho:
-        "Salvar Rascunho",
+            "Salvar Rascunho",
 
         salvar:
-        "Salvar Produto"
+            "Salvar Produto"
 
     }
 
 };
 
 
-/* ==========================================================
-   PREENCHIMENTO DO CADASTRO DE PRODUTO
-========================================================== */
+if (elemento("tituloCadastroProduto")) {
 
-document.getElementById("tituloCadastroProduto").textContent =
-cadastroProduto.titulo;
+    elemento("tituloCadastroProduto").textContent =
+        cadastroProduto.titulo;
 
-document.getElementById("descricaoCadastroProduto").textContent =
-cadastroProduto.descricao;
-
-document.getElementById("imagemCadastroProduto").src =
-cadastroProduto.imagem;
-
-document.getElementById("lblNomeProduto").textContent =
-cadastroProduto.labels.nome;
-
-document.getElementById("lblSku").textContent =
-cadastroProduto.labels.sku;
-
-document.getElementById("lblCategoria").textContent =
-cadastroProduto.labels.categoria;
-
-document.getElementById("lblPreco").textContent =
-cadastroProduto.labels.preco;
-
-document.getElementById("lblPrecoPromo").textContent =
-cadastroProduto.labels.precoPromo;
-
-document.getElementById("lblEstoque").textContent =
-cadastroProduto.labels.estoque;
-
-document.getElementById("lblDescricaoCurta").textContent =
-cadastroProduto.labels.descricao;
-
-document.getElementById("lblImagemProduto").textContent =
-cadastroProduto.labels.imagem;
-
-document.getElementById("btnSalvarRascunhoProduto").textContent =
-cadastroProduto.botoes.rascunho;
-
-document.getElementById("btnSalvarProduto").textContent =
-cadastroProduto.botoes.salvar;
+}
 
 
-/* ==========================================================
-   CARREGAR CATEGORIAS DO BANCO
-========================================================== */
+if (elemento("descricaoCadastroProduto")) {
 
-const selectCategoria =
-document.getElementById("categoriaProduto");
+    elemento("descricaoCadastroProduto").textContent =
+        cadastroProduto.descricao;
 
-if (selectCategoria) {
+}
 
-    fetch("http://localhost:3000/categoria")
 
-        .then(function(response) {
+if (elemento("imagemCadastroProduto")) {
 
-            if (!response.ok) {
+    elemento("imagemCadastroProduto").src =
+        cadastroProduto.imagem;
 
-                throw new Error(
-                    "Erro ao buscar categorias."
-                );
+}
 
-            }
 
-            return response.json();
+if (elemento("lblNomeProduto")) {
 
-        })
+    elemento("lblNomeProduto").textContent =
+        cadastroProduto.labels.nome;
 
-        .then(function(categorias) {
+}
 
-            categorias.forEach(function(categoria) {
 
-                const option =
-                document.createElement("option");
+if (elemento("lblSku")) {
 
-                option.value =
-                categoria.idCategoria;
+    elemento("lblSku").textContent =
+        cadastroProduto.labels.sku;
 
-                option.textContent =
-                categoria.nome;
+}
 
-                selectCategoria.appendChild(option);
 
-            });
+if (elemento("lblCategoria")) {
 
-        })
+    elemento("lblCategoria").textContent =
+        cadastroProduto.labels.categoria;
 
-        .catch(function(erro) {
+}
 
-            console.error(
-                "Erro ao carregar categorias:",
-                erro
-            );
 
-        });
+if (elemento("lblPreco")) {
+
+    elemento("lblPreco").textContent =
+        cadastroProduto.labels.preco;
+
+}
+
+
+if (elemento("lblPrecoPromo")) {
+
+    elemento("lblPrecoPromo").textContent =
+        cadastroProduto.labels.precoPromo;
+
+}
+
+
+if (elemento("lblEstoque")) {
+
+    elemento("lblEstoque").textContent =
+        cadastroProduto.labels.estoque;
+
+}
+
+
+if (elemento("lblDescricaoCurta")) {
+
+    elemento("lblDescricaoCurta").textContent =
+        cadastroProduto.labels.descricao;
+
+}
+
+
+if (elemento("lblImagemProduto")) {
+
+    elemento("lblImagemProduto").textContent =
+        cadastroProduto.labels.imagem;
+
+}
+
+
+if (elemento("btnSalvarRascunhoProduto")) {
+
+    elemento("btnSalvarRascunhoProduto").textContent =
+        cadastroProduto.botoes.rascunho;
+
+}
+
+
+if (elemento("btnSalvarProduto")) {
+
+    elemento("btnSalvarProduto").textContent =
+        cadastroProduto.botoes.salvar;
 
 }
 
 
 /* ==========================================================
-   PRODUTOS CADASTRADOS
+   CARREGAR CATEGORIAS
+========================================================== */
+
+async function carregarCategorias() {
+
+    const select =
+        elemento("categoriaProduto");
+
+
+    if (!select) {
+
+        return;
+
+    }
+
+
+    try {
+
+        const response =
+            await fetch(
+                ROTAS.categorias
+            );
+
+
+        const resultado =
+            await lerResposta(response);
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                resultado.mensagem ||
+                "Erro ao buscar categorias."
+            );
+
+        }
+
+
+        const categorias =
+            Array.isArray(resultado)
+                ? resultado
+                : resultado.dados ||
+                resultado.categorias ||
+                resultado.resultado ||
+                [];
+
+
+        select.innerHTML =
+            '<option value="">Selecione...</option>';
+
+
+        categorias.forEach(
+            function (categoria) {
+
+                const option =
+                    document.createElement(
+                        "option"
+                    );
+
+
+                option.value =
+                    categoria.idCategoria;
+
+
+                option.textContent =
+                    categoria.nome;
+
+
+                select.appendChild(
+                    option
+                );
+
+            }
+        );
+
+
+    }
+    catch (erro) {
+
+        console.error(
+            "Erro ao carregar categorias:",
+            erro
+        );
+
+    }
+
+}
+
+
+/* ==========================================================
+   CARREGAR PRODUTOS PARA O SELECT DE IMAGENS
+========================================================== */
+
+async function carregarProdutosImagem() {
+
+    const select =
+        elemento(
+            "produtoImagemAux"
+        );
+
+
+    if (!select) {
+
+        return;
+
+    }
+
+
+    try {
+
+        const response =
+            await fetch(
+                ROTAS.produtos
+            );
+
+
+        const resultado =
+            await lerResposta(response);
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                resultado.mensagem ||
+                "Erro ao buscar produtos."
+            );
+
+        }
+
+
+        const produtos =
+            Array.isArray(resultado)
+                ? resultado
+                : resultado.produtos ||
+                resultado.dados ||
+                resultado.resultado ||
+                [];
+
+
+        select.innerHTML =
+            '<option value="">Selecione...</option>';
+
+
+        produtos.forEach(
+            function (produto) {
+
+                const option =
+                    document.createElement(
+                        "option"
+                    );
+
+
+                option.value =
+                    produto.idProduto;
+
+
+                option.textContent =
+                    produto.nome;
+
+
+                select.appendChild(
+                    option
+                );
+
+            }
+        );
+
+
+    }
+    catch (erro) {
+
+        console.error(
+            "Erro ao carregar produtos:",
+            erro
+        );
+
+    }
+
+}
+
+
+/* ==========================================================
+   CADASTRAR PRODUTO
+========================================================== */
+
+const formProduto =
+    elemento("formProduto");
+
+
+if (formProduto) {
+
+    formProduto.addEventListener(
+        "submit",
+        async function (event) {
+
+            event.preventDefault();
+
+
+            const nome =
+                elemento(
+                    "nomeProduto"
+                ).value.trim();
+
+
+            const codigo =
+                elemento(
+                    "skuProduto"
+                ).value.trim();
+
+
+            const categoria =
+                elemento(
+                    "categoriaProduto"
+                ).value;
+
+
+            const preco =
+                elemento(
+                    "precoProduto"
+                ).value;
+
+
+            const precoPromocional =
+                elemento(
+                    "precoPromocional"
+                ).value;
+
+
+            const estoque =
+                elemento(
+                    "estoqueProduto"
+                ).value;
+
+
+            const descricao =
+                elemento(
+                    "descricaoCurta"
+                ).value.trim();
+
+
+            if (
+                nome === "" ||
+                codigo === "" ||
+                categoria === "" ||
+                preco === "" ||
+                estoque === ""
+            ) {
+
+                alert(
+                    "Preencha os campos obrigatórios."
+                );
+
+                return;
+
+            }
+
+
+            const produto = {
+
+                nome:
+                    nome,
+
+                codigo:
+                    codigo,
+
+                descricao:
+                    descricao,
+
+                preco:
+                    Number(preco),
+
+                preco_promo:
+                    precoPromocional !== ""
+                        ? Number(
+                            precoPromocional
+                        )
+                        : null,
+
+                estoque:
+                    Number(estoque),
+
+                Categoria_idCategoria:
+                    Number(categoria)
+
+            };
+
+
+            console.log(
+                "Produto enviado:",
+                produto
+            );
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        ROTAS.produtos,
+                        {
+
+                            method:
+                                "POST",
+
+                            headers: {
+
+                                "Content-Type":
+                                    "application/json"
+
+                            },
+
+                            body:
+                                JSON.stringify(
+                                    produto
+                                )
+
+                        }
+                    );
+
+
+                const data =
+                    await lerResposta(
+                        response
+                    );
+
+
+                console.log(
+                    "Resposta produto:",
+                    data
+                );
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        data.mensagem ||
+                        "Erro ao cadastrar produto."
+                    );
+
+                }
+
+
+                alert(
+                    data.mensagem ||
+                    "Produto cadastrado com sucesso!"
+                );
+
+
+                formProduto.reset();
+
+
+                await carregarProdutosImagem();
+
+
+            }
+            catch (erro) {
+
+                console.error(
+                    "Erro ao cadastrar produto:",
+                    erro
+                );
+
+
+                alert(
+                    erro.message
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+/* ==========================================================
+   CADASTRAR MARCA
+========================================================== */
+
+const btnSalvarMarca =
+    elemento(
+        "btnSalvarMarca"
+    );
+
+
+if (btnSalvarMarca) {
+
+    btnSalvarMarca.addEventListener(
+        "click",
+        async function () {
+
+            const campoNome =
+                elemento(
+                    "marcaNome"
+                );
+
+
+            const campoLogo =
+                elemento(
+                    "marcaLogo"
+                );
+
+
+            const nome =
+                campoNome.value.trim();
+
+
+            const logo =
+                campoLogo.files[0];
+
+
+            if (nome === "") {
+
+                alert(
+                    "Informe o nome da marca."
+                );
+
+                campoNome.focus();
+
+                return;
+
+            }
+
+
+            const formData =
+                new FormData();
+
+
+            formData.append(
+                "nome",
+                nome
+            );
+
+
+            if (logo) {
+
+                formData.append(
+                    "logo",
+                    logo
+                );
+
+            }
+
+
+            console.log(
+                "Cadastrando marca:",
+                nome
+            );
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        ROTAS.marcas,
+                        {
+
+                            method:
+                                "POST",
+
+                            body:
+                                formData
+
+                        }
+                    );
+
+
+                const data =
+                    await lerResposta(
+                        response
+                    );
+
+
+                console.log(
+                    "Resposta marca:",
+                    data
+                );
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        data.mensagem ||
+                        "Erro ao cadastrar marca."
+                    );
+
+                }
+
+
+                alert(
+                    data.mensagem ||
+                    "Marca cadastrada com sucesso!"
+                );
+
+
+                campoNome.value =
+                    "";
+
+
+                campoLogo.value =
+                    "";
+
+
+            }
+            catch (erro) {
+
+                console.error(
+                    "Erro ao cadastrar marca:",
+                    erro
+                );
+
+
+                alert(
+                    erro.message
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+/* ==========================================================
+   CADASTRAR CATEGORIA
+========================================================== */
+
+const btnSalvarCategoria =
+    elemento(
+        "btnSalvarCategoriaAux"
+    );
+
+
+if (btnSalvarCategoria) {
+
+    btnSalvarCategoria.addEventListener(
+        "click",
+        async function () {
+
+            const campo =
+                elemento(
+                    "categoriaNomeAux"
+                );
+
+
+            const nome =
+                campo.value.trim();
+
+
+            if (nome === "") {
+
+                alert(
+                    "Informe o nome da categoria."
+                );
+
+                campo.focus();
+
+                return;
+
+            }
+
+
+            const categoria = {
+
+                nome:
+                    nome
+
+            };
+
+
+            console.log(
+                "Categoria enviada:",
+                categoria
+            );
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        ROTAS.categorias,
+                        {
+
+                            method:
+                                "POST",
+
+                            headers: {
+
+                                "Content-Type":
+                                    "application/json"
+
+                            },
+
+                            body:
+                                JSON.stringify(
+                                    categoria
+                                )
+
+                        }
+                    );
+
+
+                const data =
+                    await lerResposta(
+                        response
+                    );
+
+
+                console.log(
+                    "Resposta categoria:",
+                    data
+                );
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        data.mensagem ||
+                        "Erro ao cadastrar categoria."
+                    );
+
+                }
+
+
+                alert(
+                    data.mensagem ||
+                    "Categoria cadastrada com sucesso!"
+                );
+
+
+                campo.value =
+                    "";
+
+
+                await carregarCategorias();
+
+
+            }
+            catch (erro) {
+
+                console.error(
+                    "Erro ao cadastrar categoria:",
+                    erro
+                );
+
+
+                alert(
+                    erro.message
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+/* ==========================================================
+   CADASTRAR COR
+========================================================== */
+
+const btnSalvarCor =
+    elemento(
+        "btnSalvarCor"
+    );
+
+
+if (btnSalvarCor) {
+
+    btnSalvarCor.addEventListener(
+        "click",
+        async function () {
+
+            const campoNome =
+                elemento(
+                    "corNome"
+                );
+
+
+            const campoCodigo =
+                elemento(
+                    "codigoCor"
+                );
+
+
+            const nome =
+                campoNome.value.trim();
+
+
+            const codigoCor =
+                campoCodigo.value;
+
+
+            if (nome === "") {
+
+                alert(
+                    "Informe o nome da cor."
+                );
+
+                campoNome.focus();
+
+                return;
+
+            }
+
+
+            const cor = {
+
+                nome:
+                    nome,
+
+                codigo_cor:
+                    codigoCor
+
+            };
+
+
+            console.log(
+                "Cor enviada:",
+                cor
+            );
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        ROTAS.cores,
+                        {
+
+                            method:
+                                "POST",
+
+                            headers: {
+
+                                "Content-Type":
+                                    "application/json"
+
+                            },
+
+                            body:
+                                JSON.stringify(
+                                    cor
+                                )
+
+                        }
+                    );
+
+
+                const data =
+                    await lerResposta(
+                        response
+                    );
+
+
+                console.log(
+                    "Resposta cor:",
+                    data
+                );
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        data.mensagem ||
+                        "Erro ao cadastrar cor."
+                    );
+
+                }
+
+
+                alert(
+                    data.mensagem ||
+                    "Cor cadastrada com sucesso!"
+                );
+
+
+                campoNome.value =
+                    "";
+
+
+                campoCodigo.value =
+                    "#000000";
+
+
+            }
+            catch (erro) {
+
+                console.error(
+                    "Erro ao cadastrar cor:",
+                    erro
+                );
+
+
+                alert(
+                    erro.message
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+/* ==========================================================
+   CADASTRAR TAMANHO
+========================================================== */
+
+const btnSalvarTamanho =
+    elemento(
+        "btnSalvarTamanho"
+    );
+
+
+if (btnSalvarTamanho) {
+
+    btnSalvarTamanho.addEventListener(
+        "click",
+        async function () {
+
+            const campo =
+                elemento(
+                    "nomeTamanhoAux"
+                );
+
+
+            const tamanho =
+                campo.value.trim();
+
+
+            if (tamanho === "") {
+
+                alert(
+                    "Informe o tamanho."
+                );
+
+                campo.focus();
+
+                return;
+
+            }
+
+
+            const dados = {
+
+                tm:
+                    tamanho
+
+            };
+
+
+            console.log(
+                "Tamanho enviado:",
+                dados
+            );
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        ROTAS.tamanhos,
+                        {
+
+                            method:
+                                "POST",
+
+                            headers: {
+
+                                "Content-Type":
+                                    "application/json"
+
+                            },
+
+                            body:
+                                JSON.stringify(
+                                    dados
+                                )
+
+                        }
+                    );
+
+
+                const data =
+                    await lerResposta(
+                        response
+                    );
+
+
+                console.log(
+                    "Resposta tamanho:",
+                    data
+                );
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        data.mensagem ||
+                        "Erro ao cadastrar tamanho."
+                    );
+
+                }
+
+
+                alert(
+                    data.mensagem ||
+                    "Tamanho cadastrado com sucesso!"
+                );
+
+
+                campo.value =
+                    "";
+
+
+            }
+            catch (erro) {
+
+                console.error(
+                    "Erro ao cadastrar tamanho:",
+                    erro
+                );
+
+
+                alert(
+                    erro.message
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+/* ==========================================================
+   CADASTRAR IMAGEM DO PRODUTO
+========================================================== */
+
+const btnSalvarImagem =
+    elemento(
+        "btnSalvarImagem"
+    );
+
+
+if (btnSalvarImagem) {
+
+    btnSalvarImagem.addEventListener(
+        "click",
+        async function () {
+
+            const campoProduto =
+                elemento(
+                    "produtoImagemAux"
+                );
+
+
+            const campoArquivo =
+                elemento(
+                    "arquivoImagemAux"
+                );
+
+
+            const produtoId =
+                campoProduto.value;
+
+
+            const arquivo =
+                campoArquivo.files[0];
+
+
+            if (produtoId === "") {
+
+                alert(
+                    "Selecione um produto."
+                );
+
+                return;
+
+            }
+
+
+            if (!arquivo) {
+
+                alert(
+                    "Selecione uma imagem."
+                );
+
+                return;
+
+            }
+
+
+            const formData =
+                new FormData();
+
+
+            formData.append(
+                "Produto_idProduto",
+                produtoId
+            );
+
+
+            formData.append(
+                "imagem",
+                arquivo
+            );
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        ROTAS.imagens,
+                        {
+
+                            method:
+                                "POST",
+
+                            body:
+                                formData
+
+                        }
+                    );
+
+
+                const data =
+                    await lerResposta(
+                        response
+                    );
+
+
+                console.log(
+                    "Resposta imagem:",
+                    data
+                );
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        data.mensagem ||
+                        "Erro ao cadastrar imagem."
+                    );
+
+                }
+
+
+                alert(
+                    data.mensagem ||
+                    "Imagem cadastrada com sucesso!"
+                );
+
+
+                campoProduto.value =
+                    "";
+
+
+                campoArquivo.value =
+                    "";
+
+
+            }
+            catch (erro) {
+
+                console.error(
+                    "Erro ao cadastrar imagem:",
+                    erro
+                );
+
+
+                alert(
+                    erro.message
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+/* ==========================================================
+   PRODUTOS DE EXEMPLO
 ========================================================== */
 
 const produtos = {
 
     titulo:
-    "Seus Produtos",
+        "Seus Produtos",
 
     descricao:
-    "Produtos cadastrados recentemente.",
+        "Produtos cadastrados recentemente.",
 
     lista: [
 
         {
 
             imagem:
-            "../Assets/produto1.png",
+                "../Assets/produto1.png",
 
             nome:
-            "Carne Picanha Grill",
+                "Carne Picanha Grill",
 
             descricao:
-            "Este item possui peso variável e seu valor total poderá ser alterado após a separação",
+                "Produto cadastrado na loja.",
 
             preco:
-            "R$ 105,97",
+                "R$ 105,97",
 
             estoque:
-            "Estoque: 12"
+                "Estoque: 12"
 
         },
 
         {
 
             imagem:
-            "../Assets/produto2.png",
+                "../Assets/produto2.png",
 
             nome:
-            "Ovos Iana 20X1",
+                "Ovos Iana 20X1",
 
             descricao:
-            "Extra branco, tamanho médio, 20 unidades",
+                "Produto cadastrado na loja.",
 
             preco:
-            "R$ 14,97",
+                "R$ 14,97",
 
             estoque:
-            "Estoque: 48"
+                "Estoque: 48"
 
         },
 
         {
 
             imagem:
-            "../Assets/produto3.png",
+                "../Assets/produto3.png",
 
             nome:
-            "Whisky Glenfiddich",
+                "Whisky Glenfiddich",
 
             descricao:
-            "Whisky Escocês Single Malt 12 Anos Glenfiddich Garrafa 750ml",
+                "Produto cadastrado na loja.",
 
             preco:
-            "R$ 534,97",
+                "R$ 534,97",
 
             estoque:
-            "Estoque: 23"
+                "Estoque: 23"
 
         },
 
         {
 
             imagem:
-            "../Assets/produto4.png",
+                "../Assets/produto4.png",
 
             nome:
-            "Arroz Namorado Branco TP1 5kg",
+                "Arroz Namorado 5kg",
 
             descricao:
-            "Arroz Namorado Branco Tipo 1 5kg - Pacote com 5kg de arroz branco tipo 1.",
+                "Produto cadastrado na loja.",
 
             preco:
-            "R$ 19,85",
+                "R$ 19,85",
 
             estoque:
-            "Estoque: 15"
+                "Estoque: 15"
 
         },
 
         {
 
             imagem:
-            "../Assets/produto5.png",
+                "../Assets/produto5.png",
 
             nome:
-            "Cerveja Skol c/15uni 269ML",
+                "Cerveja Skol",
 
             descricao:
-            "Cerveja Skol Pilsen c/15uni 269ML",
+                "Produto cadastrado na loja.",
 
             preco:
-            "R$ 38,55",
+                "R$ 38,55",
 
             estoque:
-            "Estoque: 8"
+                "Estoque: 8"
 
         },
 
         {
 
             imagem:
-            "../Assets/produto6.png",
+                "../Assets/produto6.png",
 
             nome:
-            "Condicionador Seda Liso Perfeito",
+                "Condicionador Seda",
 
             descricao:
-            "Condicionador Seda Cocriações Liso Perfeito Frasco 325ml.",
+                "Produto cadastrado na loja.",
 
             preco:
-            "R$ 15,97",
+                "R$ 15,97",
 
             estoque:
-            "Estoque: 34"
+                "Estoque: 34"
 
         }
 
@@ -422,19 +1668,24 @@ const produtos = {
 
 
 /* ==========================================================
-   TÍTULO DOS PRODUTOS
+   EXIBIR PRODUTOS
 ========================================================== */
 
-document.getElementById("tituloProdutos").textContent =
-produtos.titulo;
+if (elemento("tituloProdutos")) {
 
-document.getElementById("descricaoProdutos").textContent =
-produtos.descricao;
+    elemento("tituloProdutos").textContent =
+        produtos.titulo;
+
+}
 
 
-/* ==========================================================
-   PREENCHIMENTO DOS 6 PRODUTOS
-========================================================== */
+if (elemento("descricaoProdutos")) {
+
+    elemento("descricaoProdutos").textContent =
+        produtos.descricao;
+
+}
+
 
 for (
     let i = 1;
@@ -443,340 +1694,171 @@ for (
 ) {
 
     const produto =
-    produtos.lista[i - 1];
+        produtos.lista[
+        i - 1
+        ];
 
-    document.getElementById(
-        "produtoImagem" + i
-    ).src = produto.imagem;
 
-    document.getElementById(
-        "produtoNome" + i
-    ).textContent = produto.nome;
+    if (
+        elemento(
+            "produtoImagem" + i
+        )
+    ) {
 
-    document.getElementById(
-        "produtoDescricao" + i
-    ).textContent = produto.descricao;
+        elemento(
+            "produtoImagem" + i
+        ).src =
+            produto.imagem;
 
-    document.getElementById(
-        "produtoPreco" + i
-    ).textContent = produto.preco;
+    }
 
-    document.getElementById(
-        "produtoEstoque" + i
-    ).textContent = produto.estoque;
 
-    document.getElementById(
-        "btnEditarProduto" + i
-    ).textContent = "Editar";
+    if (
+        elemento(
+            "produtoNome" + i
+        )
+    ) {
 
-    document.getElementById(
-        "btnExcluirProduto" + i
-    ).textContent = "Excluir";
+        elemento(
+            "produtoNome" + i
+        ).textContent =
+            produto.nome;
 
-    document.getElementById(
-        "btnVisualizarProduto" + i
-    ).textContent = "Visualizar";
+    }
+
+
+    if (
+        elemento(
+            "produtoDescricao" + i
+        )
+    ) {
+
+        elemento(
+            "produtoDescricao" + i
+        ).textContent =
+            produto.descricao;
+
+    }
+
+
+    if (
+        elemento(
+            "produtoPreco" + i
+        )
+    ) {
+
+        elemento(
+            "produtoPreco" + i
+        ).textContent =
+            produto.preco;
+
+    }
+
+
+    if (
+        elemento(
+            "produtoEstoque" + i
+        )
+    ) {
+
+        elemento(
+            "produtoEstoque" + i
+        ).textContent =
+            produto.estoque;
+
+    }
+
+
+    if (
+        elemento(
+            "btnEditarProduto" + i
+        )
+    ) {
+
+        elemento(
+            "btnEditarProduto" + i
+        ).textContent =
+            "Editar";
+
+    }
+
+
+    if (
+        elemento(
+            "btnExcluirProduto" + i
+        )
+    ) {
+
+        elemento(
+            "btnExcluirProduto" + i
+        ).textContent =
+            "Excluir";
+
+    }
+
+
+    if (
+        elemento(
+            "btnVisualizarProduto" + i
+        )
+    ) {
+
+        elemento(
+            "btnVisualizarProduto" + i
+        ).textContent =
+            "Visualizar";
+
+    }
 
 }
 
 
 /* ==========================================================
-   CADASTRO DE INFORMAÇÕES DO PRODUTO
-========================================================== */
-
-const informacoesProduto = {
-
-    titulo:
-    "Informações Complementares",
-
-    descricao:
-    "Cadastre marcas, categorias, cores, tamanhos e imagens para utilizar nos produtos.",
-
-    marca: {
-
-        titulo:
-        "Marca",
-
-        nome:
-        "Nome da Marca",
-
-        logo:
-        "Logo da Marca",
-
-        botao:
-        "Salvar Marca"
-
-    },
-
-    categoria: {
-
-        titulo:
-        "Categoria",
-
-        nome:
-        "Nome da Categoria",
-
-        botao:
-        "Salvar Categoria"
-
-    },
-
-    cor: {
-
-        titulo:
-        "Cor",
-
-        nome:
-        "Nome da Cor",
-
-        codigo:
-        "Código da Cor",
-
-        botao:
-        "Salvar Cor"
-
-    },
-
-    tamanho: {
-
-        titulo:
-        "Tamanho",
-
-        nome:
-        "Descrição do Tamanho",
-
-        botao:
-        "Salvar Tamanho"
-
-    },
-
-    imagem: {
-
-        titulo:
-        "Imagem do Produto",
-
-        produto:
-        "Produto",
-
-        arquivo:
-        "Imagem",
-
-        botao:
-        "Salvar Imagem"
-
-    }
-
-};
-
-
-/* ==========================================================
-   TÍTULO DA ÁREA
-========================================================== */
-
-document.getElementById(
-    "tituloInformacoesProduto"
-).textContent =
-informacoesProduto.titulo;
-
-document.getElementById(
-    "descricaoInformacoesProduto"
-).textContent =
-informacoesProduto.descricao;
-
-
-/* ==========================================================
-   MARCA
-========================================================== */
-
-document.getElementById(
-    "tituloMarca"
-).textContent =
-informacoesProduto.marca.titulo;
-
-document.getElementById(
-    "lblNomeMarca"
-).textContent =
-informacoesProduto.marca.nome;
-
-document.getElementById(
-    "lblLogoMarca"
-).textContent =
-informacoesProduto.marca.logo;
-
-document.getElementById(
-    "btnSalvarMarca"
-).textContent =
-informacoesProduto.marca.botao;
-
-
-/* ==========================================================
-   CATEGORIA
-========================================================== */
-
-document.getElementById(
-    "tituloCategoriaCadastro"
-).textContent =
-informacoesProduto.categoria.titulo;
-
-document.getElementById(
-    "lblNomeCategoriaCadastro"
-).textContent =
-informacoesProduto.categoria.nome;
-
-document.getElementById(
-    "btnSalvarCategoria"
-).textContent =
-informacoesProduto.categoria.botao;
-
-
-/* ==========================================================
-   COR
-========================================================== */
-
-document.getElementById(
-    "tituloCor"
-).textContent =
-informacoesProduto.cor.titulo;
-
-document.getElementById(
-    "lblNomeCor"
-).textContent =
-informacoesProduto.cor.nome;
-
-document.getElementById(
-    "lblCodigoCor"
-).textContent =
-informacoesProduto.cor.codigo;
-
-document.getElementById(
-    "btnSalvarCor"
-).textContent =
-informacoesProduto.cor.botao;
-
-
-/* ==========================================================
-   TAMANHO
-========================================================== */
-
-document.getElementById(
-    "tituloTamanho"
-).textContent =
-informacoesProduto.tamanho.titulo;
-
-document.getElementById(
-    "lblNomeTamanho"
-).textContent =
-informacoesProduto.tamanho.nome;
-
-document.getElementById(
-    "btnSalvarTamanho"
-).textContent =
-informacoesProduto.tamanho.botao;
-
-
-/* ==========================================================
-   IMAGEM DO PRODUTO
-========================================================== */
-
-document.getElementById(
-    "tituloImagemProdutoCadastro"
-).textContent =
-informacoesProduto.imagem.titulo;
-
-document.getElementById(
-    "lblProdutoImagemCadastro"
-).textContent =
-informacoesProduto.imagem.produto;
-
-document.getElementById(
-    "lblArquivoImagem"
-).textContent =
-informacoesProduto.imagem.arquivo;
-
-document.getElementById(
-    "btnSalvarImagemProduto"
-).textContent =
-informacoesProduto.imagem.botao;
-
-
-/* ==========================================================
-   CADASTRO DE BANNER
+   BANNERS
 ========================================================== */
 
 const banners = {
 
     titulo:
-    "Cadastro de Banner",
+        "Cadastro de Banner",
 
     descricao:
-    "Cadastre banners promocionais para destacar campanhas na página inicial.",
+        "Cadastre banners promocionais para destacar campanhas na página inicial.",
 
     imagem:
-    "../Assets/banner.png",
-
-    labels: {
-
-        titulo:
-        "Título do Banner",
-
-        tipo:
-        "Tipo de Banner",
-
-        imagem:
-        "Imagem",
-
-        textoPrincipal:
-        "Texto Principal",
-
-        textoSecundario:
-        "Texto Secundário",
-
-        link:
-        "Link do Botão"
-
-    },
-
-    botoes: {
-
-        preview:
-        "Pré-visualizar",
-
-        salvar:
-        "Salvar Banner"
-
-    },
+        "../Assets/banner.png",
 
     lista: [
 
         {
 
             imagem:
-            "../Assets/banner1.png",
+                "../Assets/banner1.png",
 
             titulo:
-            "Mega Feirão",
+                "Mega Feirão",
 
             descricao:
-            "Descontos de até 70% em toda a loja.",
+                "Descontos especiais.",
 
             status:
-            "Ativo"
+                "Ativo"
 
         },
 
         {
 
             imagem:
-            "../Assets/banner2.png",
+                "../Assets/banner2.png",
 
             titulo:
-            "Volta às Aulas",
+                "Volta às Aulas",
 
             descricao:
-            "Ofertas especiais em informática.",
+                "Ofertas especiais.",
 
             status:
-            "Agendado"
+                "Agendado"
 
         }
 
@@ -786,78 +1868,115 @@ const banners = {
 
 
 /* ==========================================================
-   FORMULÁRIO DE BANNER
+   TEXTOS BANNER
 ========================================================== */
 
-document.getElementById(
-    "tituloBanner"
-).textContent =
-banners.titulo;
+if (elemento("tituloBanner")) {
 
-document.getElementById(
-    "descricaoBanner"
-).textContent =
-banners.descricao;
+    elemento("tituloBanner").textContent =
+        banners.titulo;
 
-document.getElementById(
-    "imagemBanner"
-).src =
-banners.imagem;
+}
 
-document.getElementById(
-    "lblTituloBanner"
-).textContent =
-banners.labels.titulo;
 
-document.getElementById(
-    "lblTipoBanner"
-).textContent =
-banners.labels.tipo;
+if (elemento("descricaoBanner")) {
 
-document.getElementById(
-    "lblImagemBanner"
-).textContent =
-banners.labels.imagem;
+    elemento("descricaoBanner").textContent =
+        banners.descricao;
 
-document.getElementById(
-    "lblTextoPrincipal"
-).textContent =
-banners.labels.textoPrincipal;
+}
 
-document.getElementById(
-    "lblTextoSecundario"
-).textContent =
-banners.labels.textoSecundario;
 
-document.getElementById(
-    "lblLinkBanner"
-).textContent =
-banners.labels.link;
+if (elemento("imagemBanner")) {
 
-document.getElementById(
-    "btnPreviewBanner"
-).textContent =
-banners.botoes.preview;
+    elemento("imagemBanner").src =
+        banners.imagem;
 
-document.getElementById(
-    "btnSalvarBanner"
-).textContent =
-banners.botoes.salvar;
+}
+
+
+if (elemento("lblTituloBanner")) {
+
+    elemento("lblTituloBanner").textContent =
+        "Título do Banner";
+
+}
+
+
+if (elemento("lblTipoBanner")) {
+
+    elemento("lblTipoBanner").textContent =
+        "Tipo de Banner";
+
+}
+
+
+if (elemento("lblImagemBanner")) {
+
+    elemento("lblImagemBanner").textContent =
+        "Imagem";
+
+}
+
+
+if (elemento("lblTextoPrincipal")) {
+
+    elemento("lblTextoPrincipal").textContent =
+        "Texto Principal";
+
+}
+
+
+if (elemento("lblTextoSecundario")) {
+
+    elemento("lblTextoSecundario").textContent =
+        "Texto Secundário";
+
+}
+
+
+if (elemento("lblLinkBanner")) {
+
+    elemento("lblLinkBanner").textContent =
+        "Link do Botão";
+
+}
+
+
+if (elemento("btnPreviewBanner")) {
+
+    elemento("btnPreviewBanner").textContent =
+        "Pré-visualizar";
+
+}
+
+
+if (elemento("btnSalvarBanner")) {
+
+    elemento("btnSalvarBanner").textContent =
+        "Salvar Banner";
+
+}
 
 
 /* ==========================================================
    BANNERS CADASTRADOS
 ========================================================== */
 
-document.getElementById(
-    "tituloCampanhas"
-).textContent =
-"Banners e Campanhas";
+if (elemento("tituloCampanhas")) {
 
-document.getElementById(
-    "descricaoCampanhas"
-).textContent =
-"Campanhas cadastradas recentemente.";
+    elemento("tituloCampanhas").textContent =
+        "Banners e Campanhas";
+
+}
+
+
+if (elemento("descricaoCampanhas")) {
+
+    elemento("descricaoCampanhas").textContent =
+        "Campanhas cadastradas recentemente.";
+
+}
 
 
 for (
@@ -867,35 +1986,107 @@ for (
 ) {
 
     const banner =
-    banners.lista[i - 1];
+        banners.lista[
+        i - 1
+        ];
 
-    document.getElementById(
-        "bannerImagem" + i
-    ).src = banner.imagem;
 
-    document.getElementById(
-        "bannerTitulo" + i
-    ).textContent = banner.titulo;
+    if (
+        elemento(
+            "bannerImagem" + i
+        )
+    ) {
 
-    document.getElementById(
-        "bannerDescricao" + i
-    ).textContent = banner.descricao;
+        elemento(
+            "bannerImagem" + i
+        ).src =
+            banner.imagem;
 
-    document.getElementById(
-        "bannerStatus" + i
-    ).textContent = banner.status;
+    }
 
-    document.getElementById(
-        "btnEditarBanner" + i
-    ).textContent = "Editar";
 
-    document.getElementById(
-        "btnExcluirBanner" + i
-    ).textContent = "Excluir";
+    if (
+        elemento(
+            "bannerTitulo" + i
+        )
+    ) {
 
-    document.getElementById(
-        "btnVisualizarBanner" + i
-    ).textContent = "Visualizar";
+        elemento(
+            "bannerTitulo" + i
+        ).textContent =
+            banner.titulo;
+
+    }
+
+
+    if (
+        elemento(
+            "bannerDescricao" + i
+        )
+    ) {
+
+        elemento(
+            "bannerDescricao" + i
+        ).textContent =
+            banner.descricao;
+
+    }
+
+
+    if (
+        elemento(
+            "bannerStatus" + i
+        )
+    ) {
+
+        elemento(
+            "bannerStatus" + i
+        ).textContent =
+            banner.status;
+
+    }
+
+
+    if (
+        elemento(
+            "btnEditarBanner" + i
+        )
+    ) {
+
+        elemento(
+            "btnEditarBanner" + i
+        ).textContent =
+            "Editar";
+
+    }
+
+
+    if (
+        elemento(
+            "btnExcluirBanner" + i
+        )
+    ) {
+
+        elemento(
+            "btnExcluirBanner" + i
+        ).textContent =
+            "Excluir";
+
+    }
+
+
+    if (
+        elemento(
+            "btnVisualizarBanner" + i
+        )
+    ) {
+
+        elemento(
+            "btnVisualizarBanner" + i
+        ).textContent =
+            "Visualizar";
+
+    }
 
 }
 
@@ -907,109 +2098,77 @@ for (
 const promocoes = {
 
     titulo:
-    "Cadastro de Promoção",
+        "Cadastro de Promoção",
 
     descricao:
-    "Cadastre promoções para aumentar as vendas da sua loja.",
+        "Cadastre promoções para aumentar as vendas da sua loja.",
 
     imagem:
-    "../Assets/promocao_inverno.png",
+        "../Assets/promocao_inverno.png",
 
-    labels: {
-
-        nome:
-        "Nome da Promoção",
-
-        tipo:
-        "Tipo de Desconto",
-
-        valor:
-        "Valor do Desconto",
-
-        inicio:
-        "Data de Início",
-
-        fim:
-        "Data de Término",
-
-        aplicar:
-        "Aplicar em"
-
-    },
-
-    botoes: {
-
-        rascunho:
-        "Salvar Rascunho",
-
-        salvar:
-        "Salvar Promoção"
-
-    },
-
-    status: [
+    lista: [
 
         {
 
             titulo:
-            "Promoção de Inverno",
+                "Promoção de Inverno",
 
             descricao:
-            "Até 40% OFF",
+                "Até 40% OFF",
 
             situacao:
-            "Ativa",
+                "Ativa",
 
             imagem:
-            "../Assets/promocao_inverno.png"
+                "../Assets/promocao_inverno.png"
 
         },
 
         {
 
             titulo:
-            "Black Friday",
+                "Black Friday",
 
             descricao:
-            "Programada",
+                "Programada",
 
             situacao:
-            "Agendada",
+                "Agendada",
 
             imagem:
-            "../Assets/promocao_black_friday.png"
+                "../Assets/promocao_black_friday.png"
 
         },
 
         {
 
             titulo:
-            "Liquidação",
+                "Liquidação",
 
             descricao:
-            "Em edição",
+                "Em edição",
 
             situacao:
-            "Rascunho",
+                "Rascunho",
 
             imagem:
-            "../Assets/promocao_liquidacao.png"
+                "../Assets/promocao_liquidacao.png"
 
         },
 
         {
 
             titulo:
-            "Dia dos Namorados",
+                "Dia dos Namorados",
 
             descricao:
-            "Encerrada",
+                "Encerrada",
 
             situacao:
-            "Expirada",
+                "Expirada",
 
             imagem:
-            "../Assets/promocao_dia_namorados.png"
+                "../Assets/promocao_dia_namorados.png"
 
         }
 
@@ -1019,147 +2178,237 @@ const promocoes = {
 
 
 /* ==========================================================
-   FORMULÁRIO DE PROMOÇÃO
+   TEXTOS PROMOÇÕES
 ========================================================== */
 
-document.getElementById(
-    "tituloCadastroPromocao"
-).textContent =
-promocoes.titulo;
+if (elemento("tituloCadastroPromocao")) {
 
-document.getElementById(
-    "descricaoCadastroPromocao"
-).textContent =
-promocoes.descricao;
+    elemento("tituloCadastroPromocao").textContent =
+        promocoes.titulo;
 
-document.getElementById(
-    "imagemPromocao"
-).src =
-promocoes.imagem;
-
-document.getElementById(
-    "lblNomePromocao"
-).textContent =
-promocoes.labels.nome;
-
-document.getElementById(
-    "lblTipoDesconto"
-).textContent =
-promocoes.labels.tipo;
-
-document.getElementById(
-    "lblValorDesconto"
-).textContent =
-promocoes.labels.valor;
-
-document.getElementById(
-    "lblInicioPromocao"
-).textContent =
-promocoes.labels.inicio;
-
-document.getElementById(
-    "lblFimPromocao"
-).textContent =
-promocoes.labels.fim;
-
-document.getElementById(
-    "lblAplicarEm"
-).textContent =
-promocoes.labels.aplicar;
-
-document.getElementById(
-    "btnSalvarRascunhoPromocao"
-).textContent =
-promocoes.botoes.rascunho;
-
-document.getElementById(
-    "btnSalvarPromocao"
-).textContent =
-promocoes.botoes.salvar;
+}
 
 
-/* ==========================================================
-   STATUS DAS PROMOÇÕES
-========================================================== */
+if (elemento("descricaoCadastroPromocao")) {
 
-for (
-    let i = 1;
-    i <= promocoes.status.length;
-    i++
-) {
+    elemento("descricaoCadastroPromocao").textContent =
+        promocoes.descricao;
 
-    const promocao =
-    promocoes.status[i - 1];
+}
 
-    document.getElementById(
-        "statusImagem" + i
-    ).src = promocao.imagem;
 
-    document.getElementById(
-        "statusTitulo" + i
-    ).textContent = promocao.titulo;
+if (elemento("imagemPromocao")) {
 
-    document.getElementById(
-        "statusDescricao" + i
-    ).textContent = promocao.descricao;
+    elemento("imagemPromocao").src =
+        promocoes.imagem;
 
-    document.getElementById(
-        "statusSituacao" + i
-    ).textContent = promocao.situacao;
+}
+
+
+if (elemento("lblNomePromocao")) {
+
+    elemento("lblNomePromocao").textContent =
+        "Nome da Promoção";
+
+}
+
+
+if (elemento("lblTipoDesconto")) {
+
+    elemento("lblTipoDesconto").textContent =
+        "Tipo de Desconto";
+
+}
+
+
+if (elemento("lblValorDesconto")) {
+
+    elemento("lblValorDesconto").textContent =
+        "Valor do Desconto";
+
+}
+
+
+if (elemento("lblInicioPromocao")) {
+
+    elemento("lblInicioPromocao").textContent =
+        "Data de Início";
+
+}
+
+
+if (elemento("lblFimPromocao")) {
+
+    elemento("lblFimPromocao").textContent =
+        "Data de Término";
+
+}
+
+
+if (elemento("lblAplicarEm")) {
+
+    elemento("lblAplicarEm").textContent =
+        "Aplicar em";
+
+}
+
+
+if (elemento("btnSalvarRascunhoPromocao")) {
+
+    elemento("btnSalvarRascunhoPromocao").textContent =
+        "Salvar Rascunho";
+
+}
+
+
+if (elemento("btnSalvarPromocao")) {
+
+    elemento("btnSalvarPromocao").textContent =
+        "Salvar Promoção";
 
 }
 
 
 /* ==========================================================
-   RESUMO DO PAINEL
+   PROMOÇÕES CADASTRADAS
+========================================================== */
+
+if (elemento("tituloPromocoes")) {
+
+    elemento("tituloPromocoes").textContent =
+        "Promoções Cadastradas";
+
+}
+
+
+if (elemento("descricaoPromocoes")) {
+
+    elemento("descricaoPromocoes").textContent =
+        "Acompanhe as promoções da loja.";
+
+}
+
+
+for (
+    let i = 1;
+    i <= promocoes.lista.length;
+    i++
+) {
+
+    const promocao =
+        promocoes.lista[
+        i - 1
+        ];
+
+
+    if (
+        elemento(
+            "statusImagem" + i
+        )
+    ) {
+
+        elemento(
+            "statusImagem" + i
+        ).src =
+            promocao.imagem;
+
+    }
+
+
+    if (
+        elemento(
+            "statusTitulo" + i
+        )
+    ) {
+
+        elemento(
+            "statusTitulo" + i
+        ).textContent =
+            promocao.titulo;
+
+    }
+
+
+    if (
+        elemento(
+            "statusDescricao" + i
+        )
+    ) {
+
+        elemento(
+            "statusDescricao" + i
+        ).textContent =
+            promocao.descricao;
+
+    }
+
+
+    if (
+        elemento(
+            "statusSituacao" + i
+        )
+    ) {
+
+        elemento(
+            "statusSituacao" + i
+        ).textContent =
+            promocao.situacao;
+
+    }
+
+}
+
+
+/* ==========================================================
+   RESUMO
 ========================================================== */
 
 const resumo = {
 
     titulo:
-    "Resumo Geral",
+        "Resumo Geral",
 
     descricao:
-    "Acompanhe rapidamente os principais números da sua loja.",
+        "Acompanhe rapidamente os principais números da sua loja.",
 
     cards: [
 
         {
 
             titulo:
-            "Produtos",
+                "Produtos",
 
             valor:
-            "126",
+                "0",
 
             descricao:
-            "Produtos cadastrados"
+                "Produtos cadastrados"
 
         },
 
         {
 
             titulo:
-            "Banners",
+                "Banners",
 
             valor:
-            "8",
+                "0",
 
             descricao:
-            "Campanhas disponíveis"
+                "Campanhas disponíveis"
 
         },
 
         {
 
             titulo:
-            "Promoções",
+                "Promoções",
 
             valor:
-            "14",
+                "0",
 
             descricao:
-            "Promoções cadastradas"
+                "Promoções cadastradas"
 
         }
 
@@ -1168,32 +2417,33 @@ const resumo = {
     grafico: {
 
         titulo:
-        "Cadastros por Mês",
+            "Cadastros por Mês",
 
         descricao:
-        "Quantidade de conteúdos cadastrados nos últimos meses.",
+            "Quantidade de conteúdos cadastrados nos últimos meses.",
 
         imagem:
-        "../Assets/grafico_banners.png"
+            "../Assets/grafico_banners.png"
 
     }
 
 };
 
 
-/* ==========================================================
-   RESUMO
-========================================================== */
+if (elemento("tituloResumo")) {
 
-document.getElementById(
-    "tituloResumo"
-).textContent =
-resumo.titulo;
+    elemento("tituloResumo").textContent =
+        resumo.titulo;
 
-document.getElementById(
-    "descricaoResumo"
-).textContent =
-resumo.descricao;
+}
+
+
+if (elemento("descricaoResumo")) {
+
+    elemento("descricaoResumo").textContent =
+        resumo.descricao;
+
+}
 
 
 for (
@@ -1202,20 +2452,52 @@ for (
     i++
 ) {
 
-    document.getElementById(
-        "tituloResumoCard" + i
-    ).textContent =
-    resumo.cards[i - 1].titulo;
+    if (
+        elemento(
+            "tituloResumoCard" + i
+        )
+    ) {
 
-    document.getElementById(
-        "valorResumoCard" + i
-    ).textContent =
-    resumo.cards[i - 1].valor;
+        elemento(
+            "tituloResumoCard" + i
+        ).textContent =
+            resumo.cards[
+                i - 1
+            ].titulo;
 
-    document.getElementById(
-        "descricaoResumoCard" + i
-    ).textContent =
-    resumo.cards[i - 1].descricao;
+    }
+
+
+    if (
+        elemento(
+            "valorResumoCard" + i
+        )
+    ) {
+
+        elemento(
+            "valorResumoCard" + i
+        ).textContent =
+            resumo.cards[
+                i - 1
+            ].valor;
+
+    }
+
+
+    if (
+        elemento(
+            "descricaoResumoCard" + i
+        )
+    ) {
+
+        elemento(
+            "descricaoResumoCard" + i
+        ).textContent =
+            resumo.cards[
+                i - 1
+            ].descricao;
+
+    }
 
 }
 
@@ -1224,772 +2506,524 @@ for (
    GRÁFICO
 ========================================================== */
 
-document.getElementById(
-    "tituloGrafico"
-).textContent =
-resumo.grafico.titulo;
+if (elemento("tituloGrafico")) {
 
-document.getElementById(
-    "descricaoGrafico"
-).textContent =
-resumo.grafico.descricao;
+    elemento("tituloGrafico").textContent =
+        resumo.grafico.titulo;
 
-document.getElementById(
-    "imagemGrafico"
-).src =
-resumo.grafico.imagem;
+}
+
+
+if (elemento("descricaoGrafico")) {
+
+    elemento("descricaoGrafico").textContent =
+        resumo.grafico.descricao;
+
+}
+
+
+if (elemento("imagemGrafico")) {
+
+    elemento("imagemGrafico").src =
+        resumo.grafico.imagem;
+
+}
 
 
 /* ==========================================================
    RODAPÉ
 ========================================================== */
 
-const footer = {
+if (elemento("footerDica")) {
 
-    dica:
-    "Mantenha seus produtos, banners e promoções sempre atualizados para aumentar as vendas.",
+    elemento("footerDica").textContent =
+        "Mantenha seus produtos, banners e promoções atualizados.";
 
-    produtos:
-    "Produtos",
-
-    banners:
-    "Banners",
-
-    promocoes:
-    "Promoções",
-
-    ajuda:
-    "Ajuda",
-
-    termos:
-    "Termos de Uso",
-
-    privacidade:
-    "Política de Privacidade",
-
-    copyright:
-    "© 2026 Mega Feirão - Todos os direitos reservados."
-
-};
+}
 
 
-/* ==========================================================
-   PREENCHIMENTO DO RODAPÉ
-========================================================== */
+if (elemento("footerProdutos")) {
 
-document.getElementById(
-    "footerDica"
-).textContent =
-footer.dica;
+    elemento("footerProdutos").textContent =
+        "Produtos";
 
-document.getElementById(
-    "footerProdutos"
-).textContent =
-footer.produtos;
+}
 
-document.getElementById(
-    "footerBanners"
-).textContent =
-footer.banners;
 
-document.getElementById(
-    "footerPromocoes"
-).textContent =
-footer.promocoes;
+if (elemento("footerBanners")) {
 
-document.getElementById(
-    "footerAjuda"
-).textContent =
-footer.ajuda;
+    elemento("footerBanners").textContent =
+        "Banners";
 
-document.getElementById(
-    "footerTermos"
-).textContent =
-footer.termos;
+}
 
-document.getElementById(
-    "footerPrivacidade"
-).textContent =
-footer.privacidade;
 
-document.getElementById(
-    "footerCopyright"
-).textContent =
-footer.copyright;
+if (elemento("footerPromocoes")) {
+
+    elemento("footerPromocoes").textContent =
+        "Promoções";
+
+}
+
+
+if (elemento("footerAjuda")) {
+
+    elemento("footerAjuda").textContent =
+        "Ajuda";
+
+}
+
+
+if (elemento("footerTermos")) {
+
+    elemento("footerTermos").textContent =
+        "Termos de Uso";
+
+}
+
+
+if (elemento("footerPrivacidade")) {
+
+    elemento("footerPrivacidade").textContent =
+        "Política de Privacidade";
+
+}
+
+
+if (elemento("footerCopyright")) {
+
+    elemento("footerCopyright").textContent =
+        "© 2026 - Todos os direitos reservados.";
+
+}
 
 
 /* ==========================================================
-   LINKS DO RODAPÉ
+   NOVO CADASTRO
 ========================================================== */
 
-document.getElementById(
-    "footerProdutos"
-).href =
-"produtos.html";
+if (elemento("btnNovoCadastro")) {
 
-document.getElementById(
-    "footerBanners"
-).href =
-"banners.html";
+    elemento(
+        "btnNovoCadastro"
+    ).addEventListener(
+        "click",
+        function () {
 
-document.getElementById(
-    "footerPromocoes"
-).href =
-"promocoes.html";
-
-document.getElementById(
-    "footerAjuda"
-).href =
-"ajuda.html";
-
-document.getElementById(
-    "footerTermos"
-).href =
-"termos.html";
-
-document.getElementById(
-    "footerPrivacidade"
-).href =
-"privacidade.html";
+            const form =
+                elemento(
+                    "formProduto"
+                );
 
 
-/* ==========================================================
-   BOTÃO NOVO CADASTRO
-========================================================== */
+            if (form) {
 
-document.getElementById(
-    "btnNovoCadastro"
-)
-.addEventListener("click", function(){
+                form.scrollIntoView(
+                    {
 
-    document.getElementById(
-        "formProduto"
-    ).scrollIntoView({
+                        behavior:
+                            "smooth",
 
-        behavior: "smooth",
+                        block:
+                            "start"
 
-        block: "start"
+                    }
+                );
 
-    });
+            }
 
-});
-
-
-/* ==========================================================
-   BOTÃO RASCUNHOS
-========================================================== */
-
-document.getElementById(
-    "btnRascunhos"
-)
-.addEventListener("click", function(){
-
-    alert(
-        "Abrindo rascunhos."
+        }
     );
 
-});
+}
 
 
 /* ==========================================================
-   SALVAR PRODUTO
+   RASCUNHOS
 ========================================================== */
 
-document.getElementById(
-    "btnSalvarProduto"
-)
-.addEventListener("click", function(event){
+if (elemento("btnRascunhos")) {
 
-    event.preventDefault();
+    elemento(
+        "btnRascunhos"
+    ).addEventListener(
+        "click",
+        function () {
 
-    const nome =
-    document.getElementById(
-        "nomeProduto"
-    ).value.trim();
+            alert(
+                "Área de rascunhos."
+            );
 
-    const codigo =
-    document.getElementById(
-        "skuProduto"
-    ).value.trim();
-
-    const categoria =
-    document.getElementById(
-        "categoriaProduto"
-    ).value;
-
-    const preco =
-    document.getElementById(
-        "precoProduto"
-    ).value;
-
-    const estoque =
-    document.getElementById(
-        "estoqueProduto"
-    ).value;
-
-    if (
-        nome === "" ||
-        codigo === "" ||
-        categoria === "" ||
-        preco === "" ||
-        estoque === ""
-    ){
-
-        alert(
-            "Preencha os campos obrigatórios do produto."
-        );
-
-        return;
-
-    }
-
-    alert(
-        "Produto salvo com sucesso!"
+        }
     );
 
-});
+}
 
 
 /* ==========================================================
-   SALVAR RASCUNHO DO PRODUTO
+   SALVAR RASCUNHO PRODUTO
 ========================================================== */
 
-document.getElementById(
-    "btnSalvarRascunhoProduto"
-)
-.addEventListener("click", function(){
+if (
+    elemento(
+        "btnSalvarRascunhoProduto"
+    )
+) {
 
-    alert(
-        "Produto salvo como rascunho."
+    elemento(
+        "btnSalvarRascunhoProduto"
+    ).addEventListener(
+        "click",
+        function () {
+
+            alert(
+                "Produto salvo como rascunho."
+            );
+
+        }
     );
 
-});
-
-
-/* ==========================================================
-   PREVIEW DO BANNER
-========================================================== */
-
-document.getElementById(
-    "btnPreviewBanner"
-)
-.addEventListener("click", function(){
-
-    alert(
-        "Pré-visualização do banner."
-    );
-
-});
-
-
-/* ==========================================================
-   SALVAR BANNER
-========================================================== */
-
-document.getElementById(
-    "btnSalvarBanner"
-)
-.addEventListener("click", function(event){
-
-    event.preventDefault();
-
-    const titulo =
-    document.getElementById(
-        "tituloBannerInput"
-    ).value.trim();
-
-    if(titulo === ""){
-
-        alert(
-            "Informe o título do banner."
-        );
-
-        return;
-
-    }
-
-    alert(
-        "Banner salvo com sucesso!"
-    );
-
-});
-
-
-/* ==========================================================
-   SALVAR RASCUNHO DA PROMOÇÃO
-========================================================== */
-
-document.getElementById(
-    "btnSalvarRascunhoPromocao"
-)
-.addEventListener("click", function(){
-
-    alert(
-        "Promoção salva como rascunho."
-    );
-
-});
-
-
-/* ==========================================================
-   SALVAR PROMOÇÃO
-========================================================== */
-
-document.getElementById(
-    "btnSalvarPromocao"
-)
-.addEventListener("click", function(event){
-
-    event.preventDefault();
-
-    const nome =
-    document.getElementById(
-        "nomePromocao"
-    ).value.trim();
-
-    if(nome === ""){
-
-        alert(
-            "Informe o nome da promoção."
-        );
-
-        return;
-
-    }
-
-    alert(
-        "Promoção salva com sucesso!"
-    );
-
-});
+}
 
 
 /* ==========================================================
    FILTRO PRODUTOS
 ========================================================== */
 
-document.getElementById(
-    "btnFiltroProdutos"
-)
-.addEventListener("click", function(){
+if (elemento("btnFiltroProdutos")) {
 
-    document.getElementById(
-        "tituloProdutos"
-    ).scrollIntoView({
+    elemento(
+        "btnFiltroProdutos"
+    ).addEventListener(
+        "click",
+        function () {
 
-        behavior:"smooth",
+            const secao =
+                document.querySelector(
+                    ".produtos"
+                );
 
-        block:"start"
 
-    });
+            if (secao) {
 
-});
+                secao.scrollIntoView(
+                    {
+
+                        behavior:
+                            "smooth"
+
+                    }
+                );
+
+            }
+
+        }
+    );
+
+}
 
 
 /* ==========================================================
    FILTRO BANNERS
 ========================================================== */
 
-document.getElementById(
-    "btnFiltroBanners"
-)
-.addEventListener("click", function(){
+if (elemento("btnFiltroBanners")) {
 
-    document.querySelector(
-        ".banners"
-    ).scrollIntoView({
+    elemento(
+        "btnFiltroBanners"
+    ).addEventListener(
+        "click",
+        function () {
 
-        behavior:"smooth",
+            const secao =
+                document.querySelector(
+                    ".banners"
+                );
 
-        block:"start"
 
-    });
+            if (secao) {
 
-});
+                secao.scrollIntoView(
+                    {
+
+                        behavior:
+                            "smooth"
+
+                    }
+                );
+
+            }
+
+        }
+    );
+
+}
 
 
 /* ==========================================================
    FILTRO PROMOÇÕES
 ========================================================== */
 
-document.getElementById(
-    "btnFiltroPromocoes"
-)
-.addEventListener("click", function(){
+if (elemento("btnFiltroPromocoes")) {
 
-    document.querySelector(
-        ".promocoes"
-    ).scrollIntoView({
+    elemento(
+        "btnFiltroPromocoes"
+    ).addEventListener(
+        "click",
+        function () {
 
-        behavior:"smooth",
+            const secao =
+                document.querySelector(
+                    ".promocoes"
+                );
 
-        block:"start"
 
-    });
+            if (secao) {
 
-});
+                secao.scrollIntoView(
+                    {
+
+                        behavior:
+                            "smooth"
+
+                    }
+                );
+
+            }
+
+        }
+    );
+
+}
 
 
 /* ==========================================================
    PESQUISA
 ========================================================== */
 
-document.getElementById(
-    "campoPesquisa"
-)
-.addEventListener("keyup", function(event){
+if (elemento("campoPesquisa")) {
 
-    if(event.key !== "Enter"){
+    elemento(
+        "campoPesquisa"
+    ).addEventListener(
+        "keyup",
+        function (event) {
 
-        return;
+            if (
+                event.key !==
+                "Enter"
+            ) {
 
-    }
+                return;
 
-    const pesquisa =
-    this.value.trim();
-
-    if(pesquisa === ""){
-
-        alert(
-            "Digite algo para pesquisar."
-        );
-
-        return;
-
-    }
-
-    alert(
-        "Pesquisar: " + pesquisa
-    );
-
-});
+            }
 
 
-/* ==========================================================
-   CADASTRAR MARCA
-========================================================== */
-
-document.getElementById(
-    "btnSalvarMarca"
-)
-.addEventListener("click", function(){
-
-    const nomeMarca =
-    document.getElementById(
-        "nomeMarca"
-    ).value.trim();
-
-    if(nomeMarca === ""){
-
-        alert(
-            "Informe o nome da marca."
-        );
-
-        return;
-
-    }
-
-    alert(
-        "Marca cadastrada com sucesso!"
-    );
-
-    document.getElementById(
-        "nomeMarca"
-    ).value = "";
-
-    document.getElementById(
-        "logoMarca"
-    ).value = "";
-
-});
+            const pesquisa =
+                this.value
+                    .trim()
+                    .toLowerCase();
 
 
-/* ==========================================================
-   CADASTRAR CATEGORIA
-========================================================== */
+            if (pesquisa === "") {
 
-document.getElementById(
-    "btnSalvarCategoria"
-)
-.addEventListener("click", function(){
+                alert(
+                    "Digite algo para pesquisar."
+                );
 
-    const categoriaNome =
-    document.getElementById(
-        "nomeCategoria"
-    ).value.trim();
+                return;
 
-    if(categoriaNome === ""){
-
-        alert(
-            "Por favor, preencha o nome da categoria."
-        );
-
-        return;
-
-    }
-
-    const novaCategoria = {
-
-        nome: categoriaNome
-
-    };
+            }
 
 
-    fetch(
-        "http://localhost:3000/categoria",
-        {
-
-            method: "POST",
-
-            headers: {
-
-                "Content-Type":
-                "application/json"
-
-            },
-
-            body:
-            JSON.stringify(
-                novaCategoria
-            )
+            alert(
+                "Pesquisando por: " +
+                pesquisa
+            );
 
         }
+    );
+
+}
+
+
+/* ==========================================================
+   PREVIEW BANNER
+========================================================== */
+
+if (elemento("btnPreviewBanner")) {
+
+    elemento(
+        "btnPreviewBanner"
+    ).addEventListener(
+        "click",
+        function () {
+
+            alert(
+                "Pré-visualização do banner."
+            );
+
+        }
+    );
+
+}
+
+
+/* ==========================================================
+   FORMULÁRIO BANNER
+========================================================== */
+
+const formBanner =
+    elemento(
+        "formBanner"
+    );
+
+
+if (formBanner) {
+
+    formBanner.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+
+            const titulo =
+                elemento(
+                    "tituloBannerInput"
+                ).value.trim();
+
+
+            if (titulo === "") {
+
+                alert(
+                    "Informe o título do banner."
+                );
+
+                return;
+
+            }
+
+
+            alert(
+                "Banner preenchido com sucesso."
+            );
+
+        }
+    );
+
+}
+
+
+/* ==========================================================
+   RASCUNHO PROMOÇÃO
+========================================================== */
+
+if (
+    elemento(
+        "btnSalvarRascunhoPromocao"
     )
+) {
 
-    .then(function(response){
+    elemento(
+        "btnSalvarRascunhoPromocao"
+    ).addEventListener(
+        "click",
+        function () {
 
-        if(!response.ok){
-
-            throw new Error(
-                "Erro ao cadastrar categoria."
+            alert(
+                "Promoção salva como rascunho."
             );
 
         }
+    );
 
-        return response.json();
-
-    })
-
-    .then(function(data){
-
-        console.log(
-            "Categoria cadastrada:",
-            data
-        );
-
-        alert(
-            "Categoria cadastrada com sucesso!"
-        );
-
-        document.getElementById(
-            "nomeCategoria"
-        ).value = "";
+}
 
 
-        /* ==========================================
-           ATUALIZA AS CATEGORIAS DO PRODUTO
-        ========================================== */
+/* ==========================================================
+   FORMULÁRIO PROMOÇÃO
+========================================================== */
 
-        if(selectCategoria){
+const formPromocao =
+    elemento(
+        "formPromocao"
+    );
 
-            const option =
-            document.createElement(
-                "option"
-            );
 
-            option.value =
-            data.idCategoria ||
-            data.insertId ||
-            "";
+if (formPromocao) {
 
-            option.textContent =
-            categoriaNome;
+    formPromocao.addEventListener(
+        "submit",
+        function (event) {
 
-            selectCategoria.appendChild(
-                option
+            event.preventDefault();
+
+
+            const nome =
+                elemento(
+                    "nomePromocao"
+                ).value.trim();
+
+
+            if (nome === "") {
+
+                alert(
+                    "Informe o nome da promoção."
+                );
+
+                return;
+
+            }
+
+
+            alert(
+                "Promoção preenchida com sucesso."
             );
 
         }
-
-    })
-
-    .catch(function(erro){
-
-        console.error(
-            "Erro ao cadastrar categoria:",
-            erro
-        );
-
-        alert(
-            "Erro ao cadastrar categoria."
-        );
-
-    });
-
-});
-
-
-/* ==========================================================
-   CADASTRAR COR
-========================================================== */
-
-document.getElementById(
-    "btnSalvarCor"
-)
-.addEventListener("click", function(){
-
-    const nomeCor =
-    document.getElementById(
-        "nomeCor"
-    ).value.trim();
-
-    const codigoCor =
-    document.getElementById(
-        "codigoCor"
-    ).value;
-
-    if(nomeCor === ""){
-
-        alert(
-            "Informe o nome da cor."
-        );
-
-        return;
-
-    }
-
-    console.log(
-        "Cor:",
-        nomeCor
     );
 
-    console.log(
-        "Código:",
-        codigoCor
-    );
-
-    alert(
-        "Cor cadastrada com sucesso!"
-    );
-
-    document.getElementById(
-        "nomeCor"
-    ).value = "";
-
-});
-
-
-/* ==========================================================
-   CADASTRAR TAMANHO
-========================================================== */
-
-document.getElementById(
-    "btnSalvarTamanho"
-)
-.addEventListener("click", function(){
-
-    const tamanho =
-    document.getElementById(
-        "nomeTamanho"
-    ).value.trim();
-
-    if(tamanho === ""){
-
-        alert(
-            "Informe o tamanho."
-        );
-
-        return;
-
-    }
-
-    alert(
-        "Tamanho cadastrado com sucesso!"
-    );
-
-    document.getElementById(
-        "nomeTamanho"
-    ).value = "";
-
-});
-
-
-/* ==========================================================
-   CADASTRAR IMAGEM DO PRODUTO
-========================================================== */
-
-document.getElementById(
-    "btnSalvarImagemProduto"
-)
-.addEventListener("click", function(){
-
-    const produto =
-    document.getElementById(
-        "produtoImagemCadastro"
-    ).value;
-
-    const arquivo =
-    document.getElementById(
-        "arquivoImagemProduto"
-    ).files[0];
-
-    if(produto === ""){
-
-        alert(
-            "Selecione o produto."
-        );
-
-        return;
-
-    }
-
-    if(!arquivo){
-
-        alert(
-            "Selecione uma imagem."
-        );
-
-        return;
-
-    }
-
-    alert(
-        "Imagem selecionada com sucesso!"
-    );
-
-});
+}
 
 
 /* ==========================================================
    BOTÕES DOS PRODUTOS
 ========================================================== */
 
-for(let i = 1; i <= 6; i++){
+for (
+    let i = 1;
+    i <= 6;
+    i++
+) {
 
     const btnEditar =
-    document.getElementById(
-        "btnEditarProduto" + i
-    );
+        elemento(
+            "btnEditarProduto" + i
+        );
+
 
     const btnExcluir =
-    document.getElementById(
-        "btnExcluirProduto" + i
-    );
+        elemento(
+            "btnExcluirProduto" + i
+        );
+
 
     const btnVisualizar =
-    document.getElementById(
-        "btnVisualizarProduto" + i
-    );
+        elemento(
+            "btnVisualizarProduto" + i
+        );
 
 
-    if(btnEditar){
+    if (btnEditar) {
 
         btnEditar.addEventListener(
             "click",
-            function(){
+            function () {
 
                 alert(
-                    "Editando produto " + i
+                    "Editar produto " +
+                    i
                 );
 
             }
@@ -1998,18 +3032,19 @@ for(let i = 1; i <= 6; i++){
     }
 
 
-    if(btnExcluir){
+    if (btnExcluir) {
 
         btnExcluir.addEventListener(
             "click",
-            function(){
+            function () {
 
-                const confirmar =
-                confirm(
-                    "Deseja excluir este produto?"
-                );
+                const resposta =
+                    confirm(
+                        "Deseja excluir este produto?"
+                    );
 
-                if(confirmar){
+
+                if (resposta) {
 
                     alert(
                         "Produto excluído."
@@ -2023,14 +3058,15 @@ for(let i = 1; i <= 6; i++){
     }
 
 
-    if(btnVisualizar){
+    if (btnVisualizar) {
 
         btnVisualizar.addEventListener(
             "click",
-            function(){
+            function () {
 
                 alert(
-                    "Visualizando produto " + i
+                    "Visualizar produto " +
+                    i
                 );
 
             }
@@ -2045,32 +3081,39 @@ for(let i = 1; i <= 6; i++){
    BOTÕES DOS BANNERS
 ========================================================== */
 
-for(let i = 1; i <= 2; i++){
+for (
+    let i = 1;
+    i <= 2;
+    i++
+) {
 
     const btnEditar =
-    document.getElementById(
-        "btnEditarBanner" + i
-    );
+        elemento(
+            "btnEditarBanner" + i
+        );
+
 
     const btnExcluir =
-    document.getElementById(
-        "btnExcluirBanner" + i
-    );
+        elemento(
+            "btnExcluirBanner" + i
+        );
+
 
     const btnVisualizar =
-    document.getElementById(
-        "btnVisualizarBanner" + i
-    );
+        elemento(
+            "btnVisualizarBanner" + i
+        );
 
 
-    if(btnEditar){
+    if (btnEditar) {
 
         btnEditar.addEventListener(
             "click",
-            function(){
+            function () {
 
                 alert(
-                    "Editando banner " + i
+                    "Editar banner " +
+                    i
                 );
 
             }
@@ -2079,18 +3122,19 @@ for(let i = 1; i <= 2; i++){
     }
 
 
-    if(btnExcluir){
+    if (btnExcluir) {
 
         btnExcluir.addEventListener(
             "click",
-            function(){
+            function () {
 
-                const confirmar =
-                confirm(
-                    "Deseja excluir este banner?"
-                );
+                const resposta =
+                    confirm(
+                        "Deseja excluir este banner?"
+                    );
 
-                if(confirmar){
+
+                if (resposta) {
 
                     alert(
                         "Banner excluído."
@@ -2104,14 +3148,15 @@ for(let i = 1; i <= 2; i++){
     }
 
 
-    if(btnVisualizar){
+    if (btnVisualizar) {
 
         btnVisualizar.addEventListener(
             "click",
-            function(){
+            function () {
 
                 alert(
-                    "Visualizando banner " + i
+                    "Visualizar banner " +
+                    i
                 );
 
             }
@@ -2128,11 +3173,29 @@ for(let i = 1; i <= 2; i++){
 
 window.addEventListener(
     "load",
-    function(){
+    async function () {
 
         console.log(
-            "Painel do Lojista carregado com sucesso."
+            "Painel do Lojista carregado."
         );
+
+
+        console.log(
+            "API:",
+            API
+        );
+
+
+        console.log(
+            "Rotas:",
+            ROTAS
+        );
+
+
+        await carregarCategorias();
+
+
+        await carregarProdutosImagem();
 
     }
 );
